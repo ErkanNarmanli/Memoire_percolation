@@ -1,0 +1,218 @@
+\documentclass[a4paper, oneside, 11pt]{report}
+
+% Classes possibles : article, amsart, report, letter, moderncv,...
+%
+% Options possibles : 10pt, 11pt, 12pt (taille de la fonte)
+%                     oneside, twoside (recto simple, recto-verso)
+%                     draft, final (stade de développement)
+%                     titlepage, notitlepage (\maketitle prend une page
+%                                             à part ou non)
+%===========================================PACKAGES================================================
+\usepackage[utf8]{inputenc}					%Codage d'entrée, ici l'Unicode UTF8
+\usepackage[T1]{fontenc}      				%Codage de sortie, ici le type 1
+%\usepackage{xelibertine}					%fonte utilisée, ici Libertine (max une fonte)
+\usepackage{lmodern}						%fonte utilisée, ici Latin Modern (max une fonte)
+\usepackage[francais]{babel} 				%Gère les langues, la langue par défaut est la dernière
+											%|passé en argument
+											
+\usepackage[a4paper]{geometry}				%Permet de spécidier les dimensions du texte
+\usepackage{babelbib}
+%\usepackage{makeidx}\makeindex				%Permet de faire un index
+%\usepackage[french]{minitoc}				%Pour faire des 'sous tables des matières'
+%\usepackage{fancyhdr}						%Pour les en-tête et pieds de page
+%\usepackage{titlesec}						%Deux paquets pour modifier l'affichage des parties
+%\usepackage{titletoc}						%|
+\usepackage[refpage,french,intoc]{nomencl}						%Pour ajouter un Index
+	\makenomenclature						%|active l'index
+	\renewcommand{\pagedeclaration}[1]{\dotfill \hyperpage{#1}}
+
+\usepackage[colorlinks=true,urlcolor=magenta,linkcolor=black,citecolor=blue]{hyperref}				
+											%Permet de créer des références cliquables
+\usepackage{multicol} 						%Pour le texte sur plusieurs colones
+\usepackage[svgnames]{xcolor} 				%Pour utiliser des couleurs (marche pas avec libertine)
+\usepackage{graphicx}						%Pour inclure des images
+%\usepackage{listings}						%Pour écrire du code
+\usepackage{lipsum}							%ajoute \lipsum
+\usepackage{framed}							%Pour les encadrements
+\usepackage{caption}						%Rajoute la fonction \caption*
+\usepackage{tikz}							%Pour dessiner !
+
+
+\usepackage{amsmath} 						%Trois paquets qui chargent les fontes mathématiques
+\usepackage{amssymb}						%|de l'American Mathematical Society   
+\usepackage{amsfonts}						%|
+%\usepackage{stmaryrd}						%Plus de symboles mathématiques ?	
+%\usepackage{latexsym}						%D'autres symboles mathématiques.	
+\usepackage{amsthm}							%Pour créer des théorèmes
+\usepackage{bm}								%Bold Math
+\usepackage{enumitem}						%Pour modifier numérotation de enumerate
+\usepackage{array}							%Permet de faire des array en displaystyle
+\usepackage{mathrsfs}						%Pour définir \mathscr{ }
+\usepackage{nicefrac}						%ajoute \nicefrac{nom}{denom}
+\usepackage{numprint}						%ajoute \numprint{nombre}
+\usepackage{fourier-orns}					%Pour les tought break
+
+
+%\usepackage{ifthen} 	  					%B-A BA de la programmation
+%\usepackage{ifmtarg}						%Permet : if argument empty/if not empty
+%\usepackage{multido}						%Inclu les boucles
+
+\usepackage{vertthm}						%Ajoute \newVertTheorem et \newVertTheorem*
+%	#1	Symbole de fin
+%	#2	Nom de la macro
+%	#3	Titre
+%	#4	Couleur
+%	#5	Style
+%	#6 	Compteur, optionnel. Défaut : crée son propre compteur
+%\newVertTheorem[Symbole de fin]{macro}{Titre}{Couleur}{style}{compteur}		OU
+%\newVertTheorem{macro}{Titre}{Couleur}{style}{compteur}						OU
+%\newVertTheorem[Symbole de fin]{macro}{Titre}{Couleur}{style}{}			 	OU
+%\newVertTheorem{macro}{Titre}{Couleur}{style}{}								OU
+%\newVertTheorem*[Symbole de fin]{macro}{Titre}{Couleur}{style}{}				OU
+%\newVertTheorem*{macro}{Titre}{Couleur}{style}{}
+%===========================================GENERAL=================================================
+%Arguments-à-modifier-------------------------------------------------------------------------------
+\title{Absence de percolation au point critique dans une tranche}	%Titre
+
+\def\authorOneFisrtName{Erkan}									%Prénom(s) de l'auteur 1
+\def\authorOneFamilyName{Narmanli}								%Nom de famille de l'auteur 1
+\def\authorTwoFisrtName{Martin}								%Prénom(s) de l'auteur 2
+\def\authorTwoFamilyName{Pépin}								%Nom de famille de l'auteur 2
+\def\supervisorFirstName{Rafaël}							%Prénom(s) du supérivseur
+\def\supervisorFamilyName{Cerf}								%Nom de famille du superviseur
+\def\instituteName{École normale supérieure}				%Nom de l'Université
+\def\dateName{\today}										%Date
+
+%Arguments-automatisés------------------------------------------------------------------------------ 
+\author{\authorOneFisrtName{}~\authorOneFamilyName{} \& \authorTwoFisrtName{}~\authorTwoFamilyName{}}
+\date{\today}								%Date du jour si non spécifié
+%===========================================NUMEROTATION============================================
+%		*Rappels----------------------------------------------------------------------------*
+%		|\arabic	: nombres arabes					\fnsymbols	: syboles				|
+%		|\roman 	: nombres romains minuscules		\alph 		: lettres minuscules	|
+%		|\Roman 	: nombres romains majuscules		\Alph 		: lettres majuscules	|
+%		*-----------------------------------------------------------------------------------*
+
+\renewcommand{\thefootnote}{\alph{footnote}} 				%Notes de bas de page
+\renewcommand{\theenumi}{\alph{enumi}}						%enviro. enumerate
+%\setcounter{secnumdepth}{5}								%*A retrouver*
+%\renewcommand{\thesection}{\Roman{section}.}				%Section
+%\renewcommand{\thesubsection}{\arabic{subsection}.}		%Sous-section
+%\renewcommand{\thesubsubsection}{\alph{subsubsection}.}	%Sous-sous-section
+%\renewcommand{\theparagraph}{}								%Paragraphe
+%\renewcommand{\thesubparagraph}{(\roman{subparagraph})}	%Sous-paragraphe
+
+%===========================================COULEURS================================================
+\definecolor{bleu}{RGB}{34,66,124}
+%\definecolor{rouge}{RGB}{169,17,1}
+%\definecolor{vert}{RGB}{34,120,15}
+\definecolor{grisDemo}{RGB}{112,111,108}
+\definecolor{DemoBarre}{RGB}{225,223,218}
+%\definecolor{noir}{RGB}{0,0,0}
+%\definecolor{blanc}{RGB}{255,255,255}
+%\definecolor{grisf}{RGB}{60,60,60}
+
+%===========================================COMMANDES===============================================
+%ThoughtBreak---------------------------------------------------------------------------------------
+\newsavebox{\tbglyph}
+\savebox{\tbglyph}[1.25in]{%
+  %\hbox{\includegraphics[width=1.25in]{./images/tb.pdf}}
+  \hbox{\LARGE\aldine}
+}
+\newcommand{\Tbreak}{% Thoughtbreaks are implemented as graphics
+\vfil
+  \begin{center}
+    \usebox{\tbglyph}
+  \end{center}
+\vfil\vfil
+}
+%Opérateurs-mathématiques---------------------------------------------------------------------------
+\DeclareMathOperator{\Res}{Rés}
+\DeclareMathOperator{\B}{B}
+\DeclareMathOperator{\Li}{Li}
+%Sans-arguments-------------------------------------------------------------------------------------
+\newcommand{\priv}{\setminus}								%Soustraction ensembliste
+\renewcommand{\leq}{\leqslant}								%Parce que \leqslant est plus joli
+\renewcommand{\geq}{\geqslant}								%Parce que \geqslant est plus joli
+\renewcommand{\epsilon}{\varepsilon}						%Parce que \varepsilon est plus joli
+\renewcommand{\Re}{\mathfrak{Re}}  							%Partie réelle
+\renewcommand{\Im}{\mathfrak{Im}}  							%Partie imaginaire
+\newcommand{\Pre}{\mathscr{P}}								%Ensemble des nombres premiers
+%--
+\makeatletter														
+\newsavebox{\@brx}													%On définit les fonctions
+\newcommand{\llangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}	%\rrangle et \llangle
+  \mathopen{\copy\@brx\mkern2mu\kern-0.9\wd\@brx\usebox{\@brx}}}	%
+\newcommand{\rrangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}	%
+  \mathclose{\copy\@brx\mkern2mu\kern-0.9\wd\@brx\usebox{\@brx}}}	%
+\makeatother
+%--
+\renewcommand\cleardoublepage{\clearpage\ifodd\value{page}\else\null\clearpage\fi}
+	%Pour recréer un \cleardoublepage qui marche aussi en oneside
+%Avec-arguments-------------------------------------------------------------------------------------
+\makeatletter
+\newcommand{\siecle}[1]{{\sc\romannumeral #1}\ifnum#1=1\relax{}\ier\else\ieme\fi}
+	%\siècle{nb}
+	%NB : gère automatiquement le cas Ier siècle ou le reste (ex : IIIe)
+\newcommand{\norme}[1]{\left\Vert #1\right\Vert}			%Norme (deux doubles barres)
+\newcommand{\abs}[1]{\left\vert #1\right\vert}				%Valeur absolue (deux barres simples)
+\newcommand{\entier}[1]{\lfloor #1\rfloor}					%Partie entière inférieure
+\newcommand{\entierSup}[1]{\lceil #1\rceil}					%Partie entière supérieure
+\newcommand{\grandO}[1]{O\left(#1\right)}					%Grand O
+\newcommand{\petitO}[1]{o\left(#1\right)}					%petit o
+\newcommand\suite{\@ifstar{\suite@STAR}{\suite@NOSTAR}}
+\newcommand{\suite@NOSTAR}[2][n]{\left(#2_{#1}\right)_{#1\in\mathbb{N}}}
+\newcommand{\suite@STAR}[2][n]{\left(#2_{#1}\right)_{#1\in\mathbb{N}^*}}				
+	%\suite[i]{a} 	pour obtenir (a_i)_{i\in N}				OU
+	%\suite{a}		pour obtenir (a_n)_{n\in N}
+	%|NB : l'argument optionnel sert juste a modifier l'indice, n par défaut.
+\newcommand{\demsection}[1]{\noindent\textit{\textcolor{grisDemo}{#1.}}}
+	%\demsection{titre}
+	%|NB : se contente de mettre en page les titres des parties d'un démonstration
+\newcommand{\personne}[5][]{\footnote{#2 #3, #1 (#4--#5).}}
+	%\personne[notes]{prenom}{nom}{date_de_naissance}{date_de_mort}
+	%|NB : la personne doit être morte. && Le met automatiquement en bas de page.
+\newcommand{\mesnotes}[1]{\textcolor{bleu}{(#1)}}
+%\newcommand{\mesnotes}[1]{}
+	%\mesnote{texte}
+	%|NB : colorie le texte en bleu et l'encadre de parenthèses
+	%|NB : ne pas oublier de les effacer à la fin !
+\newcommand{\draftnote}[1]{\textcolor{red}{[(#1)]}}
+	%\draftnote{texte}
+	%|NB : colorie le texte en un rouge qui fait bien mal aux yeux et l'encadre de parenthèses
+	%|NB : ne pas oublier de les effacer à la fin !
+\makeatother
+%Nouvelles-colonnes---------------------------------------------------------------------------------
+%\newcolumntype{L}{>{\displaystyle}l}						%Colonne alignée left en displaystyle
+%\newcolumntype{C}{>{\displaystyle}c}						%Colonne alignée center en displaystyle
+%\newcolumntype{R}{>{\displaystyle}r}						%Colonne alignée right en displaystyle
+%===========================================ENVIRONNEMENTS==========================================
+%Theorèmes------------------------------------------------------------------------------------------
+\theoremstyle{definition}
+	\newtheorem{defi}{Définition} [chapter]
+\theoremstyle{plain}
+	\newtheorem{thm}[defi]{Théorème}
+	\newtheorem{prop}[defi]{Proposition}
+	\newtheorem{lem}[defi]{Lemme}
+	\newtheorem{coro}[defi]{Corollaire}
+	\newtheorem*{conj}{Conjecture}
+\theoremstyle{remark}
+	\newtheorem*{rem}{Remarque}
+	\newtheorem*{voca}{Vocabulaire}
+	\newtheorem{ex}{Exemple}
+	%\newVertTheorem*[$\blacksquare$]{dem}{Démonstration}{DemoBarre}{\itshape}{defi}
+	
+
+%Autres---------------------------------------------------------------------------------------------
+\renewcommand{\qedsymbol}{\rotatebox{45}{\tiny\ensuremath{\blacksquare}}}
+\newenvironment{dem}[1][]
+	{
+		\ifcat$\detokenize{#1}$
+			\begin{proof}
+		\else
+			\begin{proof}[\proofname\ {\normalfont (#1)}]
+		\fi
+		%\advance\leftskip by 0.5cm
+	}{
+		\end{proof}
+	}

@@ -1,0 +1,43 @@
+\makeatletter
+\thispagestyle{empty}
+\newgeometry{centering}
+	\begin{center}
+		\vspace*{\stretch{1}}
+		\noindent\hrulefill
+		\vspace{0.7cm}
+		
+		\begin{minipage}[c]{0.7\textwidth}
+			\bf\LARGE
+			\begin{center}
+				\@title{}
+			\end{center}
+		\end{minipage}
+
+		\vspace{0.7cm}
+		\noindent\hrulefill	
+		\vspace{\stretch{0.8}}
+		
+		{
+			\large
+			\textit{par}
+			
+			\vspace{0.4cm}
+			\begin{tabular}{rl}
+					& \authorOneFisrtName{}~{\sc\authorOneFamilyName{}}\\
+				\& 	& \authorTwoFisrtName{}~{\sc\authorTwoFamilyName{}}
+			\end{tabular}
+		}
+		\vspace{\stretch{5}}
+		
+		Mémoire de première année rédigé sous la direction de~\supervisorFirstName{}~{\sc\supervisorFamilyName{}}
+		
+		à l'\instituteName{}
+		
+		
+		\vspace{\stretch{1}}
+		le \dateName{}
+		\vspace{\stretch{1}}
+	\end{center}
+\restoregeometry
+\makeatother
+

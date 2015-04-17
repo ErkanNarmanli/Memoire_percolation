@@ -1,0 +1,100 @@
+\wqdshfkqjsdfhkNeedsTeXFormat{LaTeX2e}
+
+%Nom-du-packet--------------------------------------------------------------------------------------
+\ProvidesPackage{vertthm}
+
+%Packages-------------------------------------------------------------------------------------------
+\RequirePackage{hyperref}					%Pour creer des liens
+\RequirePackage[svgnames]{xcolor} 			%Pour utiliser des couleurs (marche pas avec libertine)
+\RequirePackage{framed}						%Pour les encadrements
+
+%Déclaration-des-fonctions--------------------------------------------------------------------------
+\makeatletter
+\newcommand\newVertTheorem{\@ifstar{\newVertTheorem@STAR}{\newVertTheorem@NOSTAR}}
+\newcommand{\newVertTheorem@NOSTAR}[6][]
+{
+	\ifcat$\detokenize{#6}$
+		\newcounter{#2}
+		\setcounter{#2}{0}
+	\fi
+	\newenvironment{#2}[1][]
+	{ %Debut de l'environnement
+		\kern 1.5ex 	%Pour compenser le -3ex d'après - POUR GERER L'ESPACE AVANT
+		\def\FrameCommand{{\color{#4}\vrule width 1pt}\hspace{7pt}}
+		\MakeFramed{\advance\hsize-\width \FrameRestore}
+		\kern -3ex							%On ajuste la boite à la ligne verticale
+		\ifcat$\detokenize{##1}$			%On regarde si on a un argument optionnel
+				\ifcat$\detokenize{#6}$
+					\refstepcounter{#2}
+					\noindent\hspace{-8pt}{#5{#3} \arabic{#2}.}
+				\else
+					\refstepcounter{#6}
+					\noindent\hspace{-8pt}{#5{#3} \arabic{#6}.}
+				\fi
+		\else 
+				\ifcat$\detokenize{#6}$
+					\refstepcounter{#2}
+					\noindent\hspace{-8pt}{#5{#3} \arabic{#2}} (##1){#5.}
+				\else
+					\refstepcounter{#6}
+					\noindent\hspace{-8pt}{#5{#3} \arabic{#6}} (##1){#5.}
+				\fi
+		\fi
+	}{ %Fin de l'environnement	
+	
+		\kern -1ex							%On raproche(remonte) la ligne du texte
+		\ifcat$\detokenize{#1}$
+			\noindent\hspace{-7pt}{\color{#4}\rule{\linewidth}{1pt}\rule{7pt}{1pt}}
+				%On se replace sur la ligne vertical (7pt-7pt = 0) et on met ligne hozizontale
+		\else	%La ligne fait linewidth + 7pt
+			\noindent\hspace{-7pt}{\color{#4}\rule{0.95\linewidth}{1pt} \hspace*{\fill}  #1}
+		\fi
+				%On se replace sur la ligne vertical (7pt-7pt = 0) et on met ligne hozizontale
+				%On met le symbole tout à droite de la page
+		\endMakeFramed						%On finit la ligne verticale
+		
+	} %
+}
+\newcommand{\newVertTheorem@STAR}[6][]
+{
+	\newenvironment{#2}[1][]
+	{ %Debut de l'environnement
+		\kern 1.5ex 	%Pour compenser le -3ex d'après - POUR GERER L'ESPACE AVANT
+		\def\FrameCommand{{\color{#4}\vrule width 1pt}\hspace{7pt}}
+		\MakeFramed{\advance\hsize-\width \FrameRestore}
+		\kern -3ex							%On ajuste la boite à la ligne verticale
+		\ifcat$\detokenize{##1}$			%On regarde si on a un argument optionnel
+			\noindent\hspace{-8pt}{#5{#3}.}
+		\else 
+			\noindent\hspace{-8pt}{#5{#3}} (##1){#5.}
+		\fi
+	}{ %Fin de l'environnement	
+	
+		\kern -1ex							%On raproche(remonte) la ligne du texte
+		\ifcat$\detokenize{#1}$
+			\noindent\hspace{-7pt}{\color{#4}\rule{\linewidth}{1pt}\rule{7pt}{1pt}}
+				%On se replace sur la ligne vertical (7pt-7pt = 0) et on met ligne hozizontale
+		\else	%La ligne fait linewidth + 7pt
+			\noindent\hspace{-7pt}{\color{#4}\rule{0.95\linewidth}{1pt} \hspace*{\fill}  #1}
+		\fi
+				%On se replace sur la ligne vertical (7pt-7pt = 0) et on met ligne hozizontale
+				%On met le symbole tout à droite de la page
+		\endMakeFramed						%On finit la ligne verticale
+		
+	} %
+}
+\makeatother
+%	#1	Symbole de fin
+%	#2	Nom de la macro
+%	#3	Titre
+%	#4	Couleur
+%	#5	Style
+%	#6 	Compteur, optionnel. Défaut : crée son propre compteur
+%\newVertTheorem[Symbole de fin]{macro}{Titre}{Couleur}{style}{compteur}		OU
+%\newVertTheorem{macro}{Titre}{Couleur}{style}{compteur}						OU
+%\newVertTheorem[Symbole de fin]{macro}{Titre}{Couleur}{style}{}			 	OU
+%\newVertTheorem{macro}{Titre}{Couleur}{style}{}								OU
+%\newVertTheorem*[Symbole de fin]{macro}{Titre}{Couleur}{style}{}				OU
+%\newVertTheorem*{macro}{Titre}{Couleur}{style}{}
+
+\endinput

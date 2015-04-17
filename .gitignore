@@ -1,0 +1,9 @@
+# On ignore tout !
+*
+# ...et sauf s'ils sont dans des sous dossiers
+!*/
+# Sauf certains fichiers
+!.gitignore
+!*.tex
+!*.sty
+!biblio.bib
