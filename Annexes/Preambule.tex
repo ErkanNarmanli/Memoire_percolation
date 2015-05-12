@@ -51,6 +51,7 @@
 \usepackage{nicefrac}						%ajoute \nicefrac{nom}{denom}
 \usepackage{numprint}						%ajoute \numprint{nombre}
 \usepackage{fourier-orns}					%Pour les tought break
+\usepackage{extarrows}						%Pour avoir plus de flèches ! :D
 
 
 %\usepackage{ifthen} 	  					%B-A BA de la programmation
@@ -130,6 +131,7 @@
 \DeclareMathOperator{\Res}{Rés}
 \DeclareMathOperator{\B}{B}
 \DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\Pro}{\textbf{P}}
 %Sans-arguments-------------------------------------------------------------------------------------
 \newcommand{\priv}{\setminus}								%Soustraction ensembliste
 \renewcommand{\leq}{\leqslant}								%Parce que \leqslant est plus joli
@@ -151,6 +153,10 @@
 	%Pour recréer un \cleardoublepage qui marche aussi en oneside
 %Avec-arguments-------------------------------------------------------------------------------------
 \makeatletter
+\newcommand{\Pp}[1][p]{\Pro_{#1}}
+\newcommand{\relie}{\@ifstar{\relie@STAR}{\relie@NOSTAR}}
+\newcommand{\relie@NOSTAR}[3][]{#2\xleftrightarrow{#1}#3}
+\newcommand{\relie@STAR}[3][]{#2\xleftrightarrow{!#1!}#3}
 \newcommand{\siecle}[1]{{\sc\romannumeral #1}\ifnum#1=1\relax{}\ier\else\ieme\fi}
 	%\siècle{nb}
 	%NB : gère automatiquement le cas Ier siècle ou le reste (ex : IIIe)

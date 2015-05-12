@@ -1,41 +1,14 @@
 		\chapter*{Introduction}
 		\addcontentsline{toc}{section}{Introduction}
-		En arithmétique, un \emph{nombre premier} est un entier naturel qui admet exactement deux diviseurs entiers positifs distincts, à savoir~$1$ et lui-même. C'est à dire qu'il est impossible de décomposer un tel nombre premier~$p$ sous la forme~$p=a\,b$ sans que cette écriture soit en fait la décomposition triviale~$p=1\cdot p$. Le \emph{théorème fondamental de l'arithmétique} nous dit alors que si~$n$ est un entier naturel non nul, il s'écrit de manière essentiellement unique sous la forme
+		Le but de cet exposé est de présenter la démonstration de l'absence de percolation au point critique dans une tranche de la forme~$\mathbb{Z}^2\times\{0,...,k\}$. Dans un premier temps on rappellera les définitions de bases de la théorie de la percolation ; [TODO]
+		
 		\[
-			n = \prod_{p\in\Pre} p^{\nu_p(n)},
-		\]
-		où~$\nu_p(n)$ est un entier naturel et où~$\Pre$ désigne l'ensemble des nombres premiers. En d'autres termes, ce théorème nous dit que les nombres premiers constituent les \emph{briques élémentaires} de l'anneau des entiers relatifs pour la loi de multiplication. En effet, bien que l'on puisse engendrer tous les entiers en répétant l'addition du nombre~$1$, pour pouvoir engendrer tous les entiers par la loi de multiplication, il faut disposer de tous les nombres premiers.
-		
-		Les nombres premiers sont donc des entiers aux propriétés très particulières ; mais la raison de la fascination des mathématiciens pour ces nombres est surtout due au fait que l'on sait très peu de choses à leurs sujet. On ne sait pas expliciter la distribution des nombres premiers et la compréhension de la nature de leur répartition semble hors d'atteinte. Euler\personne[mathématicien et physicien suisse]{Leonhard}{Euler}{1707}{1783} écrivait à ce propos en~1751 :
-		\begin{quote}
-			\og~Les mathématiciens ont tâché jusqu'ici en vain de découvrir quelque ordre dans la progression des nombres premiers, et l'on a lieu de croire que c'est un mystère auquel l'esprit humain ne saurait jamais pénétrer. Pour s'en convaincre, on n'a qu'à jeter les yeux sur les tables des nombres premiers que quelques-uns se sont donné la peine de continuer au-delà de cent mille et l'on apercevra d'abord qu'il n'y règne aucun ordre ni règle.~\fg\footnote{Traduit et extrait de l'article \textit{Découverte d'une loi toute-extraordinaire des nombres par rapport à la somme de leurs diviseurs}, de Leonhard Euler.}
-		\end{quote}
-		Mais malgré tout, les mathématiciens se sont penchés sur ce problème qui occupe encore aujourd'hui beaucoup les chercheurs ; retraçons rapidement l'histoire des nombres premiers.
-		
-		\medskip
-		Les \emph{os d'Ishango}\footnote{Du nom de la région où il ont étés découvert, dans la localité d'Ishango dans l'ancien Congo Belge, aujourd'hui république démocratique du Congo.} découverts en 1960 pourraient être les plus vieux artefacts dont nous disposons qui feraient référence aux nombres premiers et même à l'arithmétique en général. Il s'agit de deux os d'environ 10 et 14 cm vieux de~20~000 ans et qui présentent plusieurs incisions, organisées en colonnes. Une des colonnes semble isoler quatre nombres~$19,17,13,$ et~$11$~; selon certains archéologues il s'agirait d'une preuve de la connaissance des nombres premiers.
-		
-		On a également de bonnes raisons de penser que les civilisations de \emph{Mésopotamie} du deuxième millénaire avant Jésus-Christ ainsi que l'\emph{Égypte antique} (de 3000 av. J.-C. jusqu'au \siecle{1} siècle av. J.-C) disposaient de connaissances sur les nombres premiers. Toutefois, comme pour les os d'Ishango, rien ne permet de l'affirmer avec certitude.
-		
-		La première référence incontestable aux nombres premiers date du \siecle{3} ou \siecle{4} siècle avant Jésus-Christ, et figure dans les \emph{Éléments} d'Euclide qui donne explicitement leur définition. Il démontre également l'existence d'une infinité de nombres premiers car il écrit dans son neuvième élément l'énoncé suivant : \og~Quelque multitude de nombres premiers qu'on propose, il s'en trouvera encore d'autres~\fg.
-		
-		À la même époque Ératosthène\personne[astronome, géographe, mathématicien et philosophe de la Grèce antique]{Ératosthène}{}{-276}{ -194} établit un algorithme connu sous le nom de \emph{crible d'Ératosthène}, et qui permet de déterminer tous les nombres premiers jusqu'à une certaine grandeur. Si l'on veut déterminer l'ensemble des nombres premiers inférieurs ou égaux à un entier~$N$ fixé, on commence par~$n=2$ que l'on met de côté et on élimine tous ses multiples inférieurs à~$N$ ; on prend ensuite~$n$ le premier entier suivant qui n'a pas été éliminé et on recommence. Tous les entiers mis de côtés sont alors les nombres premiers recherchés. Ceci fournit une manière systématique pour trouver les premiers nombres premier. Par exemple, avec~$N= 50$, on trouve~:~$2,3,5,7,11,13,17,19,23,29,31,37,41,43$, et~$47$.
-				
-		Il faut ensuite attendre 1737 pour obtenir de nouveaux résultats, alors qu'Euler montre qu'il y a \emph{beaucoup} de nombres premiers en établissant la divergence de la série des inverses des nombres premiers. Mais il signale aussi que les nombres premiers son \og~infiniment moins nombreux que les entiers~\fg, c'est à dire que la proportion de nombre premiers inférieurs ou égaux a une certaine grandeur~$x$ tend vers~$0$ lorsque~$x$ tend vers l'infini. Euler définit également la fonction zêta (voir première partie) et exhibe un lien (voir proposition~\ref{prop:produitEulerien}) entre la fonction zêta et les nombres premiers ; ce lien sera la clef de voute de tout résultat concernant les nombres premiers que l'on puisse obtenir grâce à la fonction zêta, et il justifie à lui seul l'étude de cette fonction.
-		
-		Près d'un siècle après cela, en 1852, Tchebychev\personne[mathématicien russe]{Pafnouti}{Tchebychev}{1821}{1894} démontre un résultat concernant le nombre~$\pi(x)$ de nombres premiers inférieurs ou égaux à la grandeur~$x$. Il prouve qu'avec~$A=0{,}921$ et~$B=1{,}106$ et pour~$x$ assez grand, on a le résultat :
-		\[
-			\frac{A\,x}{\log(x)}\leq\pi(x)\leq\frac{B\,x}{\log(x)}\cdot
-		\]
-		Ce résultat est un des prémices au \emph{théorème des nombres premiers} dont nous donnerons deux démonstrations et qui affirme que l'on a l'équivalence suivante lorsque~$x$ tend vers l'infini :
-		\[
-			\pi(x)\sim\frac{x}{\log(x)}\cdot
+			\Pp								\quad
+			\Pp[p_c]						\quad
+			\relie{A}{B}					\quad
+			\relie[B_n'\cup B_{3n}]{A}{B}	\quad
+			\relie*{A}{B}					\quad
+			\relie*[B_n'\cup B_{3n}]{A}{B}	\quad
 		\]
 		
-		En 1859, Riemann \personne[mathématicien allemand]{Georg Friedrich Bernhard}{Riemann}{1826}{1866} rédige un mémoire de 8 pages à l'issue de son admission à l'académie des sciences de Berlin (voir~\cite{ArticRiemann}) et qui révolutionne l'étude des nombres premiers. Il suggère notamment de considérer la fonction zêta comme une fonction de la variable complexe. Nous verrons dans cet exposé quelques conséquences importantes de cette idée de Riemann et les résultats sur les nombres premiers qui en découlent.
-		
-		\medskip
-		Dans une première partie, on donnera les principales propriétés de la fonction zêta de Riemann et de la fonction Gamma. Ensuite, on donnera une première démonstration du théorème des nombres premiers ; et enfin on approfondira la théorie de la fonction zêta et nous montrerons en quoi la connaissance de la position de ses zéros peut nous donner une information sur la répartition des nombres premiers.
-		
-		En annexe, on a présenté des résultats importants utilisés tout au long de cet exposé. On y présente notamment les bases d'analyse complexe, quelques résultats sur la notion de produits infinis, ainsi que quelques résultats d'analyse plus avancés.
 		\Tbreak
