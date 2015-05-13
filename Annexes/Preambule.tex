@@ -131,7 +131,6 @@
 \DeclareMathOperator{\Res}{Rés}
 \DeclareMathOperator{\B}{B}
 \DeclareMathOperator{\Li}{Li}
-\DeclareMathOperator{\Pro}{\textbf{P}}
 %Sans-arguments-------------------------------------------------------------------------------------
 \newcommand{\priv}{\setminus}								%Soustraction ensembliste
 \renewcommand{\leq}{\leqslant}								%Parce que \leqslant est plus joli
@@ -153,7 +152,9 @@
 	%Pour recréer un \cleardoublepage qui marche aussi en oneside
 %Avec-arguments-------------------------------------------------------------------------------------
 \makeatletter
-\newcommand{\Pp}[1][p]{\Pro_{#1}}
+\newcommand{\Pro}{\bm{\mathrm{P}}}
+\newcommand{\PpSP}[1][p]{\Pro_{#1}}
+\newcommand{\Pp}[2][p]{\Pro_{#1}\left(#2\right)}
 \newcommand{\relie}{\@ifstar{\relie@STAR}{\relie@NOSTAR}}
 \newcommand{\relie@NOSTAR}[3][]{#2\xleftrightarrow{#1}#3}
 \newcommand{\relie@STAR}[3][]{#2\xleftrightarrow{!#1!}#3}
