@@ -7,3 +7,4 @@
 !*.tex
 !*.sty
 !biblio.bib
+!makefile
