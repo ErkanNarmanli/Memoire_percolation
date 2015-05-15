@@ -152,10 +152,10 @@
 	%Pour recréer un \cleardoublepage qui marche aussi en oneside
 %Avec-arguments-------------------------------------------------------------------------------------
 \makeatletter
-\newcommand{\Pro}{\bm{\mathrm{P}}}
-\newcommand{\PpSP}[1][p]{\Pro_{#1}}
-\newcommand{\Pp}[2][p]{\Pro_{#1}\left(#2\right)}
-\newcommand{\relie}{\@ifstar{\relie@STAR}{\relie@NOSTAR}}
+\newcommand{\Pro}{\bm{\mathrm{P}}}				%Le 'P' de la probabilité
+\newcommand{\PpSP}[1][p]{\Pro_{#1}}				%Proba indéxée par un paramètre
+\newcommand{\Pp}[2][p]{\Pro_{#1}\left(#2\right)}		%Proba ind. par p avec parenthèses
+\newcommand{\relie}{\@ifstar{\relie@STAR}{\relie@NOSTAR}}	%event : relier #2 à #3 en passant par #1
 \newcommand{\relie@NOSTAR}[3][]{#2\xleftrightarrow{#1}#3}
 \newcommand{\relie@STAR}[3][]{#2\xleftrightarrow{!#1!}#3}
 \newcommand{\siecle}[1]{{\sc\romannumeral #1}\ifnum#1=1\relax{}\ier\else\ieme\fi}
