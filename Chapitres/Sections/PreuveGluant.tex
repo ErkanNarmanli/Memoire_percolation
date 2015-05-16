@@ -1,17 +1,59 @@
 \section{Le lemme gluant}
-	On démontre à présent le \emph{lemme gluant}, dont le nom est une traduction très approximative du \emph{gluing lemma}, le lemme de collage.
+	\subsection{Énoncé}
+		On démontre à présent le \emph{lemme gluant}, dont le nom est une traduction très approximative du \emph{gluing lemma}, le lemme de collage.
+			
+		\begin{lem}[dit gluant]\label{lem:gluant}
+			Soit~$\epsilon$ un réel strictement positif ; alors il existe un réel~$\delta$ strictement positif tel que pour tout entier naturel~$n$ on ait :
+			\[
+				\Pp{\relie[B_{3n}]{S_{3n}}{Z_n},
+					\relie[B_n']{S_n'}{Y_n^-},
+					\relie[B_n']{S_n'}{Y_n^+}}
+				\geq 1 - \delta
+			\]
+			implique
+			\[
+				\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}
+				\geq 1 - \epsilon.
+			\]
+		\end{lem}
+		On se rend compte que le lemme gluant est trivial pour~$k=0$, on peut dès lors supposer que~$k$ est un entier strictement positif. Pour démontrer le lemme gluant on a déjà besoin démontrer le lemme~\label{lem:interGluant}.
 	
-	\begin{lem}[dit gluant]
-		Soit~$\epsilon$ un réel strictement positif ; alors il existe un réel~$\delta$ strictement positif tel que pour tout entier naturel~$n$ on ait :
-		\[
-			\Pp{\relie[B_{3n}]{S_{3n}}{Z_n},
-				\relie[B_n']{S_n'}{Y_n^-},
-				\relie[B_n']{S_n'}{Y_n^+}}
-			\geq 1 - \delta
-		\]
-		implique
-		\[
-			\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}
-			\geq 1 - \epsilon
-		\]
-	\end{lem}
+	\subsection{Lemme intermédiaire}
+		Le résultat intermédiaire suivant nous permet d'obtenir une estimation sur les probabilités de deux événements sous réserve que l'on dispose d'une application entre ces deux évènements qui vérifie de bonnes propriétés.
+		\begin{lem}\label{lem:interGluant}
+			Soient~$s,t$ deux entiers naturels strictement positifs, soient~$\mathcal{A},\mathcal{B}$ deux événements dans la tribu~$\mathcal{P}(B_n)$ pour un certain cylindre~$B_n$, et~$\Phi : \mathcal{A} \rightarrow \mathcal{P}(\mathcal{B})$ une application telle que :
+			\begin{enumerate}
+				\item pour tout~$\omega$ dans~$\mathcal{A}$, on ait~$\#\Phi(\omega)\geq t$ ; \label{item:interGluant:a}
+				\item pour tout~$\omega'$ dans~$\mathcal{B}$, il existe un sous-ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~ $s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{A},\omega'\in\Phi(\omega)\} \subset \{\omega\in\mathcal{A},\omega_{|S^c}=\omega_{|S^c}'\}$. \label{item:interGluant:b}
+			\end{enumerate}
+			Alors , on a la majoration :
+			\[
+				\Pp{\mathcal{A}} \leq \frac{1}{t}
+					\left(\frac{2}{\min(p,1-p)}\right)^s
+					\Pp{\mathcal{B}}.
+			\]
+		\end{lem}
+		\begin{dem}
+			Dans un premier temps, et comme on est dans la tribu discrète, on peut écrire la décomposition suivante :
+			\begin{equation}\label{eq:interGluant:1}
+				\sum_{\omega\in\mathcal{A}}\Pp{\Phi(\omega)} = \sum_{\omega\in\mathcal{A}}\sum_{\omega'\in\Phi(\omega)}\Pp{\omega'}.
+			\end{equation}
+			Dans la seconde somme du terme de droite, on a~$\omega'$ dans~$\Phi(\omega)$, donc par la condition~(\ref{item:interGluant:a}) du lemme on a~$\omega_{|S^c}=\omega_{|S^c}'$, où~$S$ est un sous ensemble fini de~$\Sk$, de cardinal au plus~$s$. Dès lors, on peut écrire~$\PpSP(\omega) = \PpSP(\omega_{|S^c})\cdot\PpSP(\omega_{|S}')$, puisque la configuration sur~$S^c$ et~$S$ sont indépendantes. Et comme~$\PpSP(\omega_{|S}')$ est un produit d'au plus~$s$ facteurs~$p$ ou~$1-p$, on a la majoration~$\PpSP(\omega') \leq \PpSP(\omega)\min(p,1-p)^s$ ; en combinant cette majoration à l'équation~\ref{eq:interGluant:1}, on obtient :
+			\begin{equation}\label{eq:interGluant:2}
+				\sum_{\omega\in\mathcal{A}} \Pp{\omega}
+					\leq
+					\frac{1}{t\cdot\min(p,1-p)^s}
+					\sum_{\omega\in\mathcal{A}}\Pp{\Phi(\omega)}.
+			\end{equation}
+			On peut encore décomposer la somme dans le terme de droite terme à terme dans~$\Phi(\omega)$, comme précédemment, puis inverser les deux sommes pour obtenir :
+			\begin{equation}\label{eq:interGluant:3}
+				\sum_{\omega\in\mathcal{A}} \Pp{\omega}
+					\leq
+					\frac{1}{t\cdot\min(p,1-p)^s}
+					\sum_{\omega'\in\mathcal{B}}
+					\sum_{\substack{\omega\in\mathcal{A}\\ \omega'\in\Phi(\omega)}}\Pp{\Phi(\omega')}.				
+			\end{equation}
+			On peut maintenant majorer le nombre d'éléments dans la deuxième somme à droite grâce à la condition~(\ref{item:interGluant:b}) du lemme. La somme contient moins d'élément qu'il n'y a de configuration qui coïncide avec~$\omega$ sur~$S^c$, à savoir~$2^s$ ; il suffit ensuite de reporter cette majoration dans l'équation~\ref{eq:interGluant:3} pour obtenir le résultat souhaité.
+		\end{dem}
+	
+	\subsection{Preuve du lemme gluant}
