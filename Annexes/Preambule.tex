@@ -15,7 +15,7 @@
 \usepackage[francais]{babel} 				%Gère les langues, la langue par défaut est la dernière
 											%|passé en argument
 											
-\usepackage[a4paper]{geometry}				%Permet de spécidier les dimensions du texte
+\usepackage[a4paper]{geometry}				%Permet de spécifier les dimensions du texte
 \usepackage{babelbib}
 %\usepackage{makeidx}\makeindex				%Permet de faire un index
 %\usepackage[french]{minitoc}				%Pour faire des 'sous tables des matières'
@@ -28,7 +28,7 @@
 
 \usepackage[colorlinks=true,urlcolor=magenta,linkcolor=black,citecolor=blue]{hyperref}				
 											%Permet de créer des références cliquables
-\usepackage{multicol} 						%Pour le texte sur plusieurs colones
+\usepackage{multicol} 						%Pour le texte sur plusieurs colonnes
 \usepackage[svgnames]{xcolor} 				%Pour utiliser des couleurs (marche pas avec libertine)
 \usepackage{graphicx}						%Pour inclure des images
 %\usepackage{listings}						%Pour écrire du code
@@ -79,7 +79,7 @@
 \def\authorOneFamilyName{Narmanli}								%Nom de famille de l'auteur 1
 \def\authorTwoFisrtName{Martin}								%Prénom(s) de l'auteur 2
 \def\authorTwoFamilyName{Pépin}								%Nom de famille de l'auteur 2
-\def\supervisorFirstName{Rafaël}							%Prénom(s) du supérivseur
+\def\supervisorFirstName{Rafaël}							%Prénom(s) du superviseur
 \def\supervisorFamilyName{Cerf}								%Nom de famille du superviseur
 \def\instituteName{École normale supérieure}				%Nom de l'Université
 \def\dateName{\today}										%Date
@@ -153,8 +153,11 @@
 	%Pour recréer un \cleardoublepage qui marche aussi en oneside
 %Avec-arguments-------------------------------------------------------------------------------------
 \makeatletter
+\newcommand{\Cmin}[1][\omega]{\gamma_{\mathrm{min}}(#1)}%Chemin minimal de \gamma
+\newcommand{\ZnB}[1][n]{\overline{Z}_{#1}}		%L'ensemble Z_n barre
+\newcommand{\SnB}[1][3n]{\overline{S}_{#1}}		%B_{3n} /!\ arg. par défaut : 3n
 \newcommand{\Pro}{\bm{\mathrm{P}}}				%Le 'P' de la probabilité
-\newcommand{\PpSP}[1][p]{\Pro_{#1}}				%Proba indéxée par un paramètre
+\newcommand{\PpSP}[1][p]{\Pro_{#1}}				%Proba indexée par un paramètre
 \newcommand{\Pp}[2][p]{\Pro_{#1}\left(#2\right)}		%Proba ind. par p avec parenthèses
 \newcommand{\relie}{\@ifstar{\relie@STAR}{\relie@NOSTAR}}	%event : relier #2 à #3 en passant par #1
 \newcommand{\relie@NOSTAR}[3][]{#2\xleftrightarrow{#1}#3}

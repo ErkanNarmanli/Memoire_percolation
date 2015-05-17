@@ -16,7 +16,7 @@
 				\geq 1 - \epsilon.
 			\]
 		\end{lem}
-		On se rend compte que le lemme gluant est trivial pour~$k=0$, on peut dès lors supposer que~$k$ est un entier strictement positif. Pour démontrer le lemme gluant on a déjà besoin démontrer le lemme~\label{lem:interGluant}.
+		On se rend compte que le lemme gluant est trivial pour~$k=0$, on peut dès lors supposer que~$k$ est un entier strictement positif. Pour démontrer le lemme gluant on a déjà besoin démontrer le lemme~\ref{lem:interGluant}.
 	
 	\subsection{Lemme intermédiaire}
 		Le résultat intermédiaire suivant nous permet d'obtenir une estimation sur les probabilités de deux événements sous réserve que l'on dispose d'une application entre ces deux évènements qui vérifie de bonnes propriétés.
@@ -59,9 +59,41 @@
 	\subsection{Preuve du lemme gluant}
 		On va maintenant donner la démonstration du lemme gluant (lemme~\ref{lem:gluant}).
 		\paragraph{Relation d'ordre sur les chemins}
-		Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\overline{S}_{3n}$ à~$\overline{Z}_n$. Pour ce faire, on défini déjà deux relations d'ordre comme suit :
-		\begin{itemize}
-			\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ sur les arrêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
-			\item on prend~$\ll$ une relation d'ordre totale sur les arrêtes de~$\Sk$.
+			Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\SnB$ à~$\ZnB$. Pour ce faire, on défini déjà deux relations d'ordre comme suit :
+			\begin{itemize}
+				\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ sur les arrêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
+				\item on prend~$\ll$ une relation d'ordre totale sur les arrêtes de~$\Sk$.
+			\end{itemize}
+			Par la suite, si~$\gamma = \left(\gamma_i\right)_{1\leq i\leq r}$ et~$\gamma'=\left(\gamma'_i\right)_{1\leq i\leq r'}$ sont deux chemins auto-évitants qui vont de~$\SnB$ à~$\ZnB$ alors on notera~$\gamma <\gamma'$ lorsqu'au moins l'une des conditions suivantes sont satisfaites :
+			\begin{itemize}
+				\item le chemin~$\gamma$ est un sous chemin de~$\gamma'$, c'est à dire que~$r<r'$ et que~$\gamma = \left(\gamma_i'\right)_{1\leq i\leq r}$, cela traite le cas où les chemins ne se séparent qu'une fois arrivés à~$\ZnB$ ;
+				\item on peut comparer strictement les premiers sommets des deux chemins avec~$\gamma_0 \ll \gamma_0'$, ce qui traite le cas où les deux chemins sont différents dès la sortie de~$\SnB$ ;
+				\item il existe une entier~$k$ strictement plus petit que~$r$ et~$r'$ tel que~$\gamma_i=\gamma_i'$ pour tout entier~$i$ comprit entre~$0$ et~$k$ et tel que~$(\gamma_k,\gamma_{k+1}) \prec (\gamma_k',\gamma_{k+1}')$, c'est à dire que les chemins coïncident jusqu'à la~$k$-ième arrête et que l'on peut comparer les arrêtes issues de~$\gamma_k$.
 		\end{itemize}
-		Par la suite, si~$\gamma = \left(\gamma_i\right)_{1\leq i\leq r}$ et~$\gamma'=\left(\gamma'_i\right)_{1\leq i\leq r'}$ sont deux chemins auto-évitants qui vont de~$\overline{S}_{3n}$ à~$\overline{Z}_n$ alors on notera~$\gamma <\gamma'$ lorsqu'au moins l'une des conditions suivantes sont satisfaites : 
+		\paragraph{Chemin minimal}
+			Soit~$\omega$ une configuration, comme~$\leq$ est une relation totale sur l'ensemble fini des chemins auto-évitant entre~$\SnB$ et~$\ZnB$, on peut définir~$\Cmin$ comme étant l'élément minimal pour cette relation dans~$\omega$. Dès lors on définit l'ensemble~$U(\omega)$ comme étant l'ensemble des éléments de~$B_n'$ vérifiant les deux propriétés suivantes :
+			\begin{enumerate}[label=P\arabic*.]
+				\item\label{item:P1} La droite~$\overline{\{z\}}$ et le support de~$\Cmin$ sont d'intersection non vide.
+				\item\label{item:P2} Il existe un chemin~$\pi$ qui relie les cylindres~$\overline{z+B_1}$ et~$\SnB[n]'$ ; et tel que la distance entre les projections canoniques de~$\pi$ et de~$\Cmin$ dans~$\mathbb{Z}^2$ est exactement~$1$.
+			\end{enumerate}
+			Dans cette définition, la propriété~\ref{item:P1} signifie que tout élément~$z$ de~$U(\omega)$ doit être sur la projection du chemin minimal~$\Cmin$ alors que la propriété deux demande qu'il existe au moins un point au dessus de~$z$ qui soit presque relié ou presque à~$\SnB[n]'$ par un chemin qui ne passe jamais au dessus ou au dessous de~$\Cmin$.
+		
+		\boldmath
+		\paragraph{L'évènement~$\mathcal{X}$} Pour la suite de la démonstration, on définit l'évènement suivant :
+		\unboldmath
+		\[
+			\mathcal{X} =
+			\left\{
+				\relie[B_{3n}]{S_{3n}}{Z_n},
+				\relie[B_n']{S_n'}{Y_n^-},
+				\relie[B_n']{S_n'}{Y_n^+}
+			\right\}
+			\cup
+			\left\{
+				\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}
+			\right\}^c
+		\]
+		Le premier ensemble dans la définition de~$\mathcal{X}$ est l'évènement que l'on suppose avec une probabilité d'au moins~$1-\delta$ alors que le reste est le complémentaire de l'évènement que l'on souhaite avoir avec probabilité au moins~$1-\epsilon$. Pour démontrer le lemme gluant~(lemme~\ref{lem:gluant}), on est donc ramené à montrer que la probabilité~$\PpSP(\mathcal{X})$ est très petite lorsque la probabilité~$\PpSP(\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+})$ est proche de~$1$.
+
+
+
