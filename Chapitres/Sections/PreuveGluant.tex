@@ -53,7 +53,15 @@
 					\sum_{\omega'\in\mathcal{B}}
 					\sum_{\substack{\omega\in\mathcal{A}\\ \omega'\in\Phi(\omega)}}\Pp{\Phi(\omega')}.				
 			\end{equation}
-			On peut maintenant majorer le nombre d'éléments dans la deuxième somme à droite grâce à la condition~(\ref{item:interGluant:b}) du lemme. La somme contient moins d'élément qu'il n'y a de configuration qui coïncide avec~$\omega$ sur~$S^c$, à savoir~$2^s$ ; il suffit ensuite de reporter cette majoration dans l'équation~\ref{eq:interGluant:3} pour obtenir le résultat souhaité.
+			On peut maintenant majorer le nombre d'éléments dans la deuxième somme à droite grâce à la condition~(\ref{item:interGluant:b}) du lemme. La somme contient moins d'élément qu'il n'y a de configuration qui coïncide avec~$\omega$ sur~$S^c$, à savoir~$2^s$ ; il suffit ensuite de reporter cette majoration dans l'équation~\ref{eq:interGluant:3} pour obtenir le résultat souhaité.    
 		\end{dem}
 	
 	\subsection{Preuve du lemme gluant}
+		On va maintenant donner la démonstration du lemme gluant (lemme~\ref{lem:gluant}).
+		\paragraph{Relation d'ordre sur les chemins}
+		Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\overline{S}_{3n}$ à~$\overline{Z}_n$. Pour ce faire, on défini déjà deux relations d'ordre comme suit :
+		\begin{itemize}
+			\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ sur les arrêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
+			\item on prend~$\ll$ une relation d'ordre totale sur les arrêtes de~$\Sk$.
+		\end{itemize}
+		Par la suite, si~$\gamma = \left(\gamma_i\right)_{1\leq i\leq r}$ et~$\gamma'=\left(\gamma'_i\right)_{1\leq i\leq r'}$ sont deux chemins auto-évitants qui vont de~$\overline{S}_{3n}$ à~$\overline{Z}_n$ alors on notera~$\gamma <\gamma'$ lorsqu'au moins l'une des conditions suivantes sont satisfaites : 
