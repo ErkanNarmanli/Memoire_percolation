@@ -81,19 +81,50 @@
 		\boldmath
 		\paragraph{L'évènement~$\mathcal{X}$} Pour la suite de la démonstration, on définit l'évènement suivant :
 		\unboldmath
-		\[
-			\mathcal{X} =
-			\left\{
-				\relie[B_{3n}]{S_{3n}}{Z_n},
-				\relie[B_n']{S_n'}{Y_n^-},
-				\relie[B_n']{S_n'}{Y_n^+}
-			\right\}
-			\cup
-			\left\{
-				\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}
-			\right\}^c
-		\]
-		Le premier ensemble dans la définition de~$\mathcal{X}$ est l'évènement que l'on suppose avec une probabilité d'au moins~$1-\delta$ alors que le reste est le complémentaire de l'évènement que l'on souhaite avoir avec probabilité au moins~$1-\epsilon$. Pour démontrer le lemme gluant~(lemme~\ref{lem:gluant}), on est donc ramené à montrer que la probabilité~$\PpSP(\mathcal{X})$ est très petite lorsque la probabilité~$\PpSP(\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+})$ est proche de~$1$.
-
+			\[
+				\mathcal{X} =
+				\left\{
+					\relie[B_{3n}]{S_{3n}}{Z_n},
+					\relie[B_n']{S_n'}{Y_n^-},
+					\relie[B_n']{S_n'}{Y_n^+}
+				\right\}
+				\cup
+				\left\{
+					\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}
+				\right\}^c
+			\]
+			Le premier ensemble dans la définition de~$\mathcal{X}$ est l'évènement que l'on suppose avec une probabilité d'au moins~$1-\delta$ alors que le reste est le complémentaire de l'évènement que l'on souhaite avoir avec probabilité au moins~$1-\epsilon$. Pour démontrer le lemme gluant~(lemme~\ref{lem:gluant}), on est donc ramené à montrer que la probabilité~$\PpSP(\mathcal{X})$ est très petite lorsque la probabilité~$\PpSP(\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+})$ est proche de~$1$. Pour ce faire, on va séparer le problème en deux, en fonction de la taille de~$U(\omega)$. On dispose pour cela des deux proposition suivantes.
+			\begin{prop}\label{prop:Upetit}
+				Soient~$t$ un entier naturel non nul et~$\epsilon$ un réel strictement positif ; alors il existe~$\delta$ un réel strictement positif tel que :
+				\[
+					\Pp{\relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+}} > 1 - \delta
+				\]
+				implique
+				\[
+					\Pp{\mathcal{X}\cap\{\#U<t\}} \leq \epsilon.
+				\]
+			\end{prop}
+			\begin{dem}
+				[TODO]
+			\end{dem}
+			\begin{prop}\label{prop:Ugrand}
+				Soit~$\epsilon$ un réel strictement positif ; alors il existe un entier~$t$ strictement positif tel que l'on ait la majoration :
+				\[
+						\Pp{\mathcal{X}\cup\{\#U \geq t\}} 
+					\leq \cdot\epsilon
+						\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.
+				\]
+			\end{prop}
+			\begin{dem}
+				[TODO]
+			\end{dem}
+			On peut maintenant achever la démonstration du lemme gluant~(lemme~\ref{lem:gluant}). Fixons~$\epsilon$ un réel strictement positif, alors d'après la proposition~\ref{prop:Ugrand}, il existe~$t$ un entier naturel non nul tel que :
+			\begin{equation}\ref{eq:finalGluant:1}
+					\Pp{\mathcal{X}\cup\{\#U \geq t\}} 
+				\leq \cdot
+					\frac{\epsilon}{2}
+					\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.			
+			\end{equation}
+			On peut ensuite appliquer la proposition~\ref{prop:Upetit} à~$\epsilon/2$ à~$t$ : il existe un réel~$\delta$ strictement positif tel que 	
 
 
