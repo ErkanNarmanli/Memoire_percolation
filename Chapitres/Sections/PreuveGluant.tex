@@ -105,13 +105,38 @@
 				\]
 			\end{prop}
 			\begin{dem}
-				[TODO]
+i				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on définit la configuration~$\omega'$ à partir de~$\omega$ en y retirant les arrêtes de la forme~$\{u,v\}$ avec~$u$ dans la droite~$\overline{\{z\}}$ pour~$z$ dans~$U(z)$ et~$v$ relié à~$\SnB[n]'$.
+				On a donc construit~$\omega'$ de telle sorte qu'il ne puisse pas contenir dans~$\BnB '$ à la fois un chemin reliant~$\SnB[n]'$ et~$Y_n^-$ et un chemin reliant~$\SnB[n]'$ et~$Y_n^+$ ; car sinon~$\omega$ contiendrait un chemin qui relierait~$S_{3n}$ à~$S_n'$ dans~$B_{3n}\cup B_n'$, ce qui contredirait~$\omega\in\mathcal{X}$.
+			
+				La construction que nous venons de concevoir nous permet de définir l'application~$\Phi$ comme suit :
+				\begin{align*}
+					\Phi : \mathcal{X}\cup\{\# U < t\} 	& \longrightarrow 	
+											\mathcal{P}\left(
+												\{\relie[B_n']{S_n'}{Y_n^-}
+												\relie[B_n']{S_n'}{Y_n^+}\}^c
+											\right)\\
+						\omega				& \longmapsto 		\{\omega'\}
+				\end{align*}	
+				Les propriétés~\ref{item:P1} et~\ref{item:P2} nous assurent que l'on a retiré aucune arrête de~$\Cmin$, on a donc~$\Cmin[\omega'] = \Cmin$. Comme on retire des arrête que dans des cylindres~$\overline{z+B_1}$ et que le projeté des chemins~$\pi$ de la propriété~\ref{item:P2} sont tous à distance au moins~$1$ de la projection de~$\Cmin$, on a aussi~$U(\omega) = U(\omega')$.
+
+				De plus~$\Phi^{<-1>}(\omega')$ contient seulement des configurations qui sont égales à~$\omega'$ sauf peut être en des arrêtes adjacentes à~$U(\omega)$. Comme~$U(\omega)$ contient au plus~$t$ élément, il y a au plus~$(5k+1)t$ arrêtes adjacentes à~$U(\omega)$. On peut alors appliquer le lemme~\ref{lem:interGluant} à~$\Phi$ avec~$t'=1$ et~$s=(5k+1)t$ qui nous donne la majoration :
+				\[
+						\Pp{\mathcal{X}\cup\{\#U < t\}}
+					\leq
+						\left(
+							\frac{2}{\min(p,1-p)}
+						\right)^{(5k+1)t}
+						\left( 1 - \Pp{\relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+}}\right).
+				\]
+				Il suffit alors de prendre~$\delta$ assez petit pour achever la démonstration.
 			\end{dem}
 			\begin{prop}\label{prop:Ugrand}
 				Soit~$\epsilon$ un réel strictement positif ; alors il existe un entier~$t$ strictement positif tel que l'on ait la majoration :
 				\[
-						\Pp{\mathcal{X}\cup\{\#U \geq t\}} 
-					\leq \cdot\epsilon
+						\Pp{\mathcal{X}\cap\{\#U \geq t\}} 
+					\leq 
+						\epsilon
+						\cdot
 						\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.
 				\]
 			\end{prop}
@@ -119,12 +144,19 @@
 				[TODO]
 			\end{dem}
 			On peut maintenant achever la démonstration du lemme gluant~(lemme~\ref{lem:gluant}). Fixons~$\epsilon$ un réel strictement positif, alors d'après la proposition~\ref{prop:Ugrand}, il existe~$t$ un entier naturel non nul tel que :
-			\begin{equation}\ref{eq:finalGluant:1}
-					\Pp{\mathcal{X}\cup\{\#U \geq t\}} 
-				\leq \cdot
+			\begin{equation}\label{eq:finalGluant:1}
+					\Pp{\mathcal{X}\cap\{\#U \geq t\}} 
+				\leq 
 					\frac{\epsilon}{2}
+					\cdot
 					\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.			
 			\end{equation}
-			On peut ensuite appliquer la proposition~\ref{prop:Upetit} à~$\epsilon/2$ à~$t$ : il existe un réel~$\delta$ strictement positif tel que 	
-
+			On peut ensuite appliquer la proposition~\ref{prop:Upetit} à~$\epsilon/2$ à~$t$ : il existe un réel~$\delta$ strictement positif tel que lorsque la probabilité de l'événement~$\{\relie[B_n']{S_n'}{Y_n^-}\}\cap\{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$ alors on a :
+			\begin{equation}\label{eq:finalGluant:2}
+				\Pp{\mathcal{X}\cap\{\#U\leq t\}}
+				\leq
+				\frac{\epsilon}{2}
+				\cdot %ponctuation
+			\end{equation}
+			Dès lors lorsque la probabilité de~$\{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}\} \cap \{\relie[B_n']{S_n'}{Y_n^-}\} \cap \{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$, on peut utiliser les équations~\ref{eq:finalGluant:1} et~\ref{eq:finalGluant:2} pour obtenir~$\PpSP(\mathcal{X}) \leq \epsilon$ ; ce qui achève la démonstration du lemme gluant.
 
