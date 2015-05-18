@@ -1,17 +1,162 @@
 \section{Le lemme gluant}
-	On démontre à présent le \emph{lemme gluant}, dont le nom est une traduction très approximative du \emph{gluing lemma}, le lemme de collage.
+	\subsection{Énoncé}
+		On démontre à présent le \emph{lemme gluant}, dont le nom est une traduction très approximative du \emph{gluing lemma}, le lemme de collage.
+			
+		\begin{lem}[dit gluant]\label{lem:gluant}
+			Soit~$\epsilon$ un réel strictement positif ; alors il existe un réel~$\delta$ strictement positif tel que pour tout entier naturel~$n$ on ait :
+			\[
+				\Pp{\relie[B_{3n}]{S_{3n}}{Z_n},
+					\relie[B_n']{S_n'}{Y_n^-},
+					\relie[B_n']{S_n'}{Y_n^+}}
+				\geq 1 - \delta
+			\]
+			implique
+			\[
+				\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}
+				\geq 1 - \epsilon.
+			\]
+		\end{lem}
+		On se rend compte que le lemme gluant est trivial pour~$k=0$, on peut dès lors supposer que~$k$ est un entier strictement positif. Pour démontrer le lemme gluant on a déjà besoin démontrer le lemme~\ref{lem:interGluant}.
 	
-	\begin{lem}[dit gluant]
-		Soit~$\epsilon$ un réel strictement positif ; alors il existe un réel~$\delta$ strictement positif tel que pour tout entier naturel~$n$ on ait :
-		\[
-			\Pp{\relie[B_{3n}]{S_{3n}}{Z_n},
-				\relie[B_n']{S_n'}{Y_n^-},
-				\relie[B_n']{S_n'}{Y_n^+}}
-			\geq 1 - \delta
-		\]
-		implique
-		\[
-			\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}
-			\geq 1 - \epsilon
-		\]
-	\end{lem}
+	\subsection{Lemme intermédiaire}
+		Le résultat intermédiaire suivant nous permet d'obtenir une estimation sur les probabilités de deux événements sous réserve que l'on dispose d'une application entre ces deux évènements qui vérifie de bonnes propriétés.
+		\begin{lem}\label{lem:interGluant}
+			Soient~$s,t$ deux entiers naturels strictement positifs, soient~$\mathcal{A},\mathcal{B}$ deux événements dans la tribu~$\mathcal{P}(B_n)$ pour un certain cylindre~$B_n$, et~$\Phi : \mathcal{A} \rightarrow \mathcal{P}(\mathcal{B})$ une application telle que :
+			\begin{enumerate}
+				\item pour tout~$\omega$ dans~$\mathcal{A}$, on ait~$\#\Phi(\omega)\geq t$ ; \label{item:interGluant:a}
+				\item pour tout~$\omega'$ dans~$\mathcal{B}$, il existe un sous-ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~ $s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{A},\omega'\in\Phi(\omega)\} \subset \{\omega\in\mathcal{A},\omega_{|S^c}=\omega_{|S^c}'\}$. \label{item:interGluant:b}
+			\end{enumerate}
+			Alors , on a la majoration :
+			\[
+				\Pp{\mathcal{A}} \leq \frac{1}{t}
+					\left(\frac{2}{\min(p,1-p)}\right)^s
+					\Pp{\mathcal{B}}.
+			\]
+		\end{lem}
+		\begin{dem}
+			Dans un premier temps, et comme on est dans la tribu discrète, on peut écrire la décomposition suivante :
+			\begin{equation}\label{eq:interGluant:1}
+				\sum_{\omega\in\mathcal{A}}\Pp{\Phi(\omega)} = \sum_{\omega\in\mathcal{A}}\sum_{\omega'\in\Phi(\omega)}\Pp{\omega'}.
+			\end{equation}
+			Dans la seconde somme du terme de droite, on a~$\omega'$ dans~$\Phi(\omega)$, donc par la condition~(\ref{item:interGluant:a}) du lemme on a~$\omega_{|S^c}=\omega_{|S^c}'$, où~$S$ est un sous ensemble fini de~$\Sk$, de cardinal au plus~$s$. Dès lors, on peut écrire~$\PpSP(\omega) = \PpSP(\omega_{|S^c})\cdot\PpSP(\omega_{|S}')$, puisque la configuration sur~$S^c$ et~$S$ sont indépendantes. Et comme~$\PpSP(\omega_{|S}')$ est un produit d'au plus~$s$ facteurs~$p$ ou~$1-p$, on a la majoration~$\PpSP(\omega') \leq \PpSP(\omega)\min(p,1-p)^s$ ; en combinant cette majoration à l'équation~\ref{eq:interGluant:1}, on obtient :
+			\begin{equation}\label{eq:interGluant:2}
+				\sum_{\omega\in\mathcal{A}} \Pp{\omega}
+					\leq
+					\frac{1}{t\cdot\min(p,1-p)^s}
+					\sum_{\omega\in\mathcal{A}}\Pp{\Phi(\omega)}.
+			\end{equation}
+			On peut encore décomposer la somme dans le terme de droite terme à terme dans~$\Phi(\omega)$, comme précédemment, puis inverser les deux sommes pour obtenir :
+			\begin{equation}\label{eq:interGluant:3}
+				\sum_{\omega\in\mathcal{A}} \Pp{\omega}
+					\leq
+					\frac{1}{t\cdot\min(p,1-p)^s}
+					\sum_{\omega'\in\mathcal{B}}
+					\sum_{\substack{\omega\in\mathcal{A}\\ \omega'\in\Phi(\omega)}}\Pp{\Phi(\omega')}.				
+			\end{equation}
+			On peut maintenant majorer le nombre d'éléments dans la deuxième somme à droite grâce à la condition~(\ref{item:interGluant:b}) du lemme. La somme contient moins d'élément qu'il n'y a de configuration qui coïncide avec~$\omega$ sur~$S^c$, à savoir~$2^s$ ; il suffit ensuite de reporter cette majoration dans l'équation~\ref{eq:interGluant:3} pour obtenir le résultat souhaité.    
+		\end{dem}
+	
+	\subsection{Preuve du lemme gluant}
+		On va maintenant donner la démonstration du lemme gluant (lemme~\ref{lem:gluant}).
+		\paragraph{Relation d'ordre sur les chemins}
+			Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\SnB$ à~$\ZnB$. Pour ce faire, on défini déjà deux relations d'ordre comme suit :
+			\begin{itemize}
+				\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ sur les arrêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
+				\item on prend~$\ll$ une relation d'ordre totale sur les arrêtes de~$\Sk$.
+			\end{itemize}
+			Par la suite, si~$\gamma = \left(\gamma_i\right)_{1\leq i\leq r}$ et~$\gamma'=\left(\gamma'_i\right)_{1\leq i\leq r'}$ sont deux chemins auto-évitants qui vont de~$\SnB$ à~$\ZnB$ alors on notera~$\gamma <\gamma'$ lorsqu'au moins l'une des conditions suivantes sont satisfaites :
+			\begin{itemize}
+				\item le chemin~$\gamma$ est un sous chemin de~$\gamma'$, c'est à dire que~$r<r'$ et que~$\gamma = \left(\gamma_i'\right)_{1\leq i\leq r}$, cela traite le cas où les chemins ne se séparent qu'une fois arrivés à~$\ZnB$ ;
+				\item on peut comparer strictement les premiers sommets des deux chemins avec~$\gamma_0 \ll \gamma_0'$, ce qui traite le cas où les deux chemins sont différents dès la sortie de~$\SnB$ ;
+				\item il existe une entier~$k$ strictement plus petit que~$r$ et~$r'$ tel que~$\gamma_i=\gamma_i'$ pour tout entier~$i$ comprit entre~$0$ et~$k$ et tel que~$(\gamma_k,\gamma_{k+1}) \prec (\gamma_k',\gamma_{k+1}')$, c'est à dire que les chemins coïncident jusqu'à la~$k$-ième arrête et que l'on peut comparer les arrêtes issues de~$\gamma_k$.
+		\end{itemize}
+		\paragraph{Chemin minimal}
+			Soit~$\omega$ une configuration, comme~$\leq$ est une relation totale sur l'ensemble fini des chemins auto-évitant entre~$\SnB$ et~$\ZnB$, on peut définir~$\Cmin$ comme étant l'élément minimal pour cette relation dans~$\omega$. Dès lors on définit l'ensemble~$U(\omega)$ comme étant l'ensemble des éléments de~$B_n'$ vérifiant les deux propriétés suivantes :
+			\begin{enumerate}[label=P\arabic*.]
+				\item\label{item:P1} La droite~$\overline{\{z\}}$ et le support de~$\Cmin$ sont d'intersection non vide.
+				\item\label{item:P2} Il existe un chemin~$\pi$ qui relie les cylindres~$\overline{z+B_1}$ et~$\SnB[n]'$ ; et tel que la distance entre les projections canoniques de~$\pi$ et de~$\Cmin$ dans~$\mathbb{Z}^2$ est exactement~$1$.
+			\end{enumerate}
+			Dans cette définition, la propriété~\ref{item:P1} signifie que tout élément~$z$ de~$U(\omega)$ doit être sur la projection du chemin minimal~$\Cmin$ alors que la propriété deux demande qu'il existe au moins un point au dessus de~$z$ qui soit presque relié ou presque à~$\SnB[n]'$ par un chemin qui ne passe jamais au dessus ou au dessous de~$\Cmin$.
+		
+		\boldmath
+		\paragraph{L'évènement~$\mathcal{X}$} Pour la suite de la démonstration, on définit l'évènement suivant :
+		\unboldmath
+			\[
+				\mathcal{X} =
+				\left\{
+					\relie[B_{3n}]{S_{3n}}{Z_n},
+					\relie[B_n']{S_n'}{Y_n^-},
+					\relie[B_n']{S_n'}{Y_n^+}
+				\right\}
+				\cup
+				\left\{
+					\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}
+				\right\}^c
+			\]
+			Le premier ensemble dans la définition de~$\mathcal{X}$ est l'évènement que l'on suppose avec une probabilité d'au moins~$1-\delta$ alors que le reste est le complémentaire de l'évènement que l'on souhaite avoir avec probabilité au moins~$1-\epsilon$. Pour démontrer le lemme gluant~(lemme~\ref{lem:gluant}), on est donc ramené à montrer que la probabilité~$\PpSP(\mathcal{X})$ est très petite lorsque la probabilité~$\PpSP(\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+})$ est proche de~$1$. Pour ce faire, on va séparer le problème en deux, en fonction de la taille de~$U(\omega)$. On dispose pour cela des deux proposition suivantes.
+			\begin{prop}\label{prop:Upetit}
+				Soient~$t$ un entier naturel non nul et~$\epsilon$ un réel strictement positif ; alors il existe~$\delta$ un réel strictement positif tel que :
+				\[
+					\Pp{\relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+}} > 1 - \delta
+				\]
+				implique
+				\[
+					\Pp{\mathcal{X}\cap\{\#U<t\}} \leq \epsilon.
+				\]
+			\end{prop}
+			\begin{dem}
+i				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on définit la configuration~$\omega'$ à partir de~$\omega$ en y retirant les arrêtes de la forme~$\{u,v\}$ avec~$u$ dans la droite~$\overline{\{z\}}$ pour~$z$ dans~$U(z)$ et~$v$ relié à~$\SnB[n]'$.
+				On a donc construit~$\omega'$ de telle sorte qu'il ne puisse pas contenir dans~$\BnB '$ à la fois un chemin reliant~$\SnB[n]'$ et~$Y_n^-$ et un chemin reliant~$\SnB[n]'$ et~$Y_n^+$ ; car sinon~$\omega$ contiendrait un chemin qui relierait~$S_{3n}$ à~$S_n'$ dans~$B_{3n}\cup B_n'$, ce qui contredirait~$\omega\in\mathcal{X}$.
+			
+				La construction que nous venons de concevoir nous permet de définir l'application~$\Phi$ comme suit :
+				\begin{align*}
+					\Phi : \mathcal{X}\cup\{\# U < t\} 	& \longrightarrow 	
+											\mathcal{P}\left(
+												\{\relie[B_n']{S_n'}{Y_n^-}
+												\relie[B_n']{S_n'}{Y_n^+}\}^c
+											\right)\\
+						\omega				& \longmapsto 		\{\omega'\}
+				\end{align*}	
+				Les propriétés~\ref{item:P1} et~\ref{item:P2} nous assurent que l'on a retiré aucune arrête de~$\Cmin$, on a donc~$\Cmin[\omega'] = \Cmin$. Comme on retire des arrête que dans des cylindres~$\overline{z+B_1}$ et que le projeté des chemins~$\pi$ de la propriété~\ref{item:P2} sont tous à distance au moins~$1$ de la projection de~$\Cmin$, on a aussi~$U(\omega) = U(\omega')$.
+
+				De plus~$\Phi^{<-1>}(\omega')$ contient seulement des configurations qui sont égales à~$\omega'$ sauf peut être en des arrêtes adjacentes à~$U(\omega)$. Comme~$U(\omega)$ contient au plus~$t$ élément, il y a au plus~$(5k+1)t$ arrêtes adjacentes à~$U(\omega)$. On peut alors appliquer le lemme~\ref{lem:interGluant} à~$\Phi$ avec~$t'=1$ et~$s=(5k+1)t$ qui nous donne la majoration :
+				\[
+						\Pp{\mathcal{X}\cup\{\#U < t\}}
+					\leq
+						\left(
+							\frac{2}{\min(p,1-p)}
+						\right)^{(5k+1)t}
+						\left( 1 - \Pp{\relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+}}\right).
+				\]
+				Il suffit alors de prendre~$\delta$ assez petit pour achever la démonstration.
+			\end{dem}
+			\begin{prop}\label{prop:Ugrand}
+				Soit~$\epsilon$ un réel strictement positif ; alors il existe un entier~$t$ strictement positif tel que l'on ait la majoration :
+				\[
+						\Pp{\mathcal{X}\cap\{\#U \geq t\}} 
+					\leq 
+						\epsilon
+						\cdot
+						\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.
+				\]
+			\end{prop}
+			\begin{dem}
+				[TODO]
+			\end{dem}
+			On peut maintenant achever la démonstration du lemme gluant~(lemme~\ref{lem:gluant}). Fixons~$\epsilon$ un réel strictement positif, alors d'après la proposition~\ref{prop:Ugrand}, il existe~$t$ un entier naturel non nul tel que :
+			\begin{equation}\label{eq:finalGluant:1}
+					\Pp{\mathcal{X}\cap\{\#U \geq t\}} 
+				\leq 
+					\frac{\epsilon}{2}
+					\cdot
+					\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.			
+			\end{equation}
+			On peut ensuite appliquer la proposition~\ref{prop:Upetit} à~$\epsilon/2$ à~$t$ : il existe un réel~$\delta$ strictement positif tel que lorsque la probabilité de l'événement~$\{\relie[B_n']{S_n'}{Y_n^-}\}\cap\{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$ alors on a :
+			\begin{equation}\label{eq:finalGluant:2}
+				\Pp{\mathcal{X}\cap\{\#U\leq t\}}
+				\leq
+				\frac{\epsilon}{2}
+				\cdot %ponctuation
+			\end{equation}
+			Dès lors lorsque la probabilité de~$\{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}\} \cap \{\relie[B_n']{S_n'}{Y_n^-}\} \cap \{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$, on peut utiliser les équations~\ref{eq:finalGluant:1} et~\ref{eq:finalGluant:2} pour obtenir~$\PpSP(\mathcal{X}) \leq \epsilon$ ; ce qui achève la démonstration du lemme gluant.
+
