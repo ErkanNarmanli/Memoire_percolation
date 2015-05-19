@@ -1,26 +1,24 @@
 \section{FiniteSize}
-Dans cette partie on montre l'existence de clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation. Pour cela, on introduit une suite~$(u_n)_{N \geqslant0}$ telle que~$u_n \leqslant \frac{n}{3}$ et %Suite
+Dans cette partie on montre l'existence de clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation. Pour cela, on introduit une suite~$\suite{u}$ telle que~$u_n \leqslant \frac{n}{3}$ et
 	\[
-		\Pp{\relie*[B_n]{B_{u_n}}{\partial B_n}} \underset{n \to \infty}{\to} 1 %[HERE+ponctuation]
+		\Pp{\relie*[B_n]{B_{u_n}}{\partial B_n}} \underset{n \to \infty}{\to} 1.
 	\] 
 	On note~$S_n = B_{u_n}$ pour s'épargner une écriture trop lourde et on pose enfin
 	\[
-		\mathcal{E}_n( \alpha, \beta ) = \{\relie[B_n]{S_n}{\{n\} \times [ \alpha ; \beta ]} \} %[ponctuation]
+		\mathcal{E}_n( \alpha, \beta ) = \{\relie[B_n]{S_n}{\{n\} \times [ \alpha ; \beta ]} \}.
 	\]
 	\subsection{Un premier lemme}
 		On commence par montrer le lemme suivant
-		\begin{lem}\label{lem:collagesElem} %Nom? :p
+		\begin{lem}\label{lem:collagesElem} 
 			Il existe deux suites~$(\alpha_n)$ et~$(y_n)$ dans~$[0; n]$ telles que %Suite x2
-			\[
-				\begin{array}{l} %C'est illégal ça.
-					\Pp{\mathcal{E}_n(\alpha_n, n)} \underset{n \to \infty}{\to} 1 \\ %underset = useless ?
-					\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \underset{n \to \infty}{\to} 1 %idem + ponctuation
-				\end{array}
-			\]
+			\begin{align*}
+				  &\Pp{\mathcal{E}_n(\alpha_n, n)} \xrightarrow[n\to\infty]{} 1 \\ 
+				  &\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \underset{n \to \infty}{\to} 1 %idem + ponctuation
+			\end{align*}
 		\end{lem}
-		Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence imédiate %Bibliographie ? + ponctuation
-		\begin{lem}["square root trick"]\label{lem:HarrisFKG} %MD
-			Soient~$A_1, A_2, \ldots, A_n$ des événements croissants, alors %Def de évènelents croissants ? ; alors #consistance
+		Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence imédiate. %Bibliographie 
+		\begin{lem}[square root trick]\label{lem:HarrisFKG} %MD
+			Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors %Def de événements croissants ?
 			\[
 				\underset{1 \leq i \leq n}{\max} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \ldots A_n})^{1/n} %underset = useless, ponctuation
 			\]
@@ -30,11 +28,11 @@ Dans cette partie on montre l'existence de clusters avec une bonne probabilité 
 
 		On passe maintenant à la démontration du lemme~\ref{lem:collagesElem} %ponctuation
 		\begin{dem}
-			En appliquant Harris-FKG à huit événements du type~$\mathcal{E}_n(\alpha, \beta)$, on obtient grâce à l'invariance par symétrie et rotation %que l'on a ?
+			En appliquant Harris-FKG à huit événements du type~$\mathcal{E}_n(\alpha, \beta)$, on obtient grâce à l'invariance par symétrie et rotation,que
 			\[
 				\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8} %ponctuation
 			\]
-			D'où,~$\Pp{\mathcal{E}_n(0, n)} \to \infty$ quand~$n \to \infty$. Sachant cela, on peut décomposer~$\mathcal{E}_n(0, n)$ de la manière suivante %#illégal
+			D'où,~$\Pp{\mathcal{E}_n(0, n)}$ tend vers l'infini lorsque~$n$ tend vers l'infini. Sachant cela, on peut décomposer~$\mathcal{E}_n(0, n)$ de la manière suivante 
 			\[
 				\mathcal{E}_n(0, n) = \mathcal{E}_n(0, \alpha) \cup \mathcal{E}_n(\alpha + 1, n) %ponctuation
 			\]
@@ -44,7 +42,7 @@ Dans cette partie on montre l'existence de clusters avec une bonne probabilité 
 			\]
 			Or~$\Pp{\mathcal{E}_n(0,0)} < 1 - (1-p)^{3(k+1)}$ donc à partir d'un certain rang~$\Pp{\mathcal{E}_n(0,0)} < \Pp{\mathcal{E}_n(1, n)}$. De même, on obtient~$\Pp{\mathcal{E}_n(0, n-1)} > \Pp{\mathcal{E}_n(n, n)}$. Cela permet de poser %J'suis vraiement pas fan des inégalités en ligne, je les utilise vraiment que quand j'ai pas le choix
 			\[
-				\alpha_n = \max \{ \alpha < n : \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \} %perso c'est des virgules #consitance + ponctuation
+				\alpha_n = \max \{ \alpha < n, \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \} % ponctuation
 			\]
 			Ce choix de~$\alpha_n$ permet, en appliquant deux fois Harris-FKG, d'obtenir
 			\[
@@ -55,7 +53,7 @@ Dans cette partie on montre l'existence de clusters avec une bonne probabilité 
 				\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n) %ponctuation
 			\]
 			Il suffit alors de choisir~$y_n \in \{ \alpha_n/4 ; 3\alpha_n/4 \}$ tel que
-			\begin{align*} %ben voilà, t'as fini par trouver align* :p
+			\begin{align*} 
 				\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} 
 					& = \max(\Pp{\mathcal{E}_n (0, \alpha_n/2)}, \Pp{\mathcal{E}_n (\alpha_n/2, \alpha_n)}) \\
 				       	& \geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}} \\ 
