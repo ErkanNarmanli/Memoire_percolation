@@ -16,6 +16,9 @@
 				\geq 1 - \epsilon.
 			\]
 		\end{lem}
+		\begin{tikzpicture}
+			\draw (-5, -5) rectangle (-5, -5) ;
+		\end{tikzpicture}
 		On se rend compte que le lemme gluant est trivial pour~$k=0$, on peut dès lors supposer que~$k$ est un entier strictement positif. Pour démontrer le lemme gluant on a déjà besoin démontrer le lemme~\ref{lem:interGluant}.
 	
 	\subsection{Lemme intermédiaire}
@@ -98,14 +101,14 @@
 				Soient~$t$ un entier naturel non nul et~$\epsilon$ un réel strictement positif ; alors il existe~$\delta$ un réel strictement positif tel que :
 				\[
 					\Pp{\relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+}} > 1 - \delta
-				\]
-				implique
-				\[
+						\quad\quad
+						\Rightarrow
+						\quad\quad
 					\Pp{\mathcal{X}\cap\{\#U<t\}} \leq \epsilon.
 				\]
 			\end{prop}
 			\begin{dem}
-i				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on définit la configuration~$\omega'$ à partir de~$\omega$ en y retirant les arrêtes de la forme~$\{u,v\}$ avec~$u$ dans la droite~$\overline{\{z\}}$ pour~$z$ dans~$U(z)$ et~$v$ relié à~$\SnB[n]'$.
+				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on définit la configuration~$\omega'$ à partir de~$\omega$ en y retirant les arrêtes de la forme~$\{u,v\}$ avec~$u$ dans la droite~$\overline{\{z\}}$ pour~$z$ dans~$U(z)$ et~$v$ relié à~$\SnB[n]'$.
 				On a donc construit~$\omega'$ de telle sorte qu'il ne puisse pas contenir dans~$\BnB '$ à la fois un chemin reliant~$\SnB[n]'$ et~$Y_n^-$ et un chemin reliant~$\SnB[n]'$ et~$Y_n^+$ ; car sinon~$\omega$ contiendrait un chemin qui relierait~$S_{3n}$ à~$S_n'$ dans~$B_{3n}\cup B_n'$, ce qui contredirait~$\omega\in\mathcal{X}$.
 			
 				La construction que nous venons de concevoir nous permet de définir l'application~$\Phi$ comme suit :
@@ -133,14 +136,21 @@ i				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on d�
 			\begin{prop}\label{prop:Ugrand}
 				Soit~$\epsilon$ un réel strictement positif ; alors il existe un entier~$t$ strictement positif tel que l'on ait la majoration :
 				\[
-						\Pp{\mathcal{X}\cap\{\#U \geq t\}} 
+						\Pp{\mathcal{X}\cap\{\# U \geq t\}} 
 					\leq 
 						\epsilon
 						\cdot
 						\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.
 				\]
 			\end{prop}
-			\begin{dem}
+			\begin{rem}
+				Si~$z = (z_1, z_2, z_3)$ est un point de~$\Sk$ et si~$R$ est un entier naturel, on notera~$\overline{B_R}(z)$ à la place de~$\overline{(z_1, z_2) + B_R}$. Supposons maintenant~$R=2$, si~$u, v, w$ sont des voisins de~$z$ distincs deux à deux et si~$u', v', w'$ sont trois points distincs sur la bordure~$\partial \BRz$, alors il existe trois chemins auto-évitants disjoints dans~$\BRz\priv\{z\}$ qui relient respectivement~$u, v, w$ à~$u', v', w'$, puisque que l'on a supposé plus tôt que~$k$ est non nul. 
+			\end{rem}
+			\begin{dem}[de la proposition\ref{prop:Ugrand}]
+				Soient~$\omega$ une configuration dans~$\mathcal{X}\cap\{\# U \geq t\}$ et~$z$ un sommet dans~$U(\omega)$, on va construire la configuration~$\omega^{(z)}$ comme suit :
+				\begin{itemize}
+					\item [TODO]
+				\end{itemize}
 				[TODO]
 			\end{dem}
 			On peut maintenant achever la démonstration du lemme gluant~(lemme~\ref{lem:gluant}). Fixons~$\epsilon$ un réel strictement positif, alors d'après la proposition~\ref{prop:Ugrand}, il existe~$t$ un entier naturel non nul tel que :
