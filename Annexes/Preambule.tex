@@ -136,13 +136,13 @@
 \newcommand{\priv}{\setminus}								%Soustraction ensembliste
 \renewcommand{\leq}{\leqslant}								%Parce que \leqslant est plus joli
 \renewcommand{\geq}{\geqslant}								%Parce que \geqslant est plus joli
-\renewcommand{\epsilon}{\varepsilon}						%Parce que \varepsilon est plus joli
+\renewcommand{\epsilon}{\varepsilon}							%Parce que \varepsilon est plus joli
 \renewcommand{\Re}{\mathfrak{Re}}  							%Partie réelle
 \renewcommand{\Im}{\mathfrak{Im}}  							%Partie imaginaire
 \newcommand{\Pre}{\mathscr{P}}								%Ensemble des nombres premiers
 %--
 \makeatletter														
-\newsavebox{\@brx}													%On définit les fonctions
+\newsavebox{\@brx}									%On définit les fonctions
 \newcommand{\llangle}[1][]{\savebox{\@brx}{\(\m@th{#1\langle}\)}	%\rrangle et \llangle
   \mathopen{\copy\@brx\mkern2mu\kern-0.9\wd\@brx\usebox{\@brx}}}	%
 \newcommand{\rrangle}[1][]{\savebox{\@brx}{\(\m@th{#1\rangle}\)}	%
@@ -172,7 +172,7 @@
 \newcommand{\entierSup}[1]{\lceil #1\rceil}					%Partie entière supérieure
 \newcommand{\grandO}[1]{O\left(#1\right)}					%Grand O
 \newcommand{\petitO}[1]{o\left(#1\right)}					%petit o
-\newcommand\suite{\@ifstar{\suite@STAR}{\suite@NOSTAR}}
+\newcommand\suite{\@ifstar{\suite@STAR}{\suite@NOSTAR}}				
 \newcommand{\suite@NOSTAR}[2][n]{\left(#2_{#1}\right)_{#1\in\mathbb{N}}}
 \newcommand{\suite@STAR}[2][n]{\left(#2_{#1}\right)_{#1\in\mathbb{N}^*}}				
 	%\suite[i]{a} 	pour obtenir (a_i)_{i\in N}				OU
