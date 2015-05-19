@@ -10,56 +10,53 @@ Dans cette partie on montre l'existence de clusters avec une bonne probabilité 
 	\subsection{Un premier lemme}
 		On commence par montrer le lemme suivant
 		\begin{lem}\label{lem:collagesElem} 
-			Il existe deux suites~$(\alpha_n)$ et~$(y_n)$ dans~$[0; n]$ telles que %Suite x2
+			Il existe deux suites~$\suite{\alpha}$ et~$\suite{y}$ dans~$[0; n]$ telles que
 			\begin{align*}
 				  &\Pp{\mathcal{E}_n(\alpha_n, n)} \xrightarrow[n\to\infty]{} 1 \\ 
-				  &\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \underset{n \to \infty}{\to} 1 %idem + ponctuation
+				  &\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \xrightarrow[n \to \infty]{} 1.
 			\end{align*}
 		\end{lem}
-		Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence imédiate. %Bibliographie 
-		\begin{lem}[square root trick]\label{lem:HarrisFKG} %MD
-			Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors %Def de événements croissants ?
+		Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence immédiate. %Bibliographie 
+		\begin{lem}[square root trick]\label{lem:HarrisFKG}
+			Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors
 			\[
-				\underset{1 \leq i \leq n}{\max} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \ldots A_n})^{1/n} %underset = useless, ponctuation
+				\max_{1 \leq i \leq n} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \ldots A_n})^{1/n}. 
 			\]
 		\end{lem}
 		
 		JOLI DESSINS ICI %Will be done
 
-		On passe maintenant à la démontration du lemme~\ref{lem:collagesElem} %ponctuation
+		On passe maintenant à la démonstration du lemme~\ref{lem:collagesElem}.
 		\begin{dem}
-			En appliquant Harris-FKG à huit événements du type~$\mathcal{E}_n(\alpha, \beta)$, on obtient grâce à l'invariance par symétrie et rotation,que
+			En appliquant Harris-FKG à huit événements du type~$\mathcal{E}_n(\alpha, \beta)$, on obtient grâce à l'invariance par symétrie et rotation, que
 			\[
-				\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8} %ponctuation
+				\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8}.
 			\]
 			D'où,~$\Pp{\mathcal{E}_n(0, n)}$ tend vers l'infini lorsque~$n$ tend vers l'infini. Sachant cela, on peut décomposer~$\mathcal{E}_n(0, n)$ de la manière suivante 
 			\[
-				\mathcal{E}_n(0, n) = \mathcal{E}_n(0, \alpha) \cup \mathcal{E}_n(\alpha + 1, n) %ponctuation
+				\mathcal{E}_n(0, n) = \mathcal{E}_n(0, \alpha) \cup \mathcal{E}_n(\alpha + 1, n).
 			\]
-			Il suffit donc de choisir pour chaque~$n$ un~$\alpha$ assez grand pour que la deuxième condition du lemme qoit vérifiée mais suffisamment éloigné de~$n$ pour que la première condition soit vérifiée. En effet, en appliquant à nouveau Harris-FKG, on obtient
+			Il suffit donc de choisir pour chaque~$n$ un~$\alpha$ assez grand pour que la deuxième condition du lemme soit vérifiée mais suffisamment éloigné de~$n$ pour que la première condition soit vérifiée. En effet, en appliquant à nouveau Harris-FKG, on obtient
 			\[
-				\max(\Pp{\mathcal{E}_n(0, 0)}, \Pp{\mathcal{E}_n(1, n)}) \underset{n \to \infty}{\to} 1 %idem + ponctuation
+				\max(\Pp{\mathcal{E}_n(0, 0)}, \Pp{\mathcal{E}_n(1, n)}) \xrightarrow[n \to \infty] 1.
 			\]
-			Or~$\Pp{\mathcal{E}_n(0,0)} < 1 - (1-p)^{3(k+1)}$ donc à partir d'un certain rang~$\Pp{\mathcal{E}_n(0,0)} < \Pp{\mathcal{E}_n(1, n)}$. De même, on obtient~$\Pp{\mathcal{E}_n(0, n-1)} > \Pp{\mathcal{E}_n(n, n)}$. Cela permet de poser %J'suis vraiement pas fan des inégalités en ligne, je les utilise vraiment que quand j'ai pas le choix
+			Or la probabilité de l'événement~$\mathcal{E}_n(0,0)$ est bornée uniformément par rapport à~$n$ par la constante~$1 - (1-p)^{3(k+1)}$ donc à partir d'un certain rang, la probabilité de~$\mathcal{E}_n(0,0)$ est inférieure à la probabilité de~$\mathcal{E}_n(1, n)}$ par une application de Harris-FKG. On obtient de la même manière que la probabilité de~$\mathcal{E}_n(0, n-1)$ est inférieure à celle de~$\mathcal{E}_n(n, n)$ à partir d'un certain rang. Cela permet de poser
 			\[
-				\alpha_n = \max \{ \alpha < n, \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \} % ponctuation
+				\alpha_n = \max \{ \alpha < n, \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \}.
 			\]
 			Ce choix de~$\alpha_n$ permet, en appliquant deux fois Harris-FKG, d'obtenir
 			\[
-				\Pp{\mathcal{E}_n(0, \alpha_n)}, \Pp{\mathcal{E}_n(\alpha_n, n)} \geq 1 - \sqrt{1  - \Pp{\mathcal{E}_n(0, n)}} \underset{n \to \infty}{\to} 1 %ponctuation
+				\Pp{\mathcal{E}_n(0, \alpha_n)}, \Pp{\mathcal{E}_n(\alpha_n, n)} \geq 1 - \sqrt{1  - \Pp{\mathcal{E}_n(0, n)}} \underset{n \to \infty}{\to} 1.
 			\]
 			Puis, pour choisir~$y_n$, on effectue la décomposition
 			\[
-				\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n) %ponctuation
+				\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n).
 			\]
-			Il suffit alors de choisir~$y_n \in \{ \alpha_n/4 ; 3\alpha_n/4 \}$ tel que
-			\begin{align*} 
-				\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} 
-					& = \max(\Pp{\mathcal{E}_n (0, \alpha_n/2)}, \Pp{\mathcal{E}_n (\alpha_n/2, \alpha_n)}) \\
-				       	& \geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}} \\ 
-					& \underset{n \to \infty}{\to} 1 %ponctuation + c'est TRÈS moche :)
-			\end{align*}
-			Ces choix de~$\alpha_n$ et~$y_n$ satisfont les conditions du lemme.
+			Il suffit alors de choisir~$y_n$ égal à $\alpha_n/4$ ou~$3\alpha_n/4$ de sorte à maximiser la probabilité de~$\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)$. Par une dernière application de l'inégalité de Harris-FKG, on obtient enfin
+			\[
+				\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}}
+			\]
+			Ce qui permet de conclure, par l'assertion précédente, que ces choix de~$y_n$ et~$\alpha_n$ conviennent.
 		\end{dem}
 
 		%Globalement, sans regarder le pdf, je dirai qu'il y a *beaucoup* trop de maths en ligne et hors ligne
@@ -67,3 +64,4 @@ Dans cette partie on montre l'existence de clusters avec une bonne probabilité 
 		%la quantité de maths hors ligne.
 		%Question : t'as check les badness sortie de ligne à droite ?
 		%Remarque : c'est super bien indenté :)
+
