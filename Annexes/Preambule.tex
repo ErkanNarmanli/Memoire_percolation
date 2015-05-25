@@ -8,12 +8,12 @@
 %                     titlepage, notitlepage (\maketitle prend une page
 %                                             à part ou non)
 %===========================================PACKAGES================================================
-\usepackage[utf8]{inputenc}					%Codage d'entrée, ici l'Unicode UTF8
+\usepackage[utf8]{inputenc}				%Codage d'entrée, ici l'Unicode UTF8
 \usepackage[T1]{fontenc}      				%Codage de sortie, ici le type 1
-%\usepackage{xelibertine}					%fonte utilisée, ici Libertine (max une fonte)
-\usepackage{lmodern}						%fonte utilisée, ici Latin Modern (max une fonte)
+%\usepackage{xelibertine}				%fonte utilisée, ici Libertine (max une fonte)
+\usepackage{lmodern}					%fonte utilisée, ici Latin Modern (max une fonte)
 \usepackage[francais]{babel} 				%Gère les langues, la langue par défaut est la dernière
-											%|passé en argument
+							%|passé en argument
 											
 \usepackage[a4paper]{geometry}				%Permet de spécifier les dimensions du texte
 \usepackage{babelbib}
@@ -22,20 +22,20 @@
 %\usepackage{fancyhdr}						%Pour les en-tête et pieds de page
 %\usepackage{titlesec}						%Deux paquets pour modifier l'affichage des parties
 %\usepackage{titletoc}						%|
-\usepackage[refpage,french,intoc]{nomencl}						%Pour ajouter un Index
-	\makenomenclature						%|active l'index
+\usepackage[refpage,french,intoc]{nomencl}			%Pour ajouter un Index
+	\makenomenclature					%|active l'index
 	\renewcommand{\pagedeclaration}[1]{\dotfill \hyperpage{#1}}
 
 \usepackage[colorlinks=true,urlcolor=magenta,linkcolor=black,citecolor=blue]{hyperref}				
-											%Permet de créer des références cliquables
+								%Permet de créer des références cliquables
 \usepackage{multicol} 						%Pour le texte sur plusieurs colonnes
-\usepackage[svgnames]{xcolor} 				%Pour utiliser des couleurs (marche pas avec libertine)
+\usepackage[svgnames]{xcolor} 					%Pour utiliser des couleurs (marche pas avec libertine)
 \usepackage{graphicx}						%Pour inclure des images
 %\usepackage{listings}						%Pour écrire du code
-\usepackage{lipsum}							%ajoute \lipsum
-\usepackage{framed}							%Pour les encadrements
+\usepackage{lipsum}						%ajoute \lipsum
+\usepackage{framed}						%Pour les encadrements
 \usepackage{caption}						%Rajoute la fonction \caption*
-\usepackage{tikz}							%Pour dessiner !
+\usepackage{tikz}						%Pour dessiner !
 
 
 \usepackage{amsmath} 						%Trois paquets qui chargent les fontes mathématiques
@@ -43,10 +43,10 @@
 \usepackage{amsfonts}						%|
 \usepackage{stmaryrd}						%Plus de symboles mathématiques ?	
 %\usepackage{latexsym}						%D'autres symboles mathématiques.	
-\usepackage{amsthm}							%Pour créer des théorèmes
-\usepackage{bm}								%Bold Math
+\usepackage{amsthm}						%Pour créer des théorèmes
+\usepackage{bm}							%Bold Math
 \usepackage{enumitem}						%Pour modifier numérotation de enumerate
-\usepackage{array}							%Permet de faire des array en displaystyle
+\usepackage{array}						%Permet de faire des array en displaystyle
 \usepackage{mathrsfs}						%Pour définir \mathscr{ }
 \usepackage{nicefrac}						%ajoute \nicefrac{nom}{denom}
 \usepackage{numprint}						%ajoute \numprint{nombre}
@@ -160,7 +160,7 @@
 \newcommand{\BRz}[1][2]{\overline{B_{#1}}(z)}		%B_R(z)
 \newcommand{\Pro}{\bm{\mathrm{P}}}				%Le 'P' de la probabilité
 \newcommand{\PpSP}[1][p]{\Pro_{#1}}				%Proba indexée par un paramètre
-\newcommand{\Pp}[2][p]{\Pro_{#1}\left[#2\right]}			%Proba ind. par p avec des crochets
+\newcommand{\Pp}[2][p]{\Pro_{#1}\left[#2\right]}		%Proba ind. par p avec des crochets
 \newcommand{\relie}{\@ifstar{\relie@STAR}{\relie@NOSTAR}}	%event : relier #2 à #3 en passant par #1
 \newcommand{\relie@NOSTAR}[3][]{#2\xleftrightarrow{#1}#3}
 \newcommand{\relie@STAR}[3][]{#2\xleftrightarrow{!#1!}#3}
@@ -229,3 +229,24 @@
 	}{
 		\end{proof}
 	}
+\newenvironment{quartCarre}
+	{%
+		\begin{tikzpicture}[scale = 0.3]
+			%Clip
+			\clip 			(-1.9,-1.9)	rectangle	(17,17)	;
+			%Fond
+			\fill	[color=gray!8]	(-15,-15)	rectangle	(15,15)	;	%B_n
+			%Rectangles
+			\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
+			\draw 			(-2,-2) 	rectangle 	(2,2) 	;	%S_n
+			\draw 	[thick]		(5, 3)		rectangle	(15,13)	;	%B_n'
+			\draw 			(9, 7)		rectangle	(11,9)	;	%S_n'
+			%Points
+			\path	[below right]	(-1.9, 15)	node			{$B_{3_n}$}	;
+			\path	[below right]	(-2, 2)		node	[scale=0.85]	{$S_n$}		;
+			\path	[below right]	(5, 13)		node	[scale=0.85]	{$B_n'$}	;
+			\path	[below right]	(9, 9)		node	[scale=0.7]	{$S_n'$}	;
+	}{%
+
+		\end{tikzpicture}
+	}%
