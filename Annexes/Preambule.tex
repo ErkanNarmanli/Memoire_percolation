@@ -1,4 +1,4 @@
-\documentclass[a4paper, txoside, 11pt]{report}
+\documentclass[a4paper, twoside, 11pt]{report}
 
 % Classes possibles : article, amsart, report, letter, moderncv,...
 %
@@ -26,7 +26,7 @@
 	\makenomenclature					%|active l'index
 	\renewcommand{\pagedeclaration}[1]{\dotfill \hyperpage{#1}}
 
-\usepackage[colorlinks=true,urlcolor=magenta,linkcolor=black,citecolor=blue]{hyperref}				
+\usepackage[colorlinks=true,urlcolor=magenta,linkcolor=black,citecolor=black]{hyperref}				
 								%Permet de créer des références cliquables
 \usepackage{multicol} 						%Pour le texte sur plusieurs colonnes
 \usepackage[svgnames]{xcolor} 				%Pour utiliser des couleurs (marche pas avec libertine)
@@ -37,8 +37,9 @@
 \usepackage{caption}						%Rajoute la fonction \caption*
 \usepackage{tikz}							%Pour dessiner !
 \usepackage{marginnote}						%Pour des notes dans... ben la marge, quoi.
-	\renewcommand*{\raggedleftmarginnote}{}
+	\renewcommand*{\raggedleftmarginnote}{\centering}
 	\renewcommand*{\raggedrightmarginnote}{\centering}
+%\usepackage{etoolbox}
 
 
 \usepackage{amsmath} 						%Trois paquets qui chargent les fontes mathématiques
@@ -203,6 +204,11 @@
 %\newcolumntype{C}{>{\displaystyle}c}						%Colonne alignée center en displaystyle
 %\newcolumntype{R}{>{\displaystyle}r}						%Colonne alignée right en displaystyle
 %===========================================ENVIRONNEMENTS==========================================
+%\makeatletter
+%\patchcmd{\@mn@margintest}{\@tempswafalse}{\@tempswatrue}{}{}
+%\patchcmd{\@mn@margintest}{\@tempswafalse}{\@tempswatrue}{}{}
+%\reversemarginpar 
+%\makeatother
 %Theorèmes------------------------------------------------------------------------------------------
 \theoremstyle{definition}
 	\newtheorem{defi}{Définition} [section]
@@ -236,20 +242,44 @@
 	{%
 		\begin{tikzpicture}[scale = 0.3]
 			%Clip
-			\clip 			(-1.9,-1.9)	rectangle	(17,17)	;
+			\clip 					(-1.9,-1.9)	rectangle	(17,17)	;
 			%Fond
 			\fill	[color=gray!8]	(-15,-15)	rectangle	(15,15)	;	%B_n
 			%Rectangles
 			\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
-			\draw 			(-2,-2) 	rectangle 	(2,2) 	;			%S_n
-			\draw 	[thick]		(5, 3)		rectangle	(15,13)	;		%B_n'
-			\draw 			(9, 7)		rectangle	(11,9)	;			%S_n'
+			\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_n
+			\draw 	[thick]			(5, 3)		rectangle	(15,13)	;	%B_n'
+			\draw 					(9, 7)		rectangle	(11,9)	;	%S_n'
 			%Points
-			\path	[below right]	(-1.9, 15)	node			{$B_{3_n}$}	;
-			\path	[below right]	(-2, 2)		node	[scale=0.85]	{$S_{3n}$}		;
-			\path	[below right]	(5, 13)		node	[scale=0.85]	{$B_n'$}	;
+			\path	[below right]	(-1.9, 15)	node				{$B_{3_n}$}	;
+			\path	[below right]	(-2, 2)		node	[scale=0.85]{$S_{3n}$}	;
+			\path	[below right]	(5, 13)		node	[scale=0.85]{$B_n'$}	;
 			\path	[below right]	(9, 9)		node	[scale=0.7]	{$S_n'$}	;
 	}{%
 
 		\end{tikzpicture}
 	}%
+%Bibibliographie------------------------------------------------------------------------------------
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\vspace*{1cm}
+     {\LARGE\bf Bibliographie}%
+      
+     \vspace*{0.5cm}
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
