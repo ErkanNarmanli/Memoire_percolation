@@ -1,21 +1,18 @@
 \makeatletter
 \thispagestyle{empty}
-\newgeometry{centering}
 	\begin{center}
-		\vspace*{\stretch{1}}
+		\vspace*{0cm}
 		\noindent\hrulefill
-		\vspace{0.7cm}
+		\vspace{0.5cm}
 		
 		\begin{minipage}[c]{0.7\textwidth}
-			\bf\LARGE
-			\begin{center}
-				\@title{}
-			\end{center}
+			\bf\LARGE\centering
+			\@title{}
 		\end{minipage}
 
-		\vspace{0.7cm}
+		\vspace{0.5cm}
 		\noindent\hrulefill	
-		\vspace{\stretch{0.8}}
+		\vspace{0.7cm}
 		
 		{
 			\large
@@ -23,21 +20,11 @@
 			
 			\vspace{0.4cm}
 			\begin{tabular}{rl}
-					& \authorOneFisrtName{}~{\sc\authorOneFamilyName{}}\\
-				\& 	& \authorTwoFisrtName{}~{\sc\authorTwoFamilyName{}}
+					& \authorTwoFisrtName{}~{\sc\authorTwoFamilyName{}}\\
+				\& 	& \authorOneFisrtName{}~{\sc\authorOneFamilyName{}}
 			\end{tabular}
 		}
-		\vspace{\stretch{5}}
-		
-		Mémoire de première année rédigé sous la direction de~\supervisorFirstName{}~{\sc\supervisorFamilyName{}}
-		
-		à l'\instituteName{}
-		
-		
-		\vspace{\stretch{1}}
-		le \dateName{}
-		\vspace{\stretch{1}}
+		\footnotetext{Mémoire de première année rédigé à l'\instituteName{} sous la direction de~\supervisorFirstName{}~{\sc\supervisorFamilyName{}}}
+		\footnotetext{le \dateName{}}
 	\end{center}
-\restoregeometry
 \makeatother
-
