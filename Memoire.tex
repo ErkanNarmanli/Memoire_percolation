@@ -7,27 +7,17 @@
 %===========================================DOCUMENT================================================
 
 \begin{document}
-		\include{Annexes/PageTitre}
-
-		\thispagestyle{empty}
-		\cleardoublepage
-		\tableofcontents
+		\input{Annexes/PageTitre}
 		
-		\cleardoublepage
-		\include{Annexes/Introduction}
+		\input{Annexes/Introduction}
 		
-		\thispagestyle{empty}
-		\cleardoublepage
-		\include{Annexes/Notation}
+		%\tableofcontents
+		
+		%\input{Annexes/Notation}
 		
 		%--
-
-		\thispagestyle{empty}
-		\cleardoublepage
 		\input{Chapitres/Preuve}
-		
-		\thispagestyle{empty}
-		\cleardoublepage
+
 		\bibliographystyle{smfalpha}
 		\bibliography{Annexes/biblio}
 		\addcontentsline{toc}{chapter}{Bibliographie}
