@@ -1,21 +1,13 @@
-		\section*{Notations}
-		\addcontentsline{toc}{section}{Notations}
-		Ci-dessous se trouvent les notations qui seront utilisées tout le long de ce document.
-		\begin{itemize}
-			\item Les ensembles des entiers naturels, des entiers relatifs, des nombres réels et des nombres complexes sont désignés respectivement par~$\mathbb{N} $,~$\mathbb{Z} $,~$\mathbb{R} $,~$\mathbb{C}$\nomenclature[An]{$\mathbb{N}$}{Ensemble des entiers naturels}\nomenclature[Az]{$\mathbb{Z}$}{Ensemble des entiers relatifs}\nomenclature[Ar]{$\mathbb{R}$}{Ensemble des nombres réels}\nomenclature[Ac]{$\mathbb{C}$}{Ensemble des nombres complexes}. On note respectivement~$\mathbb{R}_+$ et~$\mathbb{R}_-$ les ensembles des nombres réels positifs ou nuls et celui des nombres réels négatifs ou nuls.
-			\item Si~$E$ est un des six ensembles cités ci-dessus, alors~$E^*$ désigne l'ensemble~$E\priv\{0\}$.
-			\item On note~$\Pre$\nomenclature[Ap]{$\Pre$}{Ensemble des nombres premiers} l'ensemble des nombres premiers. La lettre~$p$\nomenclature[Ap]{$p$}{Nombre premiers quelconque} désigne toujours un élément de~$\Pre$. On note~$p_1,p_2,\ldots,p_n,\ldots$\nomenclature[Ap]{$p_1,...,p_n$}{Suite croissante des nombres premiers} la suite croissante des nombres premiers.
-			\item La partie entière inférieur d'un nombre réel~$x$ est notée~$\entier{x}$\nomenclature[O]{$\entier{x}$}{Partie entière supérieure~$x$} sa partie entière supérieure est notée~$\entierSup{x}$\nomenclature[O]{$\entierSup{x}$}{Partie entière supérieure de~$x$} ; la partie fractionnaire de~$x$ est notée~$\{x\}$\nomenclature[O]{$\{x\}$}{Partie fractionnaire de~$x$}.
-			\item Si~$a$ est un nombre réel, on note~$\Omega_a$\nomenclature[Gz]{$\Omega_a$}{Ensemble des nombres complexes dont la partie réelle est strictement supérieure au réel~$a$} l'ensemble des nombres complexes dont la partie réelle est strictement supérieure à~$a$. Ainsi,~$\overline
-			{\Omega}_a$\nomenclature[Gz]{$\overline{\Omega}_a$}{Ensemble des nombres complexes dont la partie réelle est supérieure ou égale au réel~$a$} désigne l'adhérence de~$\Omega_a$, c'est à dire l'ensemble des nombres complexes de partie réelle supérieure ou égale à~$a$.
-			\item Si~$z_0$ est un nombre complexe, et si~$r$ est un nombre réel strictement positif, on note~$D(z_0,r)$\nomenclature[Ad]{$D(z_0,r)$}{Disque de centre~$z_0$ et de rayon~$r$} le disque ouvert de centre~$z_0$ et de rayon~$r$, c'est à dire l'ensemble des nombres complexes~$z$ qui satisfont l'inégalité~$\abs{z-z_0}<r$.
-			\item Si l'on utilise la lettre~$s$ pour désigner un nombre complexe, on note alors~$\sigma$\nomenclature[Gs]{$\sigma$}{Partie réelle d'un nombre complexe générique~$s$} la partie réelle de ce nombre et~$t$\nomenclature[At]{$t$}{Partie imaginaire d'un nombre complexe générique~$s$} sa partie imaginaire.
-			\item Si~$z$ est un nombre complexe quelconque, on note alors~$\Re(z)$\nomenclature[Ar]{$\Re(z)$}{Partie réelle du nombre complexe~$z$} la partie réelle de ce nombre et~$\Im(z)$\nomenclature[Ai]{$\Im(z)$}{Partie imaginaire du nombre complexe~$z$} sa partie imaginaire.
-			\item On utilise les notations de Landau\personne[mathématicien allemand]{Edmund Georg Hermann}{Landau}{1877}{1938} pour comparer les fonctions, aussi les relations de négligeabilité et de domination sont notées respectivement~$o$\nomenclature[Ao]{$o$}{Relation de négligeabilité de fonctions} et~$O$\nomenclature[Ao]{$O$}{Relation de domination de fonctions}. La relation d'équivalence entre fonctions, quant à elle, est notée~$\sim$\nomenclature[O]{$\, \sim$}{Relation d'équivalence entre fonctions}.
-			\item On note~$\log$\nomenclature[Al]{$\log$}{Fonction logarithme népérien (et son prolongement complexe)} la fonction logarithme népérien et si~$b$ est un réel strictement positif, on note~$\log_b$\nomenclature[Al]{$\log_b$}{Fonction logarithme en base~$b$ (et son prolongement complexe)} le logarithme en base~$b$ donné par~$\log_b = \frac{\log}{\log(b)}$.
-			\item On note~$\gamma_0$\nomenclature[Gc]{$\gamma_0$}{Constante d'Euler-Mascheroni} la constante d'Euler-Mascheroni\personne[abbé et mathématicien italien]{Lorenzo}{Mascheroni}{1750}{1800}. On rappelle que cette constante peut être donnée par
-			\[
-				\gamma_0 = \lim_{n\rightarrow+\infty} \left(\sum_{k=1}^{n}\frac{1}{k}-\log(n)\right).
-			\]
-		\end{itemize}
-		
+\vspace*{0.3cm}
+	Le modèle de percolation a été introduit par le mathématicien anglais John Hammerersley en 1957 dans son article \emph{Percolation Processes: Lower Bounds for the Critical Probability}~\cite{hammer}. En~1960, T.E. Harris démontre dans~\cite{harris} qu'il n'y a pas percolation dans le réseau~$\mathbb{Z}^2$ avec le paramètre~$1/2$. Plus tard en~1980, Harry Kesten démontre dans~\cite{kesten} que le le point critique de ce même réseau est plus petit que~$1/2$ ce qui démontre alors~$p_c=1/2$ et l'absence de percolation au point critique.
+	
+	En 1994 les mathématiciens Takashi Hara et Gordon Slade démontrent dans~\cite{mean} qu'il n'y a pas percolation au point critique dans~$\mathbb{Z}^n$ pour~$n\geq 19$. Bien l'on suspecte que le résultat soit vrai pour tout~$n$, le problème s'avère difficile, et montrer l'absence de percolation au point critique dans le réseau cubique~$\mathbb{Z}^3$ reste un domaine majeur de la recherche actuelle.
+	
+	Dans cet exposé, on s'intéresse aux \emph{tranches} du réseau cubique, à savoir les réseaux de la forme~$\mathbb{Z}^2\times\{0,...,k\}$. Par la suite, un tel réseau sera noté~$\Sk$. \marginnote{$\Sk$}
+	Dans la suite, si~$p$ est un réel compris entre~$0$ et~$1$ on notera~$\PpSP$ \marginnote{$\PpSP$} la probabilité associée au modèle de percolation sur~$\Sk$ obtenu à partir de la Bernoulli de paramètre~$p$ sur les arrêtes. Si~$B$ est une parie de~$\mathbb{Z}^2$, on notera~$\overline{B}$ \marginnote{$\overline{B}$} le cylindre de base~$B$ donné par~$\overline{B}=B\times\{0,...,k\}$. 	
+	Si~$B, X$ et~$Y$ sont trois sous-ensembles de~$\mathbb{Z}^2$ tels que~$X,Y\subset B$, alors on définit les deux événements suivants :
+	\begin{itemize}
+		\item[] $\relie[B]{X}{Y}$ \marginnote{$\relie[B]{X}{Y}$} : \og{} il existe un cluster ouvert infini dans $\overline{B}$ reliant $\overline{X}$ et $\overline{Y}$  \fg{}
+		\item[] $\relie*[B]{X}{Y}$ \marginnote{$\relie*[B]{X}{Y}$} :  \og{} il existe un \emph{unique} cluster ouvert infini dans $\overline{B}$ reliant $\overline{X}$ et $\overline{Y}$  \fg{}
+	\end{itemize}
+	
