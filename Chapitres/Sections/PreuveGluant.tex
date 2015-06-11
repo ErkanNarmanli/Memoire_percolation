@@ -153,13 +153,13 @@
 			\begin{dem}[de la proposition\ref{prop:Ugrand}]
 				Soient~$\omega$ une configuration dans~$\mathcal{X}\cap\{\# U \geq t\}$ et~$z$ un sommet dans~$U(\omega)$, on va construire la configuration~$\omega^{(z)}$ comme suit :
 				\begin{enumerate}
-					\item On prend~$u,v,w$ trois points distincts qui sont  à distance~$1$ de~$z$  et telle que l'on puisse comparer les arrêtes avec~$(z,v)\prec (z,w)$.
+					\item\label{item:cons:a} On prend~$u,v,w$ trois points distincts qui sont  à distance~$1$ de~$z$  et telle que l'on puisse comparer les arrêtes avec~$(z,v)\prec (z,w)$.
 					
-					\item On définit ensuite nos trois points~$u',v',w'$ sur le cylindre~$\partial\BRz$ de la façon suivante : dès lors que~$\Cmin$ traverse le cylindre~$\BRz$ on peut prendre~$u'$ le sommet par lequel il rentre dans~$\BRz$ et~$v'$ le sommet par lequel il en ressort. Ces sommets sont distincts puisque~$\Cmin$ est auto-évitant. 
+					\item\label{item:cons:b} On définit ensuite nos trois points~$u',v',w'$ sur le cylindre~$\partial\BRz$ de la façon suivante : dès lors que~$\Cmin$ traverse le cylindre~$\BRz$ on peut prendre~$u'$ le sommet par lequel il rentre dans~$\BRz$ et~$v'$ le sommet par lequel il en ressort. Ces sommets sont distincts puisque~$\Cmin$ est auto-évitant. 
 					
 					Puisque~$z$ est dans~$U(\omega)$, par~\ref{item:P1}, il existe~$\pi'$ un chemin auto-évitant qui relie~$\overline{z+B_1}$ à~$S_n'$ ; on pose alors~$w'$ le sommet de~$\partial\BRz$ par lequel~$\pi'$ sort pour la dernière fois de~$\BRz$ et~$\pi$ le chemin qui relie alors~$w'$ à~$S_n'$ et qui ne rencontre~$\BRz$ qu'en~$w'$. On a alors~$w'$ distinct de~$u'$ et~$v'$ car sinon on aurait~$S_n'$ qui serait relié à~$S_{3n}$, en passant par~$\Cmin$ jusqu'à~$w'$ puis par~$\pi$ ensuite.
-					\item On retire toutes les arrêtes de~$\omega$ qui vivent dans~$\overline{B_3}(z)$ à l'exception de ceux sur la frontière~$\partial\overline{B_3}(z)$ et qui sont dans les chemins~$\Cmin$ ou~$\pi$. De telle sorte que la seule façon d'entrer dans~$\BRz$ soit de passer par~$u', v'$ ou~$w'$
-					\item Enfin, puisque~$u',v',w'$ sont trois sommets distincts de~$\partial\BRz$, on peut appliquer la remarque précédente qui nous assure l'existence de trois chemins auto-évitants disjoints~$\gamma_u,\gamma_v$ et~$\gamma_w$ qui relient respectivement~$u,v,w$ à~$u'v',w'$ dans~$\BRz\priv\{z\}$.  On ouvre alors les arrêtes~$(z,u), (z,v)$ et~$(z,w)$ ainsi que les chemins~$\gamma_u,\gamma_v$ et~$\gamma_w$.
+					\item\label{item:cons:c} On retire toutes les arrêtes de~$\omega$ qui vivent dans~$\overline{B_3}(z)$ à l'exception de ceux sur la frontière~$\partial\overline{B_3}(z)$ et qui sont dans les chemins~$\Cmin$ ou~$\pi$. De telle sorte que la seule façon d'entrer dans~$\BRz$ soit de passer par~$u', v'$ ou~$w'$
+					\item\label{item:cons:d} Enfin, puisque~$u',v',w'$ sont trois sommets distincts de~$\partial\BRz$, on peut appliquer la remarque précédente qui nous assure l'existence de trois chemins auto-évitants disjoints~$\gamma_u,\gamma_v$ et~$\gamma_w$ qui relient respectivement~$u,v,w$ à~$u'v',w'$ dans~$\BRz\priv\{z\}$.  On ouvre alors les arrêtes~$(z,u), (z,v)$ et~$(z,w)$ ainsi que les chemins~$\gamma_u,\gamma_v$ et~$\gamma_w$.
 				\end{enumerate}
 				On a construit~$\omega^{(z)}$ de telle que que~$S_{3n}$ et~$S_n'$ y soient reliés dans~$B_{3n}\cup B_n'$, ce qui nous permet de définir l'application suivante :
 				\begin{align*}
@@ -169,8 +169,17 @@
 																						\right)\\
 																					\omega	& \longmapsto  \{\omega^{(z)}, z\in U(\omega)\}.
 				\end{align*}
-				On veut à présent utiliser le lemme~\ref{lem:interGluant}. Déjà, on a clairement que toute image~$\Phi(\omega)$ est au moins de cardinale~$t$. Il nous reste maintenant à déterminer~$s$ tel que quelque soit l'image~$\omega^{(z)}$ que l'on prenne alors il existe un sous ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~$s$ et tel que l'on ait l'inclusion~
-				[TODO]
+				On veut à présent utiliser le lemme~\ref{lem:interGluant}. Soit donc~$\omega^{(z)}$ une configuration à l'arrivée, on se rend compte dans un premier temps que par minimalité on a~$\Cmin[\omega^{(z)}]$ et~$\Cmin$ qui coïncident au moins jusqu'à~$u'$. Ensuite, et grâce au point~\ref{item:cons:c} de la construction précédente, on a~$u'$ de degré exactement~$2$, et puisque l'on à vidé~$\BRz$, cela force~$\Cmin[\omega^{(z)}]$ à passer ensuite par~$\gamma_u$. Une fois arrivé en~$z$, on a deux possibilités : passer par~$v$ ou~$w$ ; mais puisque l'on a prit les sommets de telle sorte que~$(z,v)\prec (z,w)$ alors~$\Cmin[\omega^{(z)}]$ est forcé de passer par~$v$ et ensuite par~$\gamma_v$. Dès lors la minimalité de~$\Cmin$ force~$\Cmin[\omega^{(z)}]$ à prendre le même chemin à la sortie de~$\BRz$.
+				
+				Pour résumer on a~$\Cmin[\omega^{(z)}]$ qui empreinte~$\Cmin$ à l'extérieur de~$\BRz$ ; alors que dans~$\BRz$ il empreinte~$\gamma_u$ de~$u'$ jusqu'à~$z$, puis~$\gamma_v$ de~$z$ jusqu'à~$v'$, où il rejoint~$\Cmin$. Aussi~$z$ est le seul sommet de~$\Cmin[\omega^{(z)}]$ qui soit relié à~$\overline{S_n'}$ sans utiliser aucune arrête du chemin minimal~$\Cmin[\omega^{(z)}]$. Cela nous donne alors que tous les~$\omega^{(z)}$ sont distincts à~$\omega$ fixé. Dès lors toutes les images~$\Phi(\omega)$ sont de cardinal au moins~$t$.
+				
+				Il nous reste maintenant à déterminer~$s$ tel que quelque soit l'image~$\omega^{(z)}$ que l'on prenne alors il existe un sous ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~$s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega'\in\Phi(\omega)\} \subset \{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega_{|S^c}=\omega_{|S^c}'\}$. On prend~$s=236k$, le nombre d'arêtes dans~$\overline{B_3}(z)$, seul endroit de~$\omega^{(z)}$ qui diffère de~$\omega$. On peut enfin appliquer le lemme~\ref{lem:interGluant} qui nous donne la majoration :
+				\[
+					\Pp{\mathcal{X}\cap\# U \geq t} 
+							\leq \frac{1}{t} \left(\frac{2}{\min(p,1-p)}\right)^s
+									\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.
+				\]
+				Où~$s$ est indépendant de~$t$, il suffit alors de prendre~$t$ assez grand pour conclure la démonstration de la proposition.
 			\end{dem}
 			On peut maintenant achever la démonstration du lemme gluant~(lemme~\ref{lem:gluant}). Fixons~$\epsilon$ un réel strictement positif, alors d'après la proposition~\ref{prop:Ugrand}, il existe~$t$ un entier naturel non nul tel que :
 			\begin{equation}\label{eq:finalGluant:1}
