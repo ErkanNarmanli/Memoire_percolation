@@ -1,4 +1,4 @@
-\documentclass[a4paper, oneside, 11pt]{report}
+\documentclass[a4paper, txoside, 11pt]{report}
 
 % Classes possibles : article, amsart, report, letter, moderncv,...
 %
@@ -29,13 +29,16 @@
 \usepackage[colorlinks=true,urlcolor=magenta,linkcolor=black,citecolor=blue]{hyperref}				
 								%Permet de créer des références cliquables
 \usepackage{multicol} 						%Pour le texte sur plusieurs colonnes
-\usepackage[svgnames]{xcolor} 					%Pour utiliser des couleurs (marche pas avec libertine)
+\usepackage[svgnames]{xcolor} 				%Pour utiliser des couleurs (marche pas avec libertine)
 \usepackage{graphicx}						%Pour inclure des images
 %\usepackage{listings}						%Pour écrire du code
-\usepackage{lipsum}						%ajoute \lipsum
-\usepackage{framed}						%Pour les encadrements
+\usepackage{lipsum}							%ajoute \lipsum
+\usepackage{framed}							%Pour les encadrements
 \usepackage{caption}						%Rajoute la fonction \caption*
-\usepackage{tikz}						%Pour dessiner !
+\usepackage{tikz}							%Pour dessiner !
+\usepackage{marginnote}						%Pour des notes dans... ben la marge, quoi.
+	\renewcommand*{\raggedleftmarginnote}{}
+	\renewcommand*{\raggedrightmarginnote}{\centering}
 
 
 \usepackage{amsmath} 						%Trois paquets qui chargent les fontes mathématiques
@@ -43,10 +46,10 @@
 \usepackage{amsfonts}						%|
 \usepackage{stmaryrd}						%Plus de symboles mathématiques ?	
 %\usepackage{latexsym}						%D'autres symboles mathématiques.	
-\usepackage{amsthm}						%Pour créer des théorèmes
-\usepackage{bm}							%Bold Math
+\usepackage{amsthm}							%Pour créer des théorèmes
+\usepackage{bm}								%Bold Math
 \usepackage{enumitem}						%Pour modifier numérotation de enumerate
-\usepackage{array}						%Permet de faire des array en displaystyle
+\usepackage{array}							%Permet de faire des array en displaystyle
 \usepackage{mathrsfs}						%Pour définir \mathscr{ }
 \usepackage{nicefrac}						%ajoute \nicefrac{nom}{denom}
 \usepackage{numprint}						%ajoute \numprint{nombre}
@@ -75,8 +78,8 @@
 %Arguments-à-modifier-------------------------------------------------------------------------------
 \title{Absence de percolation au point critique dans une tranche}	%Titre
 
-\def\authorOneFisrtName{Erkan}									%Prénom(s) de l'auteur 1
-\def\authorOneFamilyName{Narmanli}								%Nom de famille de l'auteur 1
+\def\authorOneFisrtName{Erkan}								%Prénom(s) de l'auteur 1
+\def\authorOneFamilyName{Narmanli}							%Nom de famille de l'auteur 1
 \def\authorTwoFisrtName{Martin}								%Prénom(s) de l'auteur 2
 \def\authorTwoFamilyName{Pépin}								%Nom de famille de l'auteur 2
 \def\supervisorFirstName{Rafaël}							%Prénom(s) du superviseur
@@ -97,8 +100,8 @@
 \renewcommand{\thefootnote}{\alph{footnote}} 				%Notes de bas de page
 \renewcommand{\theenumi}{\alph{enumi}}						%enviro. enumerate
 %\setcounter{secnumdepth}{5}								%*A retrouver*
-%\renewcommand{\thesection}{\Roman{section}.}				%Section
-%\renewcommand{\thesubsection}{\arabic{subsection}.}		%Sous-section
+\renewcommand{\thesection}{\Alph{section}}					%Section
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}	%Sous-section
 %\renewcommand{\thesubsubsection}{\alph{subsubsection}.}	%Sous-sous-section
 %\renewcommand{\theparagraph}{}								%Paragraphe
 %\renewcommand{\thesubparagraph}{(\roman{subparagraph})}	%Sous-paragraphe
@@ -136,7 +139,7 @@
 \newcommand{\priv}{\setminus}								%Soustraction ensembliste
 \renewcommand{\leq}{\leqslant}								%Parce que \leqslant est plus joli
 \renewcommand{\geq}{\geqslant}								%Parce que \geqslant est plus joli
-\renewcommand{\epsilon}{\varepsilon}							%Parce que \varepsilon est plus joli
+\renewcommand{\epsilon}{\varepsilon}						%Parce que \varepsilon est plus joli
 \renewcommand{\Re}{\mathfrak{Re}}  							%Partie réelle
 \renewcommand{\Im}{\mathfrak{Im}}  							%Partie imaginaire
 \newcommand{\Pre}{\mathscr{P}}								%Ensemble des nombres premiers
@@ -157,7 +160,7 @@
 \newcommand{\ZnB}[1][n]{\overline{Z}_{#1}}		%L'ensemble Z_n barre
 \newcommand{\SnB}[1][3n]{\overline{S}_{#1}}		%S_{3n} /!\ arg. par défaut : 3n
 \newcommand{\BnB}[1][n]{\overline{B}_{#1}}		%B_n
-\newcommand{\BRz}[1][2]{\overline{B_{#1}}(z)}		%B_R(z)
+\newcommand{\BRz}[1][2]{\overline{B_{#1}}(z)}	%B_R(z)
 \newcommand{\Pro}{\bm{\mathrm{P}}}				%Le 'P' de la probabilité
 \newcommand{\PpSP}[1][p]{\Pro_{#1}}				%Proba indexée par un paramètre
 \newcommand{\Pp}[2][p]{\Pro_{#1}\left[#2\right]}		%Proba ind. par p avec des crochets
@@ -202,7 +205,7 @@
 %===========================================ENVIRONNEMENTS==========================================
 %Theorèmes------------------------------------------------------------------------------------------
 \theoremstyle{definition}
-	\newtheorem{defi}{Définition} [chapter]
+	\newtheorem{defi}{Définition} [section]
 \theoremstyle{plain}
 	\newtheorem{thm}[defi]{Théorème}
 	\newtheorem{prop}[defi]{Proposition}
