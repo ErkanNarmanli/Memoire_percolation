@@ -1,86 +1,75 @@
 \section{Critère local de collage}
-Dans cette partie on montre l'existence de certains clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation. Pour cela, on introduit une suite~$\suite{u}$ telle que~$u_n \leqslant \frac{n}{3}$ et
+Dans cette partie on montre l'existence de certains clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation~\ref{sec:renormalisation}. Pour cela, on introduit une suite~$\suite{u}$ telle que~$u_n \leqslant n/3$ et %que (?)
 	\[
 		\Pp{\relie*[B_n]{B_{u_n}}{\partial B_n}} \underset{n \to \infty}{\to} 1.
 	\] 
-	On note~$S_n = B_{u_n}$ pour s'épargner une écriture trop lourde et on pose enfin l'événement
+	Pour s'épargner une écriture trop lourde, on note~$S_n = B_{u_n}$ et on définit, pour~$\alpha, \beta$ des réels de~$[0, n]$, l'événement~$\mathcal{E}_n(\alpha, \beta)$ par
 	\[
-		\mathcal{E}_n( \alpha, \beta ) = \{\relie[B_n]{S_n}{\{n\} \times [ \alpha ; \beta ]} \}.
+		\mathcal{E}_n( \alpha, \beta ) = \{\relie[B_n]{S_n}{\{n\} \times \llbracket \alpha ; \beta \rrbracket} \}.
 	\]
-	\subsection{Un premier lemme}
-		On commence par montrer le lemme suivant
-		\begin{lem}\label{lem:collagesElem} 
-			Il existe deux suites~$\suite{\alpha}$ et~$\suite{y}$ dans~$[0; n]$ telles que
-			\begin{align*}
-				  &\Pp{\mathcal{E}_n(\alpha_n, n)} \xrightarrow[n\to\infty]{} 1 \\ 
-				  &\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \xrightarrow[n \to \infty]{} 1.
-			\end{align*}
-		\end{lem}
-		Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence immédiate. %Bibliographie 
-		\begin{lem}[square root trick]\label{lem:HarrisFKG}
-			Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors
-			\[
-				\max_{1 \leq i \leq n} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \ldots A_n})^{1/n}. 
-			\]
-		\end{lem}
-		
-		JOLI DESSINS ICI %Will be done
-
-		On passe maintenant à la démonstration du lemme~\ref{lem:collagesElem}.
-		\begin{dem}
-			L'invariance du modèle par rotation et réflexion permet d'appliquer une première fois l'inégalité de Harris-FKG à~$8$ événements de même probabilité de la manière suivante
-			\[
-				\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8}.
-			\]
-			D'où,~$\Pp{\mathcal{E}_n(0, n)}$ tend vers 1 l'infini lorsque~$n$ tend vers l'infini. Sachant cela, on peut décomposer~$\mathcal{E}_n(0, n)$ en~$\mathcal{E}_n(0, \alpha) \cup \mathcal{E}_n(\alpha + 1, n)$. Il faut ensuite choisir pour chaque~$n$ un~$\alpha$ assez grand pour que la deuxième condition du lemme soit vérifiée mais suffisamment éloigné de~$n$ pour que la première condition soit vérifiée. En appliquant à nouveau Harris-FKG, on obtient
-			\[
-				\max(\Pp{\mathcal{E}_n(0, 0)}, \Pp{\mathcal{E}_n(1, n)}) \xrightarrow[n \to \infty]{} 1.
-			\]
-			Or la probabilité de l'événement~$\mathcal{E}_n(0,0)$ est bornée uniformément par rapport à~$n$ par la constante~$1 - (1-p)^{3(k+1)}$ donc à partir d'un certain rang, la probabilité de~$\mathcal{E}_n(0,0)$ est inférieure à la probabilité de~$\mathcal{E}_n(1, n)$. On obtient de la même manière que la probabilité de~$\mathcal{E}_n(0, n-1)$ est inférieure à celle de~$\mathcal{E}_n(n, n)$ à partir d'un certain rang. Cela permet de poser
-			\[
-				\alpha_n = \max \{ \alpha \in \llbracket 0;n-1 \rrbracket, \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \}.
-			\]
-			Ce choix de~$\alpha_n$ permet, en appliquant deux fois Harris-FKG, de minorer les probabilités~$\Pp{\mathcal{E}_n(0, \alpha_n)}$ et~$\Pp{\mathcal{E}_n(\alpha_n, n)}$ par~$1 - \sqrt{1  - \Pp{\mathcal{E}_n(0, n)}}$ ce qui donne leur convergence vers~$1$. 
 	
-			À partir de là, pour choisir~$y_n$, on effectue la décomposition
-			\[
-				\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n).
-			\]
-			Il suffit alors de choisir~$y_n$ égal à $\alpha_n/4$ ou~$3\alpha_n/4$ de sorte à maximiser la probabilité de~$\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)$. Par une dernière application de l'inégalité de Harris-FKG, on obtient enfin à partir d'un certain rang
-			\[
-				\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}}.
-			\]
-			Ce qui permet de conclure que ces choix de~$y_n$ et~$\alpha_n$ conviennent.
-		\end{dem}
-
-		On définit à partir d'ici les ensembles suivants
+	\begin{lem}\label{lem:collagesElem} 
+		Il existe deux suites~$\suite{\alpha}$ et~$\suite{y}$ dans~$[0; n]$ telles que
 		\begin{align*}
-			&B_n' = (2n, y_{3n}) + B_n \\
-			&S_n' = (2n, y_{3n}) + S_n \\
-			&Y_n^+ = {3n} \times [y_{3n} + \alpha_n; y_{3n} + n] \\
-			&Y_n^- = {3n} \times [y_{3n} - n; y_{3n} - \alpha_n] \\
-			&Z_n = {3n} \times [y_{3n} - \alpha_n; y_{3n} + \alpha_n]
+			  &\Pp{\mathcal{E}_n(\alpha_n, n)} \xrightarrow[n\to\infty]{} 1 \\ 
+			  &\Pp{\mathcal{E}_n(y_n - \frac{\alpha_n}{4}, y_n + \frac{\alpha_n}{4})} \xrightarrow[n \to \infty]{} 1.
 		\end{align*}
-		
-		%JOLI DESSIN ICI
-
-		On souhaite d'abord relier~$S_{3n}$ à~$Z_n$ et $S_n'$ à~$Y_n^+$ et~$Y_n^-$. Le lemme~\ref{lem:gluant} permettra ensuite de lier~$S_{3n}$ à~$S_n'$.
-
-		On a pour tout~$n$, $\alpha_n \leq n$ donc il existe une infinité de~$n$ tels que~$\alpha_{3n} \leq 4\alpha_n$ (sinon, à partir d'un certain rang, la suite aurait une croissance sur-linéaire, cequi est impossible). 
-		
-		Quand~$\alpha_{3n} \leq 4\alpha_n$, on a
+	\end{lem}
+	Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence immédiate. On en trouvera une preuve dans~\cite{Grimmett}. 
+	\begin{lem}[square root trick]\label{lem:HarrisFKG}
+		Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors
 		\[
-			\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}} \geq \Pp{\mathcal{E}_n(y_{3n} - \alpha_{3n}/4, y_{3n} + \alpha_{3n}/4)}.
+			\max_{1 \leq i \leq n} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \ldots A_n})^{1/n}. 
 		\]
+	\end{lem}
+	
+	JOLI DESSINS ICI %Will be done
 
-		Ainsi par la remarque précédente et le lemme~\ref{lem:collagesElem}, la limite supérieure de la suite de probabilités~$\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}}$ tend vers~$1$ quand~$n$ tend vers l'infini. Maintenant que nous avons relié~$S_{3n}$ à~$Z_n$, ajoutons y~$Y_n^+$ et~$Y_n^-$. On obtient à l'aide de Harris-FKG
+	\begin{dem}[du lemme~\ref{lem:collageElem}]
+		En découpant le carré~$\partial B_n$ en ses~$8$demi côtés, on peut décomposer l'événement~$\relie[B_n]{S_n}{\partial B_n}$ en la réunion de~$8$ événements obtenu à partir de~$\mathcal{E}_n(0, n)$ en effectuant des rotations et des réflexions. L'invariance du modèle par lesdites réflexions et rotations permet d'affirmer que ces événements sont tous de même probabilité. On peut donc appliquer l'inégalité de Harris-FKG de la manière suivante
 		\[
-			\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^+}, \relie[B_n']{S_n'}{Y_n^-}} \geq \Pp{\relie[B_{3n}]{S_{3n}}{Z_n} }\Pp{\mathcal{E}_n(0, \alpha_n)}^2.
+			\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8}.
 		\]
-		On a donc enfin
-		\[ 
-			\limsup_{n \to \infty} \Pp{\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^+}, \relie[B_n']{S_n'}{Y_n^-}} = 1.
+		Ce qui donne,~$\Pp{\mathcal{E}_n(0, n)}$ tend vers 1 lorsque~$n$ tend vers l'infini. Sachant cela, on peut décomposer~$\mathcal{E}_n(0, n)$ en~$\mathcal{E}_n(0, \alpha) \cup \mathcal{E}_n(\alpha + 1, n)$. Il faut ensuite choisir pour chaque~$n$ un~$\alpha$ assez grand pour que la deuxième condition du lemme soit vérifiée mais suffisamment éloigné de~$n$ pour que la première condition reste vraie. En appliquant à nouveau Harris-FKG aux événements~$\mathcal{E}_n(0, 0)$ et~$\mathcal{E}_n(1, n)$, on obtient
+		\[
+			\max(\Pp{\mathcal{E}_n(0, 0)}, \Pp{\mathcal{E}_n(1, n)}) \xrightarrow[n \to \infty]{} 1.
 		\]
-		Ce qui termine cette partie.
+		Or la probabilité de l'événement~$\mathcal{E}_n(0,0)$ est bornée uniformément par rapport à~$n$ par la constante~$1 - (1-p)^{3(k+1)}$ donc à partir d'un certain rang, la probabilité de~$\mathcal{E}_n(0,0)$ est inférieure à la probabilité de~$\mathcal{E}_n(1, n)$. On obtient de la même manière que la probabilité de~$\mathcal{E}_n(0, n-1)$ est inférieure à celle de~$\mathcal{E}_n(n, n)$ à partir d'un certain rang. Cela permet de poser
+		\[
+			\alpha_n = \max \{ \alpha \in \llbracket 0;n-1 \rrbracket, \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \}.
+		\]
+		Ce choix de~$\alpha_n$ permet, en appliquant Harris-FKG aux événements~$\mathcal{E}_n(0, \alpha_n)$ et~$\mathcal{E}_n(\alpha_n + 1, n)$ puis aux événements~$\mathcal{E}_n(0, \alpha_n - 1)$ et~$\mathcal{E}_n(\alpha_n, n)$, de minorer les probabilités~$\Pp{\mathcal{E}_n(0, \alpha_n)}$ et~$\Pp{\mathcal{E}_n(\alpha_n, n)}$ par~$1 - \sqrt{1  - \Pp{\mathcal{E}_n(0, n)}}$ ce qui donne leur convergence vers~$1$. 
+
+		On cherche maintenant à trouver~$y_n$, on effectue d'abord la décomposition~$\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n)$. Il suffit alors de choisir~$y_n$ égal à $\alpha_n/4$ ou~$3\alpha_n/4$ de sorte à maximiser la probabilité de~$\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)$. Par une dernière application de l'inégalité de Harris-FKG, on obtient enfin à partir d'un certain rang que
+		\[
+			\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}}.
+		\]
+		Ce qui permet de conclure que ces choix de~$y_n$ et~$\alpha_n$ conviennent.
+	\end{dem}
+
+	On définit maintenant les ensembles suivants
+	\begin{align*}
+		&B_n' = (2n, y_{3n}) + B_n \\
+		&S_n' = (2n, y_{3n}) + S_n \\
+		&Y_n^+ = {3n} \times [y_{3n} + \alpha_n; y_{3n} + n] \\
+		&Y_n^- = {3n} \times [y_{3n} - n; y_{3n} - \alpha_n] \\
+		&Z_n = {3n} \times [y_{3n} - \alpha_n; y_{3n} + \alpha_n]
+	\end{align*}
+	
+	%JOLI DESSIN ICI
+
+	On souhaite d'abord relier~$S_{3n}$ à~$Z_n$ ainsi que $S_n'$ à~$Y_n^+$ et~$Y_n^-$. Le lemme gluant (lemme~\ref{lem:gluant}) permettra ensuite de lier~$S_{3n}$ à~$S_n'$. On a pour tout~$n$, $\alpha_n \leq n$ donc il existe une infinité de~$n$ tels que~$\alpha_{3n} \leq 4\alpha_n$ car sinon, à partir d'un certain rang, la suite aurait une croissance sur-linéaire, ce qui est impossible. Quand~$\alpha_{3n} \leq 4\alpha_n$, on a
+	\[
+		\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}} \geq \Pp{\mathcal{E}_n(y_{3n} - \alpha_{3n}/4, y_{3n} + \alpha_{3n}/4)}.
+	\]
+
+	Ainsi par la remarque précédente et le lemme~\ref{lem:collagesElem}, la limite supérieure de la suite de probabilités~$\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}}$ tend vers~$1$ quand~$n$ tend vers l'infini. Maintenant que nous avons relié~$S_{3n}$ à~$Z_n$, ajoutons y~$Y_n^+$ et~$Y_n^-$. On obtient à l'aide de Harris-FKG
+	\[
+		\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^+}, \relie[B_n']{S_n'}{Y_n^-}} \geq \Pp{\relie[B_{3n}]{S_{3n}}{Z_n} }\Pp{\mathcal{E}_n(0, \alpha_n)}^2.
+	\]
+	On a donc enfin
+	\[ 
+		\limsup_{n \to \infty} \Pp{\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^+}, \relie[B_n']{S_n'}{Y_n^-}} = 1.
+	\]
 
 
