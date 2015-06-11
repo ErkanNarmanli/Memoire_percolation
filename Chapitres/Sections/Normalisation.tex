@@ -1,24 +1,26 @@
 \section{Renormalisation}
-	\subsection{Un dernier calcul}
-		On passe maintenant à la première étape de la renormalisation. Il s'agit de relier des ensembles du type~$S_{3n}$ éloignés de~$4n$. En appliquant l'inégalité de Harris-FKG dans la probabilité suivante, on arrive à une minoration exploitable à l'aide du lemme~\ref{lem:gluant}. On a en effet 
-		\begin{align*}
-			& \Pp{\relie[(2n, 0) + B_{6n}]{S_{3n}}{(4n, 0) + S_{3n}}}  \\
-			& \geq \Pp{ \relie[B_{4n}]{S_{3n}}{S_n'} \cap \relie[(4n, 0) + B_{4n}]{S_n'}{(4n, 0) + S_{3n}} \cap \relie*[B_n']{S_n'}{\partial B_n'} } \\
-			& \geq \Pp{ \relie[B_{4n}]{S_{3n}}{S_n'} \cap \relie[(4n, 0) + B_{4n}]{S_n'}{(4n, 0) + S_{3n}}} + \Pp{\relie*[B_n']{S_n'}{\partial B_n'}} \\ 
-			& \geq \Pp{ \relie[B_{4n}]{S_{3n}}{S_n'} }^2 + \Pp{\relie*[B_n']{S_n'}{\partial B_n'}}  - 1
-		\end{align*}
-		Il est à noter que c'est l'unicité du chemin entre~$S_n'$ et~$\partial B_n'$ qui permet d'écrire la première inégalité. \\
-		On conclût enfin à l'aide du lemme~\ref{lem:gluant} par le fait que la probabilité de~$\relie[B_{4n}]{S_{3n}}{S_n'}$ prend des valeurs arbitrairement proches de~$1$ et que la probabilité de~$\relie*[B_n']{S_n'}{\partial B_n'}$ tend vers~$1$. Ainsi
-			\[
-				\limsup_{n \to \infty} \Pp{\relie[(2n, 0) + B_{6n}]{S_{3n}}{(4n, 0) + S_{3n}}} = 1
-			\]
-	
-	\subsection{Renormalisation}
-	Ayant démontré le résutat précédent, il est naturel d'introduire le modèle suivant : on dit qu'une arrête~$(z_1, z_2)$ de~$4n\mathbb{Z}$ est ouverte si on a
-		\begin{itemize}
-			\item $\relie[R_n]{z_1 + S_{3n}}{z_2 + S_{3n}}$
-			\item $\relie*[z_1 + B_{3n}]{z_1 + S_{3n}}{z_1 + \partial B_{3n}}$ et~$\relie*[z_2 + B_{3n}]{z_2 + S_{3n}}{z_2 + \partial B_{3n}}$ 
-		\end{itemize}
-	Il est facile de vérifier que ce modèle de percolation est~$4$-dépendant. On en déduit que si la probabilité qu'une arrête soit ouverte est assez proche de~$1$ alors la percolation a lieu. Or d'après le résultat précdent, et TRUCÀREMPLACERPARNUMEROD'EQUATION on peut rendre cette probabilité arbitrairement proche de~$1$. Fixons un~$n$ permettant la percolation, la probabilité de percolation ne dépendant que d'un nombre fini d'arrêtes, on a encore la percolation pour~$q$ suffisamment proche de~$p$.
 
-	Ainsi,~$p$ est différente de~$p_c$ et il n'y a pas percolation au point critique, que qui prouve le théorème 1.
+	Tout le travail effectué jusque là va trouver son intérêt en changeant d'échelle pour travailler dans le nouveau modèle de percolation suivant : on dit qu'une arrête~$(z_1, z_2)$ de~$4n\mathbb{Z}^2$ est ouverte si les trois propriétés suivantes sont vérifiées :
+	\begin{enumerate}[label=(\roman*)]
+		\item $\relie[R_n]{z_1 + S_{3n}}{z_2 + S_{3n}}$
+		\item $\relie*[z_1 + B_{3n}]{z_1 + S_{3n}}{z_1 + \partial B_{3n}}$
+		\item $\relie*[z_2 + B_{3n}]{z_2 + S_{3n}}{z_2 + \partial B_{3n}}$ 
+	\end{enumerate}
+	Commençons par montrer qu'on peut rendre la probabilité qu'une arrête soit ouverte arbitrairement grande. Pour cela, on constate d'abord que si on peut relier~$S_{3n}$ à~$S_n'$ et~$S_n'$ à~$(4n, 0) + S_{3n}$ et supposant que~$S_n'$ soit connecté de manière unique à la frontière de~$B_n$, alors on a un chemin qui va de~$S_{3n}$ à~$(4n, 0) + S_{3n}$. Cela permet d'écrire
+	\begin{align}
+		& \Pp{\relie[(2n, 0) + B_{6n}]{S_{3n}}{(4n, 0) + S_{3n}}} \nonumber \\
+		& \geq \Pp{ \relie[B_{4n}]{S_{3n}}{S_n'} \cap \relie[(4n, 0) + B_{4n}]{S_n'}{(4n, 0) + S_{3n}} \cap \relie*[B_n']{S_n'}{\partial B_n'} } \nonumber \\
+		& \geq \Pp{ \relie[B_{4n}]{S_{3n}}{S_n'} \cap \relie[(4n, 0) + B_{4n}]{S_n'}{(4n, 0) + S_{3n}}} + \Pp{\relie*[B_n']{S_n'}{\partial B_n'}} \label{eq:arreteNormalisation}\\ 
+	\end{align}
+	On applique ensuite une dernière fois l'inégalité de Harris-FKG dans le premier terme de l'équation~\ref{eq:arreteNormalisation} pour obtenir :
+	\[
+		\Pp{\relie[(2n, 0) + B_{6n}]{S_{3n}}{(4n, 0) + S_{3n}}}	\geq \Pp{ \relie[B_{4n}]{S_{3n}}{S_n'} }^2 + \Pp{\relie*[B_n']{S_n'}{\partial B_n'}}  - 1
+	\]
+	On conclût enfin à l'aide du lemme~\ref{lem:gluant} par le fait que la probabilité de~$\relie[B_{4n}]{S_{3n}}{S_n'}$ prend des valeurs arbitrairement proches de~$1$ et que la probabilité de~$\relie*[B_n']{S_n'}{\partial B_n'}$ tend vers~$1$. Ainsi
+	\[
+		\limsup_{n \to \infty} \Pp{\relie[(2n, 0) + B_{6n}]{S_{3n}}{(4n, 0) + S_{3n}}} = 1
+	\]
+
+	Il est facile de vérifier que ce modèle de percolation est~$4$-dépendant. Ainsi, si la probabilité qu'une arrête soit ouverte est assez proche de~$1$ alors la percolation a lieu. Or d'après le résultat précédent et l'équation~\ref{eq:toucherBordCarre}, on peut rendre cette probabilité arbitrairement proche de~$1$. Fixons un~$n$ permettant la percolation, la probabilité de percolation ne dépendant que d'un nombre fini d'arrêtes, elle est polynomiale en~$p$ et donc, par continuité, on a encore percolation sur~$p$.
+
+	Ainsi,~$p$ est différente de~$p_c$ et il n'y a pas percolation au point critique, ce qui était le résultat attendu.
