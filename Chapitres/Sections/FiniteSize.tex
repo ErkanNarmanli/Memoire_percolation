@@ -1,18 +1,18 @@
 \section{Critère local de collage}
 Dans cette partie on montre l'existence de certains clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation~\ref{sec:renormalisation}. Pour cela, on introduit une suite~$\suite{u}$ telle que~$u_n \leqslant n/3$ et %que (?)
+	\begin{equation}\label{eq:toucherBordCarre}
+		\Pp{\relie*[B_n]{B_{u_n}}{\partial B_n}} \underset{n \to \infty}{\to} 1. 
+	\end{equation}
+	Pour s'épargner une écriture trop lourde, on note~$S_n = B_{u_n}$ \marginnote{$S_n$} et on définit, pour~$\alpha, \beta$ des réels de~$[0, n]$, l'événement~$\mathcal{E}_n(\alpha, \beta)$ par
 	\[
-		\Pp{\relie*[B_n]{B_{u_n}}{\partial B_n}} \underset{n \to \infty}{\to} 1.
-	\] 
-	Pour s'épargner une écriture trop lourde, on note~$S_n = B_{u_n}$ \marginnote{$S_n$} et on définit, pour~$\alpha, \beta$ des réels de~$[0, n]$, l'événement~$\mathcal{E}_n(\alpha, \beta)$ \marginnote{$\mathcal{E}_n$} par
-	\[
-		\mathcal{E}_n( \alpha, \beta ) = \{\relie[B_n]{S_n}{\{n\} \times \llbracket \alpha ; \beta \rrbracket} \}.
+		\mathcal{E}_n( \alpha, \beta ) = \{\relie[B_n]{S_n}{\{n\} \times \llbracket \alpha ; \beta \rrbracket} \}. \marginnote{$\mathcal{E}_n$}
 	\]
 	
-	\begin{lem}\label{lem:collagesElem} 
+	\begin{lem}\label{lem:collagesElem} \marginnote{$\alpha_n, y_n$}
 		Il existe deux suites~$\suite{\alpha}$ et~$\suite{y}$ dans~$[0; n]$ telles que
 		\begin{align*}
 			  &\Pp{\mathcal{E}_n(\alpha_n, n)} \xrightarrow[n\to\infty]{} 1 \\ 
-			  &\Pp{\mathcal{E}_n(y_n - \frac{\alpha_n}{4}, y_n + \frac{\alpha_n}{4})} \xrightarrow[n \to \infty]{} 1.
+			  &\Pp{\mathcal{E}_n\left(y_n - \frac{\alpha_n}{4}, y_n + \frac{\alpha_n}{4}\right)} \xrightarrow[n \to \infty]{} 1.
 		\end{align*}
 	\end{lem}
 	Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence immédiate. On en trouvera une preuve dans~\cite{Grimmett}. 
@@ -25,8 +25,8 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 	
 	JOLI DESSINS ICI %Will be done
 
-	\begin{dem}[du lemme~\ref{lem:collageElem}]
-		En découpant le carré~$\partial B_n$ en ses~$8$demi côtés, on peut décomposer l'événement~$\relie[B_n]{S_n}{\partial B_n}$ en la réunion de~$8$ événements obtenu à partir de~$\mathcal{E}_n(0, n)$ en effectuant des rotations et des réflexions. L'invariance du modèle par lesdites réflexions et rotations permet d'affirmer que ces événements sont tous de même probabilité. On peut donc appliquer l'inégalité de Harris-FKG de la manière suivante
+	\begin{dem}[du lemme~\ref{lem:collagesElem}]
+		En découpant le carré~$\partial B_n$ en ses~$8$ demi-côtés, on peut décomposer l'événement~$\relie[B_n]{S_n}{\partial B_n}$ en la réunion de~$8$ événements obtenu à partir de~$\mathcal{E}_n(0, n)$ en effectuant des rotations et des réflexions. L'invariance du modèle par lesdites réflexions et rotations permet d'affirmer que ces événements sont tous de même probabilité. On peut donc appliquer l'inégalité de Harris-FKG de la manière suivante
 		\[
 			\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8}.
 		\]
@@ -38,17 +38,16 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 		\[
 			\alpha_n = \max \{ \alpha \in \llbracket 0;n-1 \rrbracket, \Pp{\mathcal{E}_n(0, \alpha - 1)} < \Pp{\mathcal{E}_n(\alpha, n)} \}.
 		\]
-		Ce choix de~$\alpha_n$ permet, en appliquant Harris-FKG aux événements~$\mathcal{E}_n(0, \alpha_n)$ et~$\mathcal{E}_n(\alpha_n + 1, n)$ puis aux événements~$\mathcal{E}_n(0, \alpha_n - 1)$ et~$\mathcal{E}_n(\alpha_n, n)$, de minorer les probabilités~$\Pp{\mathcal{E}_n(0, \alpha_n)}$ et~$\Pp{\mathcal{E}_n(\alpha_n, n)}$ par~$1 - \sqrt{1  - \Pp{\mathcal{E}_n(0, n)}}$ ce qui donne leur convergence vers~$1$. 
+		Avec ce choix de~$\alpha_n$, et en appliquant l'inégalité de~Harris-FKG aux événements~$\mathcal{E}_n(0, \alpha_n)$ et~$\mathcal{E}_n(\alpha_n + 1, n)$ puis aux événements~$\mathcal{E}_n(0, \alpha_n - 1)$ et~$\mathcal{E}_n(\alpha_n, n)$, on peut minorer les probabilités des événements~$\mathcal{E}_n(0, \alpha_n)$ et~$\mathcal{E}_n(\alpha_n, n)$ par~$1 - \sqrt{1  - \Pp{\mathcal{E}_n(0, n)}}$ ; ce qui donne leur convergence vers~$1$. 
 
-		On cherche maintenant à trouver~$y_n$, on effectue d'abord la décomposition~$\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n)$. Il suffit alors de choisir~$y_n$ égal à $\alpha_n/4$ ou~$3\alpha_n/4$ de sorte à maximiser la probabilité de~$\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)$. Par une dernière application de l'inégalité de Harris-FKG, on obtient enfin à partir d'un certain rang que
+		On cherche maintenant à trouver~$y_n$, pour cela on effectue d'abord la décomposition~$\mathcal{E}_n(0, \alpha_n) = \mathcal{E}_n(0, \alpha_n/2) \cup \mathcal{E}_n(\alpha_n/2, \alpha_n)$. Et il suffit alors de choisir~$y_n$ égal à $\alpha_n/4$ ou~$3\alpha_n/4$ de sorte à maximiser la probabilité de~$\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)$. Par une dernière application de l'inégalité de Harris-FKG, on obtient enfin à partir d'un certain rang que
 		\[
-			\Pp{\mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4)} \geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}}.
+			\Pp{\mathcal{E}_n\left(y_n - \frac{\alpha_n}{4}, y_n + \frac{\alpha_n}{4}\right)}
+					\geq 1 - \sqrt{1 - \Pp{\mathcal{E}_n(0, \alpha_n)}}.
 		\]
 		Ce qui permet de conclure que ces choix de~$y_n$ et~$\alpha_n$ conviennent.
 	\end{dem}
-	Pour la suite, on pose~$\suite{\alpha}$ et~$\suite{y}$ des suites vérifiant les hypothèses du lemme~\ref{lem:collageElem} \marginnote{$\alpha_n, y_n$}.
-
-	On définit maintenant les ensembles suivants
+	Pour la suite, on pose~$\suite{\alpha}$ et~$\suite{y}$ des suites vérifiant les hypothèses du lemme~\ref{lem:collagesElem}. On définit maintenant les ensembles suivants
 	\begin{align*}
 		&B_n' = (2n, y_{3n}) + B_n \marginnote{$B_n'$} \\
 		&S_n' = (2n, y_{3n}) + S_n \marginnote{$S_n'$} \\
@@ -61,7 +60,7 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 
 	On souhaite d'abord relier~$S_{3n}$ à~$Z_n$ ainsi que $S_n'$ à~$Y_n^+$ et~$Y_n^-$. Le lemme gluant (lemme~\ref{lem:gluant}) permettra ensuite de lier~$S_{3n}$ à~$S_n'$. On a pour tout~$n$, $\alpha_n \leq n$ donc il existe une infinité de~$n$ tels que~$\alpha_{3n} \leq 4\alpha_n$ car sinon, à partir d'un certain rang, la suite aurait une croissance sur-linéaire, ce qui est impossible. Quand~$\alpha_{3n} \leq 4\alpha_n$, on a
 	\[
-		\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}} \geq \Pp{\mathcal{E}_n(y_{3n} - \alpha_{3n}/4, y_{3n} + \alpha_{3n}/4)}.
+		\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}} \geq \Pp{\mathcal{E}_{3n}\left(y_{3n} - \frac{\alpha_{3n}}{4}, y_{3n} + \frac{\alpha_{3n}}{4}\right)}.
 	\]
 
 	Ainsi par la remarque précédente et le lemme~\ref{lem:collagesElem}, la limite supérieure de la suite de probabilités~$\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}}$ tend vers~$1$ quand~$n$ tend vers l'infini. Maintenant que nous avons relié~$S_{3n}$ à~$Z_n$, ajoutons y~$Y_n^+$ et~$Y_n^-$. On obtient à l'aide de Harris-FKG
