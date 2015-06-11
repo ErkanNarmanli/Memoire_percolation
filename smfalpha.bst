@@ -260,7 +260,6 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-<<<<<<< HEAD
     { s nameptr "{f.~}\bgroup\scshape {vv~}{ll}\egroup{{}}{, jj}" format.name$ 't :=
       nameptr #1 >
 { namesleft #1 >
@@ -291,9 +290,6 @@ FUNCTION {format.fullnames}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr "{ff~}\bgroup\scshape {vv~}{ll}\egroup{{}}{, jj}" format.name$ 't :=
-=======
-    { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
->>>>>>> 75a2108d470e9e4917603eeeb9259a5cf787b6cf
       nameptr #1 >
 { namesleft #1 >
     { ", " * t * }
@@ -321,12 +317,8 @@ FUNCTION {format.authors}
     { "" }
     { extra.same.label "\bysame" =
          { "\bysame " }
-<<<<<<< HEAD
          %{ author format.names scapify }
          { author format.fullnames }
-=======
-         { author format.names scapify }
->>>>>>> 75a2108d470e9e4917603eeeb9259a5cf787b6cf
      if$
     }
   if$
@@ -970,7 +962,6 @@ FUNCTION {format.lab.names}
       ""
     { namesleft #0 > }
     { nameptr numnames =
-<<<<<<< HEAD
         %{ s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
         { s nameptr "{ff }{ll}{ jj}" format.name$ "others" =
         { "{\etalchar{+}}" *
@@ -982,16 +973,6 @@ FUNCTION {format.lab.names}
         }
         %{ s nameptr "{v{}}{l{}}" format.name$ * }
         { s nameptr "{l{}}" format.name$ * }
-=======
-        { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-        { "{\etalchar{+}}" *
-          #1 'et.al.char.used :=
-        }
-        { s nameptr "{v{}}{l{}}" format.name$ * }
-          if$
-        }
-        { s nameptr "{v{}}{l{}}" format.name$ * }
->>>>>>> 75a2108d470e9e4917603eeeb9259a5cf787b6cf
       if$
       nameptr #1 + 'nameptr :=
       namesleft #1 - 'namesleft :=
@@ -1004,12 +985,8 @@ FUNCTION {format.lab.names}
     'skip$
       if$
     }
-<<<<<<< HEAD
     %{ s #1 "{v{}}{l{}}" format.name$
     { s #1 "{l{}}" format.name$
-=======
-    { s #1 "{v{}}{l{}}" format.name$
->>>>>>> 75a2108d470e9e4917603eeeb9259a5cf787b6cf
       duplicate$ text.length$ #2 <
     { pop$ s #1 "{ll}" format.name$ #3 text.prefix$ }
     'skip$
@@ -1109,12 +1086,8 @@ FUNCTION {sort.format.names}
 'skip$
       if$
 %%      s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
-<<<<<<< HEAD
         s nameptr "{ll{ } }{ff{ }}{  vv{ }}{  jj{ }}" format.name$ 't :=
 %%      s nameptr "{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
-=======
-      s nameptr "{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
->>>>>>> 75a2108d470e9e4917603eeeb9259a5cf787b6cf
       nameptr numnames = t "others" = and
 { "et~al" * }
 { t sortify * }
