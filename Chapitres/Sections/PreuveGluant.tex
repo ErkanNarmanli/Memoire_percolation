@@ -46,7 +46,7 @@
 			\begin{equation}\label{eq:interGluant:1}
 				\sum_{\omega\in\mathcal{A}}\Pp{\Phi(\omega)} = \sum_{\omega\in\mathcal{A}}\ \sum_{\omega'\in\Phi(\omega)}\Pp{\omega'}.
 			\end{equation}
-			Dans la seconde somme du terme de droite, on a~$\omega'$ dans~$\Phi(\omega)$, donc par la condition~(\ref{item:interGluant:a}) du lemme on a~$\omega_{|S^c}=\omega_{|S^c}'$, où~$S$ est un sous ensemble fini de~$\Sk$, de cardinal au plus~$s$. Dès lors, on peut écrire~$\PpSP{}[\omega'] = \PpSP{}[\omega_{|S^c}]\cdot\PpSP{}[\omega_{|S}']$, puisque la configuration sur~$S^c$ et~$S$ sont indépendantes. Et comme~$\PpSP{}[\omega_{|S}']$ est un produit d'au plus~$s$ facteurs~$p$ ou~$1-p$, on a la majoration~$\PpSP{}[\omega'] \leq \PpSP{}[\omega]\min(p,1-p)^s$ ; en combinant cette majoration à l'équation~\eqref{eq:interGluant:1}, on obtient :
+			Dans la seconde somme du terme de droite, on a~$\omega'$ dans~$\Phi(\omega)$, donc par la condition~(\ref{item:interGluant:a}) du lemme on a~$\omega_{|S^c}=\omega_{|S^c}'$, où~$S$ est un sous ensemble fini de~$\Sk$, de cardinal au plus~$s$. Dès lors, on peut écrire~$\PpSP{}[\omega'] = \PpSP{}[\omega_{|S^c}]\cdot\PpSP{}[\omega_{|S}']$, puisque la configuration sur~$S^c$ et~$S$ sont indépendantes. Et comme~$\PpSP{}[\omega_{|S}']$ est un produit d'au plus~$s$ facteurs~$p$ ou~$1-p$, on a la majoration~$\PpSP{}[\omega'] \geq \PpSP{}[\omega]\min(p,1-p)^s$ ; en combinant cette majoration à l'équation~\eqref{eq:interGluant:1}, on obtient :
 			\begin{equation}\label{eq:interGluant:2}
 					\sum_{\omega\in\mathcal{A}}\Pp{\Phi(\omega)}
 				\geq
@@ -65,7 +65,7 @@
 					t\cdot\min(p,1-p)^s
 .					\sum_{\omega\in\mathcal{A}} \Pp{\omega}
 			\end{equation}
-			On peut maintenant majorer le nombre d'éléments dans la deuxième somme à gouche grâce à la condition~(\ref{item:interGluant:b}) du lemme. La somme contient moins d'élément qu'il n'y a de configuration qui coïncide avec~$\omega$ sur~$S^c$, à savoir~$2^s$ ; il suffit ensuite de reporter cette majoration dans l'équation~\ref{eq:interGluant:3} pour obtenir le résultat souhaité.
+			On peut maintenant majorer le nombre d'éléments dans la deuxième somme à gauche grâce à la condition~(\ref{item:interGluant:b}) du lemme. La somme contient moins d'éléments qu'il n'y a de configurations qui coïncident avec~$\omega$ sur~$S^c$, à savoir~$2^s$ ; il suffit ensuite de reporter cette majoration dans l'équation~\eqref{eq:interGluant:3} pour obtenir le résultat souhaité.
 		\end{dem}
 	
 	\subsection{Preuve du lemme gluant}
@@ -73,19 +73,19 @@
 		\paragraph{Relation d'ordre sur les chemins}
 			Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\SnB$ à~$\ZnB$. Pour ce faire, on défini déjà deux relations d'ordre comme suit :
 			\begin{itemize}
-				\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ \marginnote{$\preceq$} sur les arrêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
-				\item on prend~$\ll$ \marginnote{$\ll$} une relation d'ordre totale sur les arrêtes de~$\Sk$.
+				\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ \marginnote{$\preceq$} sur les arêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
+				\item on prend~$\ll$ \marginnote{$\ll$} une relation d'ordre totale sur les arêtes de~$\Sk$.
 			\end{itemize}
 			Par la suite, si~$\gamma = \left(\gamma_i\right)_{1\leq i\leq r}$ et~$\gamma'=\left(\gamma'_i\right)_{1\leq i\leq r'}$ sont deux chemins auto-évitants qui vont de~$\SnB$ à~$\ZnB$ alors on notera~$\gamma <\gamma'$ \marginnote{$\leq$} lorsqu'au moins l'une des conditions suivantes sont satisfaites :
 			\begin{itemize}
-				\item le chemin~$\gamma$ est un sous chemin de~$\gamma'$, c'est à dire que~$r<r'$ et que~$\gamma = \left(\gamma_i'\right)_{1\leq i\leq r}$, cela traite le cas où les chemins ne se séparent qu'une fois arrivés à~$\ZnB$ ;
+				\item le chemin~$\gamma$ est un sous chemin strict de~$\gamma'$, c'est à dire que~$r<r'$ et que~$\gamma = \left(\gamma_i'\right)_{1\leq i\leq r}$, cela traite le cas où les chemins ne se séparent qu'une fois arrivés à~$\ZnB$ ;
 				\item on peut comparer strictement les premiers sommets des deux chemins avec~$\gamma_0 \ll \gamma_0'$, ce qui traite le cas où les deux chemins sont différents dès la sortie de~$\SnB$ ;
-				\item il existe une entier~$k$ strictement plus petit que~$r$ et~$r'$ tel que~$\gamma_i=\gamma_i'$ pour tout entier~$i$ comprit entre~$0$ et~$k$ et tel que~$(\gamma_k,\gamma_{k+1}) \prec (\gamma_k',\gamma_{k+1}')$, c'est à dire que les chemins coïncident jusqu'à la~$k$-ième arrête et que l'on peut comparer les arrêtes issues de~$\gamma_k$.
+				\item il existe un entier~$k$ strictement plus petit que~$r$ et~$r'$ tel que~$\gamma_i=\gamma_i'$ pour tout entier~$i$ compris entre~$0$ et~$k$ et tel que~$(\gamma_k,\gamma_{k+1}) \prec (\gamma_k',\gamma_{k+1}')$, c'est à dire que les chemins coïncident jusqu'à la~$k$-ième arête et que l'on peut comparer les arêtes issues de~$\gamma_k$.
 		\end{itemize}
 		\paragraph{Chemin minimal}
-			Soit~$\omega$ une configuration, comme~$\leq$ est une relation totale sur l'ensemble fini des chemins auto-évitants entre~$\SnB$ et~$\ZnB$, on peut définir~$\Cmin$ \marginnote{$\Cmin$} comme étant l'élément minimal pour cette relation dans~$\omega$. Dès lors, on définit l'ensemble~$U(\omega)$ \marginnote{$U(\omega)$} comme étant l'ensemble des éléments de~$B_n'$ vérifiant les deux propriétés suivantes :
+			Soit~$\omega$ une configuration, comme~$\leq$ est une relation totale sur l'ensemble fini des chemins auto-évitants entre~$\SnB$ et~$\ZnB$, on peut définir~$\Cmin$ \marginnote{$\Cmin$} comme étant l'élément minimal pour cette relation dans~$\omega$. Dès lors, on définit~$U(\omega)$\marginnote{$U(\omega)$} comme étant l'ensemble des éléments de~$B_n'$ vérifiant les deux propriétés suivantes :
 			\begin{enumerate}[label=\textbf{P\arabic*}., ref=P\arabic*]
-				\item\label{item:P1} La segment~$\overline{\{z\}}$ et le support de~$\Cmin$ sont d'intersection non vide.
+				\item\label{item:P1} Le segment~$\overline{\{z\}}$ et le support de~$\Cmin$ sont d'intersection non vide.
 				\item\label{item:P2} Il existe un chemin~$\pi$ qui relie les cylindres~$\overline{z+B_1}$ et~$\SnB[n]'$ ; et tel que la distance entre les projections canoniques de~$\pi$ et de~$\Cmin$ dans~$\mathbb{Z}^2$ soit exactement~$1$.
 			\end{enumerate}
 			Dans cette définition, la propriété~\ref{item:P1} signifie que tout élément~$z$ de~$U(\omega)$ doit être sur la projection du chemin minimal~$\Cmin$ alors que la propriété~\ref{item:P2} demande qu'il existe au moins un point au dessus de~$z$ qui soit presque relié ou presque à~$\SnB[n]'$ par un chemin qui ne passe jamais au dessus ou au dessous de~$\Cmin$.
@@ -119,21 +119,21 @@
 				\]
 			\end{prop}
 			\begin{dem}
-				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on définit la configuration~$\omega'$ à partir de~$\omega$ de la façon suivante : on y retire les arrêtes de la forme~$\{u,v\}$ avec~$u$ dans la droite~$\overline{\{z\}}$ pour~$z$ dans~$U(z)$ et~$v$ relié à~$\SnB[n]'$.
+				Soit~$\omega$ une configuration dans~$\mathcal{X} \cap \{\# U < t\}$, on définit la configuration~$\omega'$ à partir de~$\omega$ de la façon suivante : on y retire les arêtes de la forme~$\{u,v\}$ avec~$u$ dans la droite~$\overline{\{z\}}$ pour un certain~$z$ dans~$U(\omega)$ et~$v$ relié à~$\SnB[n]'$.
 				On a donc construit~$\omega'$ de telle sorte qu'il ne puisse pas contenir dans~$\BnB '$ à la fois un chemin reliant~$\SnB[n]'$ et~$Y_n^-$ et un chemin reliant~$\SnB[n]'$ et~$Y_n^+$ ; car sinon~$\omega$ contiendrait un chemin qui relierait~$S_{3n}$ à~$S_n'$ dans~$B_{3n}\cup B_n'$, ce qui contredirait~$\omega\in\mathcal{X}$.
 			
 				La construction que nous venons de présenter nous permet de définir l'application~$\Phi$ comme suit :
 				\begin{align*}
-					\Phi : \mathcal{X}\cup\{\# U < t\} 	& \longrightarrow 	
+					\Phi \marginnote{$\Phi$} : \mathcal{X}\cup\{\# U < t\} 	& \longrightarrow 	
 											\mathcal{P}\left(
-												\{\relie[B_n']{S_n'}{Y_n^-}
-												\relie[B_n']{S_n'}{Y_n^+}\}^c
+												\left\{\relie[B_n']{S_n'}{Y_n^-},
+												\relie[B_n']{S_n'}{Y_n^+}\right\}^c
 											\right)\\
 						\omega				& \longmapsto 		\{\omega'\}
 				\end{align*}	
-				Les propriétés~\ref{item:P1} et~\ref{item:P2} nous assurent que l'on a retiré aucune arrête de~$\Cmin$, on a donc~$\Cmin[\omega'] = \Cmin$. Comme on ne retire des arrête que dans des cylindres de la forme~$\overline{z+B_1}$ et que le projeté des chemins~$\pi$ de la propriété~\ref{item:P2} sont tous à distance au moins~$1$ de la projection de~$\Cmin$, on a aussi~$U(\omega) = U(\omega')$.
+				Les propriétés~\ref{item:P1} et~\ref{item:P2} nous assurent que l'on n'a retiré aucune arête de~$\Cmin$, on a donc~$\Cmin[\omega'] = \Cmin$. Comme on ne retire des arête que dans des cylindres de la forme~$\overline{z+B_1}$ et que le projeté des chemins~$\pi$ de la propriété~\ref{item:P2} sont tous à distance au moins~$1$ de la projection de~$\Cmin$, on a aussi~$U(\omega) = U(\omega')$.
 
-				De plus~$\Phi^{-1}(\omega')$ contient seulement des configurations qui sont égales à~$\omega'$ sauf peut être en des arrêtes adjacentes à~$U(\omega)$. Comme~$U(\omega)$ contient au plus~$t$ éléments, il y a au plus~$(5k+1)t$ arrêtes adjacentes à~$U(\omega)$. On peut alors appliquer le lemme~\ref{lem:interGluant} à~$\Phi$ avec~$t'=1$ et~$s=(5k+1)t$ qui nous donne la majoration :
+				De plus~$\Phi^{-1}(\omega')$ contient seulement des configurations qui sont égales à~$\omega'$ sauf peut être en des arêtes adjacentes à~$U(\omega)$. Comme~$U(\omega)$ contient au plus~$t$ éléments, il y a au plus~$(5k+1)t$ arêtes adjacentes à~$U(\omega)$. On peut alors appliquer le lemme~\ref{lem:interGluant} à~$\Phi$ avec~$t'=1$ et~$s=(5k+1)t$ qui nous donne la majoration :
 				\[
 						\Pp{\mathcal{X}\cup\{\#U < t\}}
 					\leq
@@ -155,32 +155,32 @@
 				\]
 			\end{prop}
 			\begin{rem}
-				Si~$z = (z_1, z_2, z_3)$ est un point de~$\Sk$ et si~$R$ est un entier naturel, on notera~$\overline{B_R}(z)$ \marginnote{$\overline{B_R}(z)$} à la place de~$\overline{(z_1, z_2) + B_R}$. Supposons maintenant~$R=2$, si~$u, v, w$ sont des voisins de~$z$ distincts deux à deux et si~$u', v', w'$ sont trois points distincts sur la frontière~$\partial \BRz$, alors il existe trois chemins auto-évitants disjoints dans~$\BRz\priv\{z\}$ qui relient respectivement~$u, v, w$ à~$u', v', w'$, puisque que l'on a supposé plus tôt que~$k$ est non nul. 
+				Si~$z = (x_1, x_2, x_3)$ est un point de~$\Sk$ et si~$R$ est un entier naturel, on notera~$\overline{B_R}(z)$ \marginnote{$\overline{B_R}(z)$} à la place de~$\overline{(x_1, x_2) + B_R}$. Supposons maintenant~$R=2$, si~$u, v, w$ sont des voisins de~$z$ distincts deux à deux et si~$u', v', w'$ sont trois points distincts sur la frontière~$\partial \BRz$, alors il existe trois chemins auto-évitants disjoints dans~$\BRz\priv\{z\}$ qui relient respectivement~$u, v, w$ à~$u', v', w'$, puisque que l'on a supposé plus tôt que~$k$ est non nul. 
 			\end{rem}
-			\begin{dem}[de la proposition\ref{prop:Ugrand}]
+			\begin{dem}[de la proposition~\ref{prop:Ugrand}]
 				Soient~$\omega$ une configuration dans~$\mathcal{X}\cap\{\# U \geq t\}$ et~$z$ un sommet dans~$U(\omega)$, on va construire la configuration~$\omega^{(z)}$ \marginnote{$\omega^{(z)}$} comme suit :
 				\begin{enumerate}
-					\item\label{item:cons:a} On prend~$u,v,w$ \marginnote{$u,v,w$} trois points distincts qui sont  à distance~$1$ de~$z$  et telle que l'on puisse comparer les arrêtes avec~$(z,v)\prec (z,w)$.
+					\item\label{item:cons:a} On prend~$u,v,w$ \marginnote{$u,v,w$} trois points distincts qui sont  à distance~$1$ de~$z$  et telle que l'on puisse comparer les arêtes avec~$(z,v)\prec (z,w)$.
 					
 					\item\label{item:cons:b} On définit ensuite nos trois points~$u',v',w'$ sur le cylindre~$\partial\BRz$ de la façon suivante : dès lors que~$\Cmin$ traverse le cylindre~$\BRz$ on peut prendre~$u'$ \marginnote{$u'$} le sommet par lequel il rentre dans~$\BRz$ et~$v'$ \marginnote{$v'$} le sommet par lequel il en ressort. Ces sommets sont distincts puisque~$\Cmin$ est auto-évitant. 
 					
-					Puisque~$z$ est dans~$U(\omega)$, par~\ref{item:P1}, il existe~$\pi'$ un chemin auto-évitant qui relie~$\overline{z+B_1}$ à~$S_n'$ ; on pose alors~$w'$ \marginnote{$w'$} le sommet de~$\partial\BRz$ par lequel~$\pi'$ sort pour la dernière fois de~$\BRz$ et~$\pi$ le chemin qui relie alors~$w'$ à~$S_n'$ et qui ne rencontre~$\BRz$ qu'en~$w'$. On a alors~$w'$ distinct de~$u'$ et~$v'$ car sinon on aurait~$S_n'$ qui serait relié à~$S_{3n}$, en passant par~$\Cmin$ jusqu'à~$w'$ puis ensuite par~$\pi$.
-					\item\label{item:cons:c} On retire toutes les arrêtes de~$\omega$ qui sont dans~$\overline{B_3}(z)$ à l'exception de ceux sur la frontière~$\partial\overline{B_3}(z)$ et qui sont dans les chemins~$\Cmin$ ou~$\pi$. De telle sorte que la seule façon d'entrer dans~$\BRz$ soit de passer par~$u', v'$ ou~$w'$
-					\item\label{item:cons:d} Enfin, puisque~$u',v',w'$ sont trois sommets distincts de~$\partial\BRz$, on peut appliquer la remarque précédente qui nous assure l'existence de trois chemins auto-évitants disjoints~$\gamma_u,\gamma_v$ et~$\gamma_w$ \marginnote{$\gamma_u, \gamma_v, \gamma_w$} qui relient respectivement~$u,v,w$ à~$u'v',w'$ dans~$\BRz\priv\{z\}$.  On ouvre alors les arrêtes~$(z,u), (z,v)$ et~$(z,w)$ ainsi que les chemins~$\gamma_u,\gamma_v$ et~$\gamma_w$. 
+					Puisque~$z$ est dans~$U(\omega)$, par~\ref{item:P1}, il existe~$\pi'$ un chemin auto-évitant qui relie~$\overline{z+B_1}$ à~$S_n'$ ; on pose alors~$w'$ \marginnote{$w'$} le sommet de~$\partial\BRz$ par lequel~$\pi'$ sort pour la dernière fois de~$\BRz$ et~$\pi$\marginnote{$\pi$} le chemin qui relie alors~$w'$ à~$S_n'$ et qui ne rencontre~$\BRz$ qu'en~$w'$. On a alors~$w'$ distinct de~$u'$ et~$v'$ car sinon on aurait~$S_n'$ qui serait relié à~$S_{3n}$, en passant par~$\Cmin$ jusqu'à~$w'$ puis ensuite par~$\pi$.
+					\item\label{item:cons:c} On retire toutes les arêtes de~$\omega$ qui sont dans~$\overline{B_3}(z)$ à l'exception de celles sur la frontière~$\partial\overline{B_3}(z)$ et qui sont dans les chemins~$\Cmin$ ou~$\pi$. ; de telle sorte que la seule façon d'entrer dans~$\BRz$ soit de passer par~$u', v'$ ou~$w'$
+					\item\label{item:cons:d} Enfin, puisque~$u',v',w'$ sont trois sommets distincts de~$\partial\BRz$, on peut appliquer la remarque précédente qui nous assure l'existence de trois chemins auto-évitants disjoints~$\gamma_u,\gamma_v$ et~$\gamma_w$ \marginnote{$\gamma_u, \gamma_v, \gamma_w$} qui relient respectivement~$u,v,w$ à~$u'v',w'$ dans~$\BRz\priv\{z\}$.  On ouvre alors les arêtes~$(z,u), (z,v)$ et~$(z,w)$ ainsi que les chemins~$\gamma_u,\gamma_v$ et~$\gamma_w$. 
 				\end{enumerate}
 				On a construit~$\omega^{(z)}$ de telle sorte que~$S_{3n}$ et~$S_n'$ y soient reliés dans~$B_{3n}\cup B_n'$, ce qui nous permet de définir l'application suivante :
 				\begin{align*}
-					\Phi : \quad \mathcal{X} \cup \{\# U \geq t\} 	& \longrightarrow 
+					\Psi : \quad \mathcal{X} \cup \{\# U \geq t\} 	& \longrightarrow 
 							\mathcal{P}\left(
 								\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}		
 							\right)\\
-								\omega	& \longmapsto  \{\omega^{(z)}, z\in U(\omega)\}.
+								\omega	& \longmapsto  \left\{\omega^{(z)}, z\in U(\omega)\right\}.
 				\end{align*}
-				On veut à présent utiliser le lemme~\ref{lem:interGluant}. Soit donc~$\omega^{(z)}$ une configuration à l'arrivée, on se rend compte dans un premier temps que par minimalité on a~$\Cmin[\omega^{(z)}]$ et~$\Cmin$ qui coïncident au moins jusqu'à~$u'$. Ensuite, et grâce au point~\ref{item:cons:c} de la construction précédente, on a~$u'$ de degré exactement~$2$ dans~$\omega$, et puisque l'on à vidé~$\BRz$, cela force~$\Cmin[\omega^{(z)}]$ à passer ensuite par~$\gamma_u$. Une fois arrivé en~$z$, on a deux possibilités : passer par~$v$ ou~$w$ ; mais puisque l'on a pris les sommets de telle sorte que~$(z,v)\prec (z,w)$ alors~$\Cmin[\omega^{(z)}]$ est forcé de passer par~$v$ et ensuite par~$\gamma_v$. Dès lors, la minimalité de~$\Cmin$ force~$\Cmin[\omega^{(z)}]$ à prendre le même chemin à la sortie de~$\BRz$.
+				On veut à présent utiliser le lemme~\ref{lem:interGluant}. Soit donc~$\omega^{(z)}$ une configuration à l'arrivée, on se rend compte dans un premier temps, par minimalité, que~$\Cmin[\omega^{(z)}]$ et~$\Cmin$ coïncident au moins jusqu'à~$u'$. Ensuite, et grâce au point~\ref{item:cons:c} de la construction précédente, on a~$u'$ de degré exactement~$2$ dans~$\omega$, et puisque l'on a vidé~$\BRz$, cela force~$\Cmin[\omega^{(z)}]$ à passer ensuite par~$\gamma_u$. Une fois arrivé en~$z$, on a deux possibilités : passer par~$v$ ou~$w$ ; mais puisque l'on a pris les sommets de telle sorte que~$(z,v)\prec (z,w)$ alors~$\Cmin[\omega^{(z)}]$ est forcé de passer par~$v$ et ensuite par~$\gamma_v$. Dès lors, la minimalité de~$\Cmin$ oblige~$\Cmin[\omega^{(z)}]$ à prendre le même chemin à la sortie de~$\BRz$.
 				
-				Pour résumer on a~$\Cmin[\omega^{(z)}]$ qui empreinte~$\Cmin$ à l'extérieur de~$\BRz$ ; alors que dans~$\BRz$ il empreinte~$\gamma_u$ de~$u'$ jusqu'à~$z$, puis~$\gamma_v$ de~$z$ jusqu'à~$v'$, où il rejoint~$\Cmin$. Aussi~$z$ est le seul sommet de~$\Cmin[\omega^{(z)}]$ qui soit relié à~$\overline{S_n'}$ sans utiliser aucune arrête du chemin minimal~$\Cmin[\omega^{(z)}]$. Cela nous donne alors que les~$\omega^{(z)}$ sont tous distincts à~$\omega$ fixé. Dès lors, toutes les images~$\Phi(\omega)$ sont de cardinal au moins~$t$.
+				Pour résumer on a~$\Cmin[\omega^{(z)}]$ qui empreinte~$\Cmin$ à l'extérieur de~$\BRz$ ; alors que dans~$\BRz$ il empreinte~$\gamma_u$ de~$u'$ jusqu'à~$z$, puis~$\gamma_v$ de~$z$ jusqu'à~$v'$, où il rejoint~$\Cmin$. Aussi~$z$ est le seul sommet de~$\Cmin[\omega^{(z)}]$ qui soit relié à~$\overline{S_n'}$ sans utiliser aucune arête du chemin minimal~$\Cmin[\omega^{(z)}]$. Cela nous donne alors que les~$\omega^{(z)}$ sont tous distincts à~$\omega$ fixé. Dès lors, toutes les images~$\Psi(\omega)$ sont de cardinal au moins~$t$.
 				
-				Il nous reste maintenant à déterminer~$s$ tel que quelque soit l'image~$\omega^{(z)}$ que l'on prenne alors il existe un sous ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~$s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega'\in\Phi(\omega)\} \subset \{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega_{|S^c}=\omega_{|S^c}'\}$. On prend~$s=84(k+1)+49 k$, le nombre d'arêtes dans~$\overline{B_3}(z)$, seul endroit de~$\omega^{(z)}$ qui diffère de~$\omega$. On peut enfin appliquer le lemme~\ref{lem:interGluant} qui nous donne la majoration :
+				Il nous reste maintenant à déterminer~$s$ tel que quelque soit l'image~$\omega^{(z)}$ que l'on prenne alors il existe un sous ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~$s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega'\in\Psi(\omega)\} \subset \{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega_{|S^c}=\omega_{|S^c}'\}$. On prend~$s=84(k+1)+49 k$, le nombre d'arêtes dans~$\overline{B_3}(z)$, seul endroit de~$\omega^{(z)}$ qui diffère de~$\omega$. On peut enfin appliquer le lemme~\ref{lem:interGluant} qui nous donne la majoration :
 				\[
 					\Pp{\mathcal{X}\cap\{\# U \geq t\}} 
 							\leq \frac{1}{t} \left(\frac{2}{\min(p,1-p)}\right)^s
@@ -196,12 +196,12 @@
 					\cdot
 					\Pp{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}}.			
 			\end{equation}
-			On peut ensuite appliquer la proposition~\ref{prop:Upetit} à~$\epsilon/2$ et~$t$ : il existe un réel~$\delta$ strictement positif tel que lorsque la probabilité de l'événement~$\{\relie[B_n']{S_n'}{Y_n^-}\}\cap\{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$ alors on ait :
+			On peut ensuite appliquer la proposition~\ref{prop:Upetit} à~$\epsilon/2$ et~$t$ : il existe un réel~$\delta$ strictement positif tel que lorsque la probabilité de l'événement~$\{\relie[B_n']{S_n'}{Y_n^-}\}\cap\{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$ on ait :
 			\begin{equation}\label{eq:finalGluant:2}
 				\Pp{\mathcal{X}\cap\{\#U < t\}}
 				\leq
 				\frac{\epsilon}{2}
 				\cdot %ponctuation
 			\end{equation}
-			Dès lors, lorsque la probabilité de~$\{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}\} \cap \{\relie[B_n']{S_n'}{Y_n^-}\} \cap \{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$, on peut utiliser les équations~\ref{eq:finalGluant:1} et~\ref{eq:finalGluant:2} et la décomposition de~$\mathcal{X}$ en~$(\mathcal{X}\cap\{\# U \geq t\}) \cup (\mathcal{X}\cap \{\# U < t\})$  pour obtenir~$\PpSP(\mathcal{X}) \leq \epsilon$ ; ce qui achève la démonstration du lemme gluant.
+			Dès lors, lorsque la probabilité de~$\{\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}\} \cap \{\relie[B_n']{S_n'}{Y_n^-}\} \cap \{\relie[B_n']{S_n'}{Y_n^+}\}$ est plus grande que~$1-\delta$, on peut utiliser les équations~\eqref{eq:finalGluant:1} et~\eqref{eq:finalGluant:2} et la décomposition de~$\mathcal{X}$ en~$(\mathcal{X}\cap\{\# U \geq t\}) \cup (\mathcal{X}\cap \{\# U < t\})$  pour obtenir~$\PpSP(\mathcal{X}) \leq \epsilon$ ; ce qui achève la démonstration du lemme gluant.
 
