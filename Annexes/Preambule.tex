@@ -239,9 +239,9 @@
 	}{
 		\end{proof}
 	}
-\newenvironment{quartCarre}
+\newenvironment{quartCarre}[1][0.3]
 	{%
-		\begin{tikzpicture}[scale = 0.3]
+		\begin{tikzpicture}[scale = #1]
 			%Clip
 			\clip 					(-1.9,-1.9)	rectangle	(18,18)	;
 			%Fond
