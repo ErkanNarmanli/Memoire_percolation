@@ -36,6 +36,7 @@
 \usepackage{framed}							%Pour les encadrements
 \usepackage{caption}						%Rajoute la fonction \caption*
 \usepackage{tikz}							%Pour dessiner !
+	\usetikzlibrary{patterns}				%Pour les hachures
 \usepackage{marginnote}						%Pour des notes dans... ben la marge, quoi.
 	\renewcommand*{\raggedleftmarginnote}{\centering}
 	\renewcommand*{\raggedrightmarginnote}{\centering}
@@ -242,12 +243,12 @@
 	{%
 		\begin{tikzpicture}[scale = 0.3]
 			%Clip
-			\clip 					(-1.9,-1.9)	rectangle	(17,17)	;
+			\clip 					(-1.9,-1.9)	rectangle	(18,18)	;
 			%Fond
 			\fill	[color=gray!8]	(-15,-15)	rectangle	(15,15)	;	%B_n
 			%Rectangles
 			\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
-			\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_n
+			\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_3n
 			\draw 	[thick]			(5, 3)		rectangle	(15,13)	;	%B_n'
 			\draw 					(9, 7)		rectangle	(11,9)	;	%S_n'
 			%Points

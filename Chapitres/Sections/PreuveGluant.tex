@@ -19,7 +19,24 @@
 			\begin{figure}[h]
 			\begin{center}
 			\begin{quartCarre}
-				%
+				%Courbes de Bézier
+				\draw (0,2) 	.. controls (0,6) 	and (-3,10) .. (3,10);
+				\draw (3,10)	.. controls (6,10) 	and (6,8) 	.. (8,6);
+				\draw (8,6)		.. controls (10,4)	and (13,6) 	.. (15,7.5);
+				%Plages
+				\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
+				\fill [color=gray!40]	(14.5,10)	rectangle (15.5,13);
+				\fill [color=gray!8]	(14.5,6)	rectangle (15.5,10);
+				\fill [pattern=north east lines]	(14.5,6)	rectangle (15.5,10);
+				%Text + barres de séparation
+				\draw [thick]	(5,3) 		-- (16,3);
+				\draw [thick]	(5,13)		-- (16,13);
+				\draw 			(14.5, 6)	-- (16,6);
+				\draw 			(14.5, 6)	-- (16,6);
+				\draw 			(14.5, 10)	-- (16,10);
+				\path	[right]	(15.5, 8)		node	{$Z_n$}	;
+				\path	[right]	(15.5, 4.5)		node	{$Y_n^+$}	;
+				\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
 			\end{quartCarre}
 			\end{center}
 			\caption{Coucou !}
