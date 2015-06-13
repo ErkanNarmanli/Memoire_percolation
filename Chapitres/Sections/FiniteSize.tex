@@ -14,7 +14,70 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 			  &\Pp{\mathcal{E}_n(\alpha_n, n)} \xrightarrow[n\to\infty]{} 1 \\ 
 			  &\Pp{\mathcal{E}_n\left(y_n - \frac{\alpha_n}{4}, y_n + \frac{\alpha_n}{4}\right)} \xrightarrow[n \to \infty]{} 1.
 		\end{align*}
+		Ces deux événements sont illustrés dans la figure~\ref{fig:figuLemCollagesElem}
 	\end{lem}
+	
+	\begin{figure}[h]
+		\begin{center}
+			% L'événement \mathcal{E}_n(\alpha_n, n)
+			\begin{tikzpicture}[scale = 0.3]
+				% Clip
+				\clip 					(-1.9,-1.9)	rectangle	(18,18)	;
+				% Fond
+				\fill [color=gray!8]	(-15,-15)	rectangle	(15,15)	;	% B_n
+				% Rectangles
+				\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
+				\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_3n
+				% Courbe de Bézier
+				\draw (0, 2) 	.. controls (2, 18) and  (8, 6) .. (15, 12);
+				% Plage
+				\fill [color=gray!40]	(14.5, 9) 	rectangle (15.5, 15);	% \alpha_n
+				% Points
+				\path [below right]	(-1.9, 15)	node				{$B_{3_n}$}	;
+				\path [below right]	(-2, 2)		node	[scale=0.85]{$S_{3n}$}	;
+				% Courbes de séparation
+				\draw [very thick]	(15, 0)		-- (16, 0);
+				\draw [very thick] 	(14, 15) 	-- (16, 15);
+				\draw [thick]		(14.5, 9) 	-- (16, 9);
+				\draw [right]		(16, 0) 	node {$0$};
+				\draw [right]		(16, 9)		node {$\alpha_n$};
+				\draw [right]		(16, 15) 	node {$n$};
+			\end{tikzpicture}
+			\quad \quad
+			% L'événement \mathcal{E}_n(y_n - \alpha_n/4, y_n + \alpha_n/4
+			\begin{tikzpicture}[scale = 0.3]
+				% Clip
+				\clip 					(-1.9,-1.9)	rectangle	(18,18)	;
+				% Fond
+				\fill [color=gray!8]	(-15,-15)	rectangle	(15,15)	;	% B_n
+				% Rectangles
+				\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
+				\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_3n
+				% Courbe de Bézier
+				\draw (2, 0) 	.. controls (20, 3) and (-7, 7) 	.. (3, 12);
+				\draw (3, 12) 	.. controls (13, 18) and (12, 5)	.. (15, 8);
+				% Plage
+				\fill [color=gray!40]	(14.5, 5) 	rectangle (15.5, 9);
+				% Points
+				\path [below right]	(-1.9, 15)	node				{$B_{3_n}$}	;
+				\path [below right]	(-2, 2)		node	[scale=0.85]{$S_{3n}$}	;
+				% Courbes de séparation
+				\draw [very thick]	(15, 0)		-- (16, 0);
+				\draw [very thick] 	(14, 15) 	-- (16, 15);
+				\draw [thick]		(14.5, 5) 	-- (16, 5);
+				\draw [thick]		(15.5, 7) 	-- (16, 7);
+				\draw [right]		(14.5, 9) 	-- (16, 9);
+				\draw [right]		(16, 0) 	node {$0$};
+				\draw [right]		(16, 7)		node {$y_n$};
+				\draw [right]		(16, 15) 	node {$n$};
+				\draw[<->, thick]	(14, 5) 	-- (14, 7);
+				\draw [left]		(14, 6)		node {$\frac{\alpha_n}{4}$};
+			\end{tikzpicture}
+		\end{center}
+		\caption{Les événements~$\mathcal{E}_n(\alpha_n, n)$ et~$\mathcal{E}_n(y_n - \frac{\alpha_n}{4}, y_n + \frac{\alpha_n}{4})$}
+		\label{fig:figuLemCollagesElem}
+	\end{figure}
+
 	Dans la preuve de ce lemme ainsi que dans la suite de l'article, on utilisera librement l'inégalité de Harris-FKG aussi bien sous sa forme classique que sous la forme suivante qui en est une conséquence immédiate. On en trouvera une preuve dans~\cite{Grimmett}. 
 	\begin{lem}[square root trick]\label{lem:HarrisFKG}
 		Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors
@@ -23,8 +86,6 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 		\]
 	\end{lem}
 	
-	JOLI DESSINS ICI %Will be done
-
 	\begin{dem}[du lemme~\ref{lem:collagesElem}]
 		En découpant le carré~$\partial B_n$ en ses~$8$ demi-côtés, on peut décomposer l'événement~$\relie[B_n]{S_n}{\partial B_n}$ en la réunion de~$8$ événements obtenu à partir de~$\mathcal{E}_n(0, n)$ en effectuant des rotations et des réflexions. L'invariance du modèle par lesdites réflexions et rotations permet d'affirmer que ces événements sont tous de même probabilité. On peut donc appliquer l'inégalité de Harris-FKG de la manière suivante
 		\[
