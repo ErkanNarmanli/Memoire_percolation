@@ -1,6 +1,6 @@
 \section{Le lemme gluant}
 	\subsection{Énoncé}
-		On démontre à présent le \emph{lemme gluant}, dont le nom est une traduction très approximative du \emph{gluing lemma}, le lemme de collage.
+		On démontre à présent le \emph{lemme gluant}, dont le nom est une traduction très approximative du \emph{gluing lemma}, le lemme de collage. La figure~\ref{fig:gluant} fournit une illustration dudit lemme.
 			
 		\begin{lem}[dit gluant]\label{lem:gluant}
 			Soit~$\epsilon$ un réel strictement positif ; alors il existe un réel~$\delta$ strictement positif tel que pour tout entier naturel~$n$ on ait :
@@ -16,13 +16,40 @@
 				\geq 1 - \epsilon.
 			\]
 		\end{lem}
-			\begin{figure}[h]
+		\begin{figure}[h]
 			\begin{center}
 			\begin{quartCarre}
-				%Courbes de Bézier
-				\draw (0,2) 	.. controls (0,6) 	and (-3,10) .. (3,10);
-				\draw (3,10)	.. controls (6,10) 	and (6,8) 	.. (8,6);
-				\draw (8,6)		.. controls (10,4)	and (13,6) 	.. (15,7.5);
+				%Courbes de Bézier 1
+				\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
+				\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);
+				\draw	[thick]	(7,5)		.. controls (9,3)		and (13,6) 	.. (15,7.5);
+				%Courbe de Bézier 2	
+				\draw	[thick, color=gray!85]	(9,8)		.. controls (8,8)		and (8,8) 	.. (7,5);
+				\draw	[thick, color=gray!85]	(7,5)		.. controls (6,2)		and (13,5)	.. (15, 5);
+				%Courbe de Bézier 3
+				\draw 	[thick, color=gray!85]	(10.5,9)	.. controls (9.5,12)	and (12,14)	.. (15,11);
+				%Plages
+				\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
+				\fill [color=gray!40]	(14.5,10)	rectangle (15.5,13);
+				\fill [color=gray!8]	(14.5,6)	rectangle (15.5,10);
+				\fill [pattern=north east lines]	(14.5,6)	rectangle (15.5,10);
+				%Text + barres de séparation
+				\draw [thick]	(5,3) 		-- (16,3);
+				\draw [thick]	(5,13)		-- (16,13);
+				\draw 			(14.5, 6)	-- (16,6);
+				\draw 			(14.5, 6)	-- (16,6);
+				\draw 			(14.5, 10)	-- (16,10);
+				\path	[right]	(15.5, 8)		node	{$Z_n$}	;
+				\path	[right]	(15.5, 4.5)		node	{$Y_n^+$}	;
+				\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
+			\end{quartCarre}
+			\quad\quad
+			\begin{quartCarre}
+				%Courbes de Bézier 1
+				\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
+				\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);
+				%Courbe de Bézier 2	
+				\draw	[thick]	(9,8)		.. controls (8,8)		and (8,8) 	.. (7,5);
 				%Plages
 				\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
 				\fill [color=gray!40]	(14.5,10)	rectangle (15.5,13);
@@ -39,7 +66,8 @@
 				\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
 			\end{quartCarre}
 			\end{center}
-			\caption{Coucou !}
+			\caption{Le lemme gluant affirme que si l'événement représenté à gauche a une probabilité supérieure à~$1-\delta$ alors on peut avoir événement de droite avec une probabilité~$1-\epsilon$.}
+			\label{fig:gluant}
 		\end{figure}
 		Le résultat est trivial pour~$k=0$, on peut dès lors supposer que~$k$ est un entier strictement positif. Pour démontrer le lemme gluant on a d'abord besoin démontrer le lemme~\ref{lem:interGluant}.
 	

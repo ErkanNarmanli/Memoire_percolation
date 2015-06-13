@@ -108,7 +108,7 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 		\]
 		Ce qui permet de conclure que ces choix de~$y_n$ et~$\alpha_n$ conviennent.
 	\end{dem}
-	Pour la suite, on pose~$\suite{\alpha}$ et~$\suite{y}$ des suites vérifiant les hypothèses du lemme~\ref{lem:collagesElem}. On définit maintenant les ensembles suivants
+	Pour la suite, on pose~$\suite{\alpha}$ et~$\suite{y}$ des suites vérifiant les hypothèses du lemme~\ref{lem:collagesElem}. On définit maintenant quelques ensembles utiles, qui seront illustrés dans la figure~\ref{fig:illuEvent}.
 	\begin{align*}
 		&B_n' = (2n, y_{3n}) + B_n \marginnote{$B_n'$} \\
 		&S_n' = (2n, y_{3n}) + S_n \marginnote{$S_n'$} \\
@@ -116,9 +116,37 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 		&Y_n^- = {3n} \times [y_{3n} - n; y_{3n} - \alpha_n] \marginnote{$Y_n^-$} \\
 		&Z_n = {3n} \times [y_{3n} - \alpha_n; y_{3n} + \alpha_n] \marginnote{$Z_n$}
 	\end{align*}
-	
-	%JOLI DESSIN ICI
-
+	\begin{figure}[h]
+		\begin{center}
+		\begin{quartCarre}
+			%Courbes de Bézier 1
+			%\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
+			%\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);
+			%\draw	[thick]	(7,5)		.. controls (9,3)		and (13,6) 	.. (15,7.5);
+			%Courbe de Bézier 2	
+			%\draw	[thick, color=gray!85]	(9,8)		.. controls (8,8)		and (8,8) 	.. (7,5);
+			%\draw	[thick, color=gray!85]	(7,5)		.. controls (6,2)		and (13,5)	.. (15, 5);
+			%Courbe de Bézier 3
+			%\draw 	[thick, color=gray!85]	(10.5,9)	.. controls (9.5,12)	and (12,14)	.. (15,11);
+			%Plages
+			\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
+			\fill [color=gray!40]	(14.5,10)	rectangle (15.5,13);
+			\fill [color=gray!8]	(14.5,6)	rectangle (15.5,10);
+			\fill [pattern=north east lines]	(14.5,6)	rectangle (15.5,10);
+			%Text + barres de séparation
+			\draw [thick]	(5,3) 		-- (16,3);
+			\draw [thick]	(5,13)		-- (16,13);
+			\draw 			(14.5, 6)	-- (16,6);
+			\draw 			(14.5, 6)	-- (16,6);
+			\draw 			(14.5, 10)	-- (16,10);
+			\path	[right]	(15.5, 8)		node	{$Z_n$}	;
+			\path	[right]	(15.5, 4.5)		node	{$Y_n^+$}	;
+			\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
+		\end{quartCarre}
+		\end{center}
+		\caption{Illustration des ensembles~$B_n', S_n',Y_n^+,Y_n^-$ et~$Z_n$.}
+		\label{fig:illuEvent}
+	\end{figure}
 	On souhaite d'abord relier~$S_{3n}$ à~$Z_n$ ainsi que $S_n'$ à~$Y_n^+$ et~$Y_n^-$. Le lemme gluant (lemme~\ref{lem:gluant}) permettra ensuite de lier~$S_{3n}$ à~$S_n'$. On a pour tout~$n$, $\alpha_n \leq n$ donc il existe une infinité de~$n$ tels que~$\alpha_{3n} \leq 4\alpha_n$ car sinon, à partir d'un certain rang, la suite aurait une croissance sur-linéaire, ce qui est impossible. Quand~$\alpha_{3n} \leq 4\alpha_n$, on a
 	\[
 		\Pp{\relie[B_{3n}]{S_{3n}}{Z_n}} \geq \Pp{\mathcal{E}_{3n}\left(y_{3n} - \frac{\alpha_{3n}}{4}, y_{3n} + \frac{\alpha_{3n}}{4}\right)}.
