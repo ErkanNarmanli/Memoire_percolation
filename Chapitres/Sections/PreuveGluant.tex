@@ -204,7 +204,7 @@
 				Si~$z = (x_1, x_2, x_3)$ est un point de~$\Sk$ et si~$R$ est un entier naturel, on notera~$\overline{B_R}(z)$ \marginnote{$\overline{B_R}(z)$} à la place de~$\overline{(x_1, x_2) + B_R}$. Supposons maintenant~$R=2$, si~$u, v, w$ sont des voisins de~$z$ distincts deux à deux et si~$u', v', w'$ sont trois points distincts sur la frontière~$\partial \BRz$, alors il existe trois chemins auto-évitants disjoints dans~$\BRz\priv\{z\}$ qui relient respectivement~$u, v, w$ à~$u', v', w'$, puisque que l'on a supposé plus tôt que~$k$ est non nul. 
 			\end{rem}
 			\begin{dem}[de la proposition~\ref{prop:Ugrand}]
-				Soient~$\omega$ une configuration dans~$\mathcal{X}\cap\{\# U \geq t\}$ et~$z$ un sommet dans~$U(\omega)$, on va construire la configuration~$\omega^{(z)}$ \marginnote{$\omega^{(z)}$} comme suit :
+				Soient~$\omega$ une configuration dans~$\mathcal{X}\cap\{\# U \geq t\}$ et~$z$ un sommet dans~$U(\omega)$, on va construire la configuration~$\omega^{(z)}$ \marginnote{$\omega^{(z)}$} comme suit, on pourra trouver une illustration de cette construction sur la figure~\ref{fig:cons}.
 				\begin{enumerate}
 					\item\label{item:cons:a} On prend~$u,v,w$ \marginnote{$u,v,w$} trois points distincts qui sont  à distance~$1$ de~$z$  et telle que l'on puisse comparer les arêtes avec~$(z,v)\prec (z,w)$.
 					
@@ -227,7 +227,7 @@
 				Pour résumer on a~$\Cmin[\omega^{(z)}]$ qui empreinte~$\Cmin$ à l'extérieur de~$\BRz$ ; alors que dans~$\BRz$ il empreinte~$\gamma_u$ de~$u'$ jusqu'à~$z$, puis~$\gamma_v$ de~$z$ jusqu'à~$v'$, où il rejoint~$\Cmin$. Aussi~$z$ est le seul sommet de~$\Cmin[\omega^{(z)}]$ qui soit relié à~$\overline{S_n'}$ sans utiliser aucune arête du chemin minimal~$\Cmin[\omega^{(z)}]$. Cela nous donne alors que les~$\omega^{(z)}$ sont tous distincts à~$\omega$ fixé. Dès lors, toutes les images~$\Psi(\omega)$ sont de cardinal au moins~$t$.
 				\begin{figure}[h]
 					\begin{center}
-					\begin{tikzpicture}[scale = 0.5]
+					\begin{tikzpicture}[scale = 0.45]
 						%Clip
 						\clip (2.5, 2.5) rectangle (18,18) ;
 						%Fond
@@ -246,6 +246,7 @@
 						\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
 						\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);	
 						\draw	[thick]	(7,5)		.. controls (9,3)		and (13,6) 	.. (15,7.5);
+						\path	[right] 	(2.5,10.5)	node [scale=0.6]	{$\Cmin$};
 						%
 						\node 	(A) at (5.5,3.5) 				{};
 						\node 	(Z) at (7,5)		[scale=0.5]	{$\bullet$};
@@ -254,13 +255,18 @@
 						\node 	(W) at (7,5.4)		[scale=0.3]	{$\bullet$};
 						\node 	(U') at (6,6.5)		[scale=0.3]	{$\bullet$};
 						\node 	(V') at (8.5,4.32)	[scale=0.3]	{$\bullet$};
+						\node 	(W') at (7.8,6.5)	[scale=0.3]	{$\bullet$};
 						\path [below left] 	(U) node [scale=0.5] {$u$};
 						\path [below right] (V) node [scale=0.5] {$v$};
 						\path [above right] (W) node [scale=0.5] {$w$};
 						\path [above right] (U') node [scale=0.5] {$u'$};
 						\path [right] 		(V') node [scale=0.5] {$v'$};
+						\path [above left] (W') node [scale=0.5] {$w'$};
+						\path 						(7.3,9) node [scale=0.5]{$\pi$};
 						\draw (A) rectangle ++ (3,3);
 						\draw (Z) ++ (-0.4,-0.4) rectangle ++ (0.8,0.8) ;
+						%Pi
+						\draw [thick] (7.8,6.5) .. controls ++(-0.5,2) and  (7,10) .. (9,8);
 						%Plages
 						\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
 						\fill [color=gray!40]	(14.5,10)	rectangle (	15.5,13);
@@ -276,7 +282,74 @@
 						\path	[right]	(15.5, 4.5)		node	{$Y_n^+$}	;
 						\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
 					\end{tikzpicture}
+					\begin{tikzpicture}[scale = 0.45]
+					%Clip
+					\clip (2.5, 2.5) rectangle (18,18) ;
+					%Fond
+					\fill	[color=gray!8]	(-15,-15)	rectangle	(15,15)	;	%B_n
+					%Rectangles
+					\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
+					\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_3n
+					\draw 	[thick]			(5, 3)		rectangle	(15,13)	;	%B_n'
+					\draw 					(9, 7)		rectangle	(11,9)	;	%S_n'
+					%Points
+					\path	[below right]	(2.5, 15)	node				{$B_{3_n}$}	;
+					\path	[below right]	(-2, 2)		node	[scale=0.85]{$S_{3n}$}	;
+					\path	[below right]	(5, 13)		node	[scale=0.85]{$B_n'$}	;
+					\path	[below right]	(9, 9)		node	[scale=0.7]	{$S_n'$}	; 
+					%Courbes de Bézier 1
+					\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
+					\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);	
+					\draw	[thick]	(7,5)		.. controls (9,3)		and (13,6) 	.. (15,7.5);
+					\path	[right] 	(2.5,10.5)	node [scale=0.6]	{$\Cmin$};
+					%
+					\fill [color=gray!1]	(A) rectangle ++ (3,3);
+					\draw [thick, color=gray!60] (7,5.4) .. controls ++(0,0.5) and ++(0,-0.5) .. (7.8,6.5);
+					\draw [thick, color=gray!60] (6.6,5) .. controls ++(-0.5,0) and ++(0,-0.5) .. (6,6.5);
+					\draw [thick, color=gray!60] (7.4,5) .. controls ++(0.5,0.5) and ++(-0.5,0) .. (8.5,4.32);
+					\path 	(6.4,5.8)	node	 [scale=0.5,color=gray] {$\gamma_u$};
+					\path 	(8,6)	node	 [scale=0.5,color=gray] {$\gamma_w$};
+					\path 	(8,4.2)	node	 [scale=0.5,color=gray] {$\gamma_v$};
+					%
+					\node 	(A) at (5.5,3.5) 				{};
+					\node 	(Z) at (7,5)		[scale=0.5]	{$\bullet$};
+					\node 	(U) at (6.6,5)		[scale=0.3]	{$\bullet$};
+					\node 	(V) at (7.4,5)		[scale=0.3]	{$\bullet$};
+					\node 	(W) at (7,5.4)		[scale=0.3]	{$\bullet$};
+					\node 	(U') at (6,6.5)		[scale=0.3]	{$\bullet$};
+					\node 	(V') at (8.5,4.32)	[scale=0.3]	{$\bullet$};
+					\node 	(W') at (7.8,6.5)	[scale=0.3]	{$\bullet$};
+					\path [below left] 	(U) node [scale=0.5] {$u$};
+					\path [below right] (V) node [scale=0.5] {$v$};
+					\path [above right] (W) node [scale=0.5] {$w$};
+					\path [above right] (U') node [scale=0.5] {$u'$};
+					\path [right] 		(V') node [scale=0.5] {$v'$};
+					\path [above left] (W') node [scale=0.5] {$w'$};
+					\path 						(7.3,9) node [scale=0.5]{$\pi$};
+					\draw (A) rectangle ++ (3,3);
+					\draw (Z) ++ (-0.4,-0.4) rectangle ++ (0.8,0.8) ;
+					%Pi
+					\draw [thick] (7.8,6.5) .. controls ++(-0.5,2) and  (7,10) .. (9,8);
+					%Plages
+					\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
+					\fill [color=gray!40]	(14.5,10)	rectangle (	15.5,13);
+					\fill [color=gray!8]	(14.5,6)	rectangle (15.5,10);
+					\fill [pattern=north east lines]	(14.5,6)	rectangle (15.5,10);
+					%Text + barres de séparation
+					\draw [thick]	(5,3) 		-- (16,3);
+					\draw [thick]	(5,13)		-- (16,13);
+					\draw 			(14.5, 6)	-- (16,6);
+					\draw 			(14.5, 6)	-- (16,6);
+					\draw 			(14.5, 10)	-- (16,10);
+					\draw 		(6.6,5)-- (7.4,5);
+					\draw 		(7,5)	-- (7,5.4);
+					\path	[right]	(15.5, 8)		node	{$Z_n$}	;
+					\path	[right]	(15.5, 4.5)		node	{$Y_n^+$}	;
+					\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
+					\end{tikzpicture}
 					\end{center}
+					\caption{La construction de~$\omega^{(z)}$.}
+					\label{fig:cons}
 				\end{figure}								
 				Il nous reste maintenant à déterminer~$s$ tel que quelque soit l'image~$\omega^{(z)}$ que l'on prenne alors il existe un sous ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~$s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega'\in\Psi(\omega)\} \subset \{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega_{|S^c}=\omega_{|S^c}'\}$. On prend~$s=84(k+1)+49 k$, le nombre d'arêtes dans~$\overline{B_3}(z)$, seul endroit de~$\omega^{(z)}$ qui diffère de~$\omega$. On peut enfin appliquer le lemme~\ref{lem:interGluant} qui nous donne la majoration :
 				\[
