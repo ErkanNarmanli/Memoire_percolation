@@ -116,7 +116,7 @@
 	\subsection{Preuve du lemme gluant}
 		On va maintenant donner la démonstration du lemme gluant (lemme~\ref{lem:gluant}).
 		\paragraph{Relation d'ordre sur les chemins}
-			Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\SnB$ à~$\ZnB$. Pour ce faire, on défini déjà deux relations d'ordre comme suit :
+			Soit~$\omega$ une configuration, on va définir une relation d'ordre totale~$\leq$ sur l'ensemble des chemins auto-évitant qui vont de~$\SnB$ à~$\ZnB$. Pour ce faire, on définit déjà deux relations d'ordre comme suit :
 			\begin{itemize}
 				\item pour tout sommet de~$\mathbb{Z}^2$, on définit une relation d'ordre totale~$\preceq$ \marginnote{$\preceq$} sur les arêtes qui partent dudit sommet, de telle sorte que la relation soit invariante par translation de~$\mathbb{Z}^2$ ;
 				\item on prend~$\ll$ \marginnote{$\ll$} une relation d'ordre totale sur les arêtes de~$\Sk$.
@@ -152,7 +152,8 @@
 					\relie[B_{3n}\cup B_n']{S_{3n}}{S_n'}
 				\right\}^c
 			\]
-			Dans les hypothèses du lemme gluant, on suppose que le premier événement dans la définition de~$\mathcal{X}$ a une probabilité d'au moins~$1-\delta$ ; on veut montrer que complémentaire du second événement a une probabilité d'au moins~$1-\epsilon$. Pour démontrer le lemme gluant~(lemme~\ref{lem:gluant}), on est donc ramené à montrer que la probabilité~$\PpSP(\mathcal{X})$ est très petite lorsque la probabilité~$\PpSP(\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+})$ est proche de~$1$. Pour ce faire, on va séparer le problème en deux, en fonction de la taille de~$U(\omega)$. On dispose pour cela des proposition~\ref{prop:Upetit} et~\ref{prop:Ugrand}.
+			Dans les hypothèses du lemme gluant, on suppose que le premier événement dans la définition de~$\mathcal{X}$ a une probabilité d'au moins~$1-\delta$ ; on veut montrer que complémentaire du second événement a une probabilité d'au moins~$1-\epsilon$. Pour démontrer le lemme gluant~(lemme~\ref{lem:gluant}), on est donc ramené à montrer que la probabilité~$\PpSP(\mathcal{X})$ est très petite lorsque la probabilité du premier terme dans son expression %~$\PpSP(\relie[B_{3n}]{S_{3n}}{Z_n}, \relie[B_n']{S_n'}{Y_n^-}, \relie[B_n']{S_n'}{Y_n^+})$
+			est proche de~$1$. Pour ce faire, on va séparer le problème en deux, en fonction de la taille de~$U(\omega)$. On dispose pour cela des proposition~\ref{prop:Upetit} et~\ref{prop:Ugrand}.
 			\begin{prop}\label{prop:Upetit}
 				Soient~$t$ un entier naturel non nul et~$\epsilon$ un réel strictement positif ; alors il existe un réel~$\delta$ strictement positif tel que :
 				\[
@@ -176,7 +177,7 @@
 											\right)\\
 						\omega				& \longmapsto 		\{\omega'\}
 				\end{align*}	
-				Les propriétés~\ref{item:P1} et~\ref{item:P2} nous assurent que l'on n'a retiré aucune arête de~$\Cmin$, on a donc~$\Cmin[\omega'] = \Cmin$. Comme on ne retire des arête que dans des cylindres de la forme~$\overline{z+B_1}$ et que le projeté des chemins~$\pi$ de la propriété~\ref{item:P2} sont tous à distance au moins~$1$ de la projection de~$\Cmin$, on a aussi~$U(\omega) = U(\omega')$.
+				Les propriétés~\ref{item:P1} et~\ref{item:P2} nous assurent que l'on n'a retiré aucune arête de~$\Cmin$, on a donc~$\Cmin[\omega'] = \Cmin$. Comme on ne retire des arêtes que dans des cylindres de la forme~$\overline{z+B_1}$ et que le projeté des chemins~$\pi$ de la propriété~\ref{item:P2} sont tous à distance au moins~$1$ de la projection de~$\Cmin$, on a aussi~$U(\omega) = U(\omega')$.
 
 				De plus~$\Phi^{-1}(\omega')$ contient seulement des configurations qui sont égales à~$\omega'$ sauf peut être en des arêtes adjacentes à~$U(\omega)$. Comme~$U(\omega)$ contient au plus~$t$ éléments, il y a au plus~$(5k+1)t$ arêtes adjacentes à~$U(\omega)$. On peut alors appliquer le lemme~\ref{lem:interGluant} à~$\Phi$ avec~$t'=1$ et~$s=(5k+1)t$ qui nous donne la majoration :
 				\[

@@ -1,5 +1,5 @@
 \section{Critère local de collage}
-Dans cette partie on montre l'existence de certains clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation~\ref{sec:renormalisation}. Pour cela, on introduit une suite~$\suite{u}$ telle que~$u_n \leqslant n/3$ et %que (?)
+Dans cette partie on montre l'existence de certains clusters avec une bonne probabilité pour relier des parties de~$\Sk$ en vue d'une renormalisation (partie~\ref{sec:renormalisation}). Pour cela, on introduit une suite~$\suite{u}$ telle que~$u_n \leqslant n/3$ et %que (?)
 	\begin{equation}\label{eq:toucherBordCarre}
 		\Pp{\relie*[B_n]{B_{u_n}}{\partial B_n}} \underset{n \to \infty}{\to} 1. 
 	\end{equation}
@@ -82,12 +82,12 @@ Dans cette partie on montre l'existence de certains clusters avec une bonne prob
 	\begin{lem}[square root trick]\label{lem:HarrisFKG}
 		Soient~$A_1, A_2, \ldots, A_n$ des événements croissants ; alors
 		\[
-			\max_{1 \leq i \leq n} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \ldots A_n})^{1/n}. 
+			\max_{1 \leq i \leq n} \Pp{A_i} \geq 1 - (1 - \Pp{A_1 \cup A_2 \cup \cdots \cup A_n})^{1/n}. 
 		\]
 	\end{lem}
 	
 	\begin{dem}[du lemme~\ref{lem:collagesElem}]
-		En découpant le carré~$\partial B_n$ en ses~$8$ demi-côtés, on peut décomposer l'événement~$\relie[B_n]{S_n}{\partial B_n}$ en la réunion de~$8$ événements obtenu à partir de~$\mathcal{E}_n(0, n)$ en effectuant des rotations et des réflexions. L'invariance du modèle par lesdites réflexions et rotations permet d'affirmer que ces événements sont tous de même probabilité. On peut donc appliquer l'inégalité de Harris-FKG de la manière suivante
+		En découpant le carré~$\partial B_n$ en ses~$8$ demi-côtés, on peut décomposer l'événement~$\relie[B_n]{S_n}{\partial B_n}$ en la réunion de~$8$ événements obtenus à partir de~$\mathcal{E}_n(0, n)$ en effectuant des rotations et des réflexions. L'invariance du modèle par lesdites réflexions et rotations permet d'affirmer que ces événements sont tous de même probabilité. On peut donc appliquer l'inégalité de Harris-FKG de la manière suivante
 		\[
 			\Pp{\mathcal{E}_n(0,n)} \geq 1 - \left(1 - \Pp{\relie[B_n]{S_n}{\partial B_n}} \right)^{1/8}.
 		\]
