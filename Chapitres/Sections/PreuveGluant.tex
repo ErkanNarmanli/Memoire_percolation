@@ -21,7 +21,7 @@
 			\begin{quartCarre}
 				%Courbes de Bézier 1
 				\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
-				\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);
+				\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);	
 				\draw	[thick]	(7,5)		.. controls (9,3)		and (13,6) 	.. (15,7.5);
 				%Courbe de Bézier 2	
 				\draw	[thick, color=gray!85]	(9,8)		.. controls (8,8)		and (8,8) 	.. (7,5);
@@ -212,7 +212,7 @@
 					
 					Puisque~$z$ est dans~$U(\omega)$, par~\ref{item:P1}, il existe~$\pi'$ un chemin auto-évitant qui relie~$\overline{z+B_1}$ à~$S_n'$ ; on pose alors~$w'$ \marginnote{$w'$} le sommet de~$\partial\BRz$ par lequel~$\pi'$ sort pour la dernière fois de~$\BRz$ et~$\pi$\marginnote{$\pi$} le chemin qui relie alors~$w'$ à~$S_n'$ et qui ne rencontre~$\BRz$ qu'en~$w'$. On a alors~$w'$ distinct de~$u'$ et~$v'$ car sinon on aurait~$S_n'$ qui serait relié à~$S_{3n}$, en passant par~$\Cmin$ jusqu'à~$w'$ puis ensuite par~$\pi$.
 					\item\label{item:cons:c} On retire toutes les arêtes de~$\omega$ qui sont dans~$\overline{B_3}(z)$ à l'exception de celles sur la frontière~$\partial\overline{B_3}(z)$ et qui sont dans les chemins~$\Cmin$ ou~$\pi$. ; de telle sorte que la seule façon d'entrer dans~$\BRz$ soit de passer par~$u', v'$ ou~$w'$
-					\item\label{item:cons:d} Enfin, puisque~$u',v',w'$ sont trois sommets distincts de~$\partial\BRz$, on peut appliquer la remarque précédente qui nous assure l'existence de trois chemins auto-évitants disjoints~$\gamma_u,\gamma_v$ et~$\gamma_w$ \marginnote{$\gamma_u, \gamma_v, \gamma_w$} qui relient respectivement~$u,v,w$ à~$u'v',w'$ dans~$\BRz\priv\{z\}$.  On ouvre alors les arêtes~$(z,u), (z,v)$ et~$(z,w)$ ainsi que les chemins~$\gamma_u,\gamma_v$ et~$\gamma_w$. 
+					\item\label{item:cons:d} Enfin, puisque~$u',v',w'$ sont trois sommets distincts de~$\partial\BRz$, on peut appliquer la remarque précédente qui nous assure l'existence de trois chemins auto-évitants disjoints~$\gamma_u,\gamma_v$ et~$\gamma_w$ \marginnote{$\gamma_u, \gamma_v, \gamma_w$} qui relient respectivement~$u,v,w$ à~$u'v',w'$ dans~$\BRz\priv\{z\}$.  On ouvre alors les arêtes~$(z,u), (z,v)$ et~$(z,w)$ ainsi que les chemins~$\gamma_u,\gamma_v$ et~$\gamma_w$.
 				\end{enumerate}
 				On a construit~$\omega^{(z)}$ de telle sorte que~$S_{3n}$ et~$S_n'$ y soient reliés dans~$B_{3n}\cup B_n'$, ce qui nous permet de définir l'application suivante :
 				\begin{align*}
@@ -225,7 +225,59 @@
 				On veut à présent utiliser le lemme~\ref{lem:interGluant}. Soit donc~$\omega^{(z)}$ une configuration à l'arrivée, on se rend compte dans un premier temps, par minimalité, que~$\Cmin[\omega^{(z)}]$ et~$\Cmin$ coïncident au moins jusqu'à~$u'$. Ensuite, et grâce au point~\ref{item:cons:c} de la construction précédente, on a~$u'$ de degré exactement~$2$ dans~$\omega$, et puisque l'on a vidé~$\BRz$, cela force~$\Cmin[\omega^{(z)}]$ à passer ensuite par~$\gamma_u$. Une fois arrivé en~$z$, on a deux possibilités : passer par~$v$ ou~$w$ ; mais puisque l'on a pris les sommets de telle sorte que~$(z,v)\prec (z,w)$ alors~$\Cmin[\omega^{(z)}]$ est forcé de passer par~$v$ et ensuite par~$\gamma_v$. Dès lors, la minimalité de~$\Cmin$ oblige~$\Cmin[\omega^{(z)}]$ à prendre le même chemin à la sortie de~$\BRz$.
 				
 				Pour résumer on a~$\Cmin[\omega^{(z)}]$ qui empreinte~$\Cmin$ à l'extérieur de~$\BRz$ ; alors que dans~$\BRz$ il empreinte~$\gamma_u$ de~$u'$ jusqu'à~$z$, puis~$\gamma_v$ de~$z$ jusqu'à~$v'$, où il rejoint~$\Cmin$. Aussi~$z$ est le seul sommet de~$\Cmin[\omega^{(z)}]$ qui soit relié à~$\overline{S_n'}$ sans utiliser aucune arête du chemin minimal~$\Cmin[\omega^{(z)}]$. Cela nous donne alors que les~$\omega^{(z)}$ sont tous distincts à~$\omega$ fixé. Dès lors, toutes les images~$\Psi(\omega)$ sont de cardinal au moins~$t$.
-				
+				\begin{figure}[h]
+					\begin{center}
+					\begin{tikzpicture}[scale = 0.5]
+						%Clip
+						\clip (2.5, 2.5) rectangle (18,18) ;
+						%Fond
+						\fill	[color=gray!8]	(-15,-15)	rectangle	(15,15)	;	%B_n
+						%Rectangles
+						\draw 	[very thick]	(-15,-15)	rectangle 	(15,15) ;	%B_3n
+						\draw 					(-2,-2) 	rectangle 	(2,2) 	;	%S_3n
+						\draw 	[thick]			(5, 3)		rectangle	(15,13)	;	%B_n'
+						\draw 					(9, 7)		rectangle	(11,9)	;	%S_n'
+						%Points
+						\path	[below right]	(2.5, 15)	node				{$B_{3_n}$}	;
+						\path	[below right]	(-2, 2)		node	[scale=0.85]{$S_{3n}$}	;
+						\path	[below right]	(5, 13)		node	[scale=0.85]{$B_n'$}	;
+						\path	[below right]	(9, 9)		node	[scale=0.7]	{$S_n'$}	; 
+						%Courbes de Bézier 1
+						\draw 	[thick]	(0,2) 	.. controls (0,6) 		and (-3,10) .. (3,10);
+						\draw 	[thick]	(3,10)	.. controls (6,10) 		and (5,7) 	.. (7,5);	
+						\draw	[thick]	(7,5)		.. controls (9,3)		and (13,6) 	.. (15,7.5);
+						%
+						\node 	(A) at (5.5,3.5) 				{};
+						\node 	(Z) at (7,5)		[scale=0.5]	{$\bullet$};
+						\node 	(U) at (6.6,5)		[scale=0.3]	{$\bullet$};
+						\node 	(V) at (7.4,5)		[scale=0.3]	{$\bullet$};
+						\node 	(W) at (7,5.4)		[scale=0.3]	{$\bullet$};
+						\node 	(U') at (6,6.5)		[scale=0.3]	{$\bullet$};
+						\node 	(V') at (8.5,4.32)	[scale=0.3]	{$\bullet$};
+						\path [below left] 	(U) node [scale=0.5] {$u$};
+						\path [below right] (V) node [scale=0.5] {$v$};
+						\path [above right] (W) node [scale=0.5] {$w$};
+						\path [above right] (U') node [scale=0.5] {$u'$};
+						\path [right] 		(V') node [scale=0.5] {$v'$};
+						\draw (A) rectangle ++ (3,3);
+						\draw (Z) ++ (-0.4,-0.4) rectangle ++ (0.8,0.8) ;
+						%Plages
+						\fill [color=gray!40]	(14.5,3)	rectangle (15.5,6);
+						\fill [color=gray!40]	(14.5,10)	rectangle (	15.5,13);
+						\fill [color=gray!8]	(14.5,6)	rectangle (15.5,10);
+						\fill [pattern=north east lines]	(14.5,6)	rectangle (15.5,10);
+						%Text + barres de séparation
+						\draw [thick]	(5,3) 		-- (16,3);
+						\draw [thick]	(5,13)		-- (16,13);
+						\draw 			(14.5, 6)	-- (16,6);
+						\draw 			(14.5, 6)	-- (16,6);
+						\draw 			(14.5, 10)	-- (16,10);
+						\path	[right]	(15.5, 8)		node	{$Z_n$}	;
+						\path	[right]	(15.5, 4.5)		node	{$Y_n^+$}	;
+						\path	[right]	(15.5, 11.5)	node	{$Y_n^-$}	;
+					\end{tikzpicture}
+					\end{center}
+				\end{figure}								
 				Il nous reste maintenant à déterminer~$s$ tel que quelque soit l'image~$\omega^{(z)}$ que l'on prenne alors il existe un sous ensemble fini~$S$ de~$\Sk$ qui soit de cardinal au plus~$s$ et tel que l'on ait l'inclusion~$\{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega'\in\Psi(\omega)\} \subset \{\omega\in\mathcal{X} \cup \{\# U \geq t\} ,\omega_{|S^c}=\omega_{|S^c}'\}$. On prend~$s=84(k+1)+49 k$, le nombre d'arêtes dans~$\overline{B_3}(z)$, seul endroit de~$\omega^{(z)}$ qui diffère de~$\omega$. On peut enfin appliquer le lemme~\ref{lem:interGluant} qui nous donne la majoration :
 				\[
 					\Pp{\mathcal{X}\cap\{\# U \geq t\}} 
